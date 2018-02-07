@@ -1,4 +1,4 @@
 python-telegram-bot
-mysqlclient
 urllib3
 request
+s2sphere
