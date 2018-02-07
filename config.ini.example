@@ -1,0 +1,24 @@
+##########################################
+#                                        #
+#        Samsquetch Telegram Bot         #
+#               Config                   #
+##########################################
+
+### DB Settings
+sam_host = 127.0.0.1
+sam_db = YOURDB
+sam_db_user = YOURDBUSER
+sam_db_pw = YOURPASSWORD
+
+### Telegram Settings (without the bot:)
+telegram_token = 542342341:AAF84z1J61N77s51sdfsdfsdfsdfsdfsddsdfs
+
+### Trigger Settings
+reset_minutes = 2
+trigger_distance_km = 15
+
+### Webserver Settings
+www_path = /var/www/
+
+### Game Options
+invincible = 0
