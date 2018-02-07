@@ -982,6 +982,30 @@ def DropItem(type, chatid):
         except:
             pass
 
+def DropInventoryItem(type, chatid):
+    try:
+        command = "SELECT inventory FROM user WHERE chatid = '" + str(chatid) +"'"
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor = db6.cursor()
+        cursor.execute(command)
+        data = cursor.fetchall()
+        db6.close()
+        newinventory = str(data[0][0]).replace(str(type)+',', '', 1)
+
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """UPDATE user SET inventory = '"""+str(newinventory)+"""' WHERE chatid = '"""+str(chatid)+"""' """
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+	DropItem(type, chatid)
+    except Exception, e:
+        return []
+        try:
+            db6.close()
+        except:
+            pass
+
 def removeMedkit(chatid):
     try:
         command = "SELECT inventory FROM user WHERE chatid = '" + str(chatid) +"'"
