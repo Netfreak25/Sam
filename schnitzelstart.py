@@ -1028,6 +1028,8 @@ def unknown(bot, update):
     command = str(update.message.text.encode('utf-8'))[1:]
     beschreibung = ""
     name = ""
+    InventoryExtra = ""
+    
     try:
         mydict = GetInventoryTypesByName()
         daten = str(mydict[command]).split(",")
@@ -1037,12 +1039,16 @@ def unknown(bot, update):
         emojidict = GetEmojis()
         emoji = emojidict[str(id)]
 
+        
+        if str(id)+"," in str(userinventory):
+            InventoryExtra = "\nYou got it!"
     except Exception, e:
         print e
 
+    userinventory = GetInventory(update.message.chat_id)
     text = sam_vars["unknown_text"]
     text = emoji+" <b>"+str(command)+"</b>"+" "+emoji+"\n"+beschreibung.strip()
-
+    text = text + InventoryExtra
     try:
         bot.send_message(chat_id=update.message.chat_id, text=text, parse_mode="HTML")
     except:
