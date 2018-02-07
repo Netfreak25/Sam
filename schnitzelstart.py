@@ -1038,14 +1038,14 @@ def unknown(bot, update):
 
         emojidict = GetEmojis()
         emoji = emojidict[str(id)]
-
+	
+        userinventory = GetInventory(update.message.chat_id)
         
         if str(id)+"," in str(userinventory):
             InventoryExtra = "\nYou got it!"
     except Exception, e:
         print e
 
-    userinventory = GetInventory(update.message.chat_id)
     text = sam_vars["unknown_text"]
     text = emoji+" <b>"+str(command)+"</b>"+" "+emoji+"\n"+beschreibung.strip()
     text = text + InventoryExtra
