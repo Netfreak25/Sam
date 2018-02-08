@@ -39,8 +39,11 @@ sam_db_pw = str(getconfig('sam_db_pw'))
 
 telegram_token = str(getconfig('telegram_token'))
 
-trigger_distance_km = int(getconfig('trigger_distance_km'))
+trigger_distance_m = int(getconfig('trigger_distance_m'))
 invincible = int(getconfig('invincible'))
+extra_distance_m = int(getconfig('extra_distance_m'))
+
+
 
 # Load Telegram Token
 updater = Updater(token=telegram_token)
@@ -380,7 +383,7 @@ def check_extras(bot, update, location):
             lo = waypoint_location.split(", ")[1]
             location_point = (float(la), float(lo))
             distance = equi_rect_distance(location_point, location)
-            if int(float(distance)*1000) <= trigger_distance_km:
+            if int(float(distance)*1000) <= extra_distance_m:
                 if (addToInventory(chatid, type)):
                    itemFound(bot, update, type)
                    reduceItem(id)
@@ -508,7 +511,7 @@ def location(bot, update):
 
                 distance = equi_rect_distance(location_point, location)
 
-                if int(float(distance)*1000) <= trigger_distance_km:
+                if int(float(distance)*1000) <= trigger_distance_m:
                     if (str(id) == "0"):
                         revive(chatid)
                         resetPoints(chatid)
