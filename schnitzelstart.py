@@ -485,7 +485,8 @@ def location(bot, update):
             for i in data:
                 id = i[0]
                 waypoint_location = i[1]
-                text = i[2].encode('utf-8', 'ignore')
+
+                text = i[2]
                 bild = i[3]
                 audio = i[4]
                 video = i[5]
@@ -496,6 +497,8 @@ def location(bot, update):
                 is_wrong = i[10]
                 is_right = i[11]
                 is_wrong2 = i[12]
+                if text is not None:
+                    text = i[2].encode('utf-8', 'ignore')
 
                 if question is not None:
                     question = i[9].encode('utf-8', 'ignore')
