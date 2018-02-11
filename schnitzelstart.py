@@ -242,7 +242,7 @@ def start(bot, update):
     try:
 
         try:
-            cmd = '/root/sam/Telegram/sendTelegramPicSam ' + str(update.message.chat_id) + ' '+sam_vars["start_image"]
+            cmd = 'Telegram/sendTelegramPicSam ' + str(update.message.chat_id) + ' '+sam_vars["start_image"]
             os.system(cmd)
             start_text=sam_vars["start_text"]
         except:
@@ -519,21 +519,21 @@ def location(bot, update):
                         revive(chatid)
                         resetPoints(chatid)
                     if video is not None:
-                        cmd = '/root/sam/Telegram/sendTelegramVideoSam ' + str(update.message.chat_id) + ' '+str(video)
+                        cmd = 'Telegram/sendTelegramVideoSam ' + str(update.message.chat_id) + ' '+str(video)
                         os.system(cmd)
                     if bild is not None:
-                        cmd = '/root/sam/Telegram/sendTelegramPicSam ' + str(update.message.chat_id) + ' '+str(bild)
+                        cmd = 'Telegram/sendTelegramPicSam ' + str(update.message.chat_id) + ' '+str(bild)
                         os.system(cmd)
                     if text is not None:
                         bot.send_message(chat_id=update.message.chat_id, text=text, parse_mode='HTML')
                     if audio is not None:
-                        cmd = '/root/sam/Telegram/sendTelegramAudioSam ' + str(update.message.chat_id) + ' '+str(audio)
+                        cmd = 'Telegram/sendTelegramAudioSam ' + str(update.message.chat_id) + ' '+str(audio)
                         os.system(cmd)
                     if voice is not None:
-                        cmd = '/root/sam/Telegram/sendTelegramVoiceSam ' + str(update.message.chat_id) + ' '+str(voice)
+                        cmd = 'Telegram/sendTelegramVoiceSam ' + str(update.message.chat_id) + ' '+str(voice)
                         os.system(cmd)
                     if trigger is not None:
-                        cmd = "/root/sam/activateTrigger.py " + str(trigger)+" >/dev/null 2>&1 &"
+                        cmd = "activateTrigger.py " + str(trigger)+" >/dev/null 2>&1 &"
                         os.system(cmd)
                     if question is None:
                         next_waypoint(update.message.chat_id)
