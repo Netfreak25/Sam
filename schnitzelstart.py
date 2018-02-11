@@ -944,7 +944,7 @@ def resetInventory(chatid, total = False):
 
     try:
         for i in InventoryArray:
-            if str(i) != "":
+            if ((str(i) != "") and (str(i) != "0")):
                 DropItem(str(i), chatid)
     except Exception,e:
         print e
