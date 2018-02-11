@@ -974,7 +974,7 @@ def DBLocation(chatid):
 
 def DropItem(type, chatid):
     location = DBLocation(chatid)[0]
-    if ((str(type) != "0") and (str(location) != "Null")):
+    if ((str(type) != "0") and (str(location) != "None") and (str(type) != "") ):
         try:
             db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
             cursor6 = db6.cursor()
