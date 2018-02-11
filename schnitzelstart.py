@@ -944,7 +944,7 @@ def resetInventory(chatid, total = False):
 
     try:
         for i in InventoryArray:
-            if ((str(i) != "") and (str(i) != "0")):
+            if (str(i) != ""):
                 DropItem(str(i), chatid)
     except Exception,e:
         print e
@@ -974,19 +974,20 @@ def DBLocation(chatid):
 
 def DropItem(type, chatid):
     location = DBLocation(chatid)[0]
-    try:
-        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
-        cursor6 = db6.cursor()
-        command6 = """INSERT INTO extra_waypoints (location, type, amount) VALUES ('"""+str(location)+"""', '"""+str(type)+"""', '1')"""
-        cursor6.execute(command6)
-        db6.commit()
-        db6.close()
-    except Exception, e:
-        print e
+    if ((str(type) != "0") and (str(location) != "Null")):
         try:
+            db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+            cursor6 = db6.cursor()
+            command6 = """INSERT INTO extra_waypoints (location, type, amount) VALUES ('"""+str(location)+"""', '"""+str(type)+"""', '1')"""
+            cursor6.execute(command6)
+            db6.commit()
             db6.close()
-        except:
-            pass
+        except Exception, e:
+            print e
+            try:
+                db6.close()
+            except:
+                pass
 
 def DropInventoryItem(type, chatid):
     try:
