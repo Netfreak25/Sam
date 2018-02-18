@@ -329,13 +329,13 @@ def echo(bot, update):
         elif text.lower()[0:4] == "send":
             SendBroadcast(bot, update)
         elif text.lower().strip() == "trigger1":
-            cmd = "./activateTrigger.py trigger1 >/div/null 2>&1 &"
+            cmd = "./activateTrigger.py trigger1 >/dev/null 2>&1 &"
             os.system(cmd)
         elif text.lower().strip() == "trigger2":
-            cmd = "./activateTrigger.py trigger2 >/div/null 2>&1 &"
+            cmd = "./activateTrigger.py trigger2 >/dev/null 2>&1 &"
             os.system(cmd)
         elif text.lower().strip() == "trigger3":
-            cmd = "./activateTrigger.py trigger3 >/div/null 2>&1 &"
+            cmd = "./activateTrigger.py trigger3 >/dev/null 2>&1 &"
             os.system(cmd)
         elif text.lower().strip() == "reset":
             resetreasons()
@@ -542,7 +542,7 @@ def location(bot, update):
                         cmd = 'Telegram/sendTelegramVoiceSam ' + str(update.message.chat_id) + ' '+str(voice)
                         os.system(cmd)
                     if trigger is not None:
-                        cmd = "./activateTrigger.py " + str(trigger)+" >/div/null 2>&1 &"
+                        cmd = "./activateTrigger.py " + str(trigger)+" >/dev/null 2>&1 &"
                         os.system(cmd)
                     if question is None:
                         next_waypoint(update.message.chat_id)
