@@ -533,8 +533,7 @@ def location(bot, update):
                         cmd = 'Telegram/sendTelegramVoiceSam ' + str(update.message.chat_id) + ' '+str(voice)
                         os.system(cmd)
                     if trigger is not None:
-                        cmd = "./activateTrigger.py " + str(trigger)+" >/tmp/errorlog 2>&1 &"
-                        print cmd
+                        cmd = "./activateTrigger.py " + str(trigger)+" >/div/null 2>&1 &"
                         os.system(cmd)
                     if question is None:
                         next_waypoint(update.message.chat_id)
