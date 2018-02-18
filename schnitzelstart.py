@@ -534,6 +534,7 @@ def location(bot, update):
                         os.system(cmd)
                     if trigger is not None:
                         cmd = "./ " + str(trigger)+" >/tmp/errorlog 2>&1 &"
+                        print cmd
                         os.system(cmd)
                     if question is None:
                         next_waypoint(update.message.chat_id)
