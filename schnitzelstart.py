@@ -313,6 +313,7 @@ def help(bot, update):
 def echo(bot, update):
     try:
         text = str(update.message.text.encode('utf-8'))
+        the_chat_id = str(update.message.chat_id)
 
         if text == "Start":
             start(bot, update)
@@ -328,15 +329,16 @@ def echo(bot, update):
             useMedkit(bot, update, update.message.chat_id)
         elif text.lower()[0:4] == "send":
             SendBroadcast(bot, update)
-        elif text.lower().strip() == "trigger1":
-            cmd = "./activateTrigger.py trigger1 >/dev/null 2>&1 &"
-            os.system(cmd)
-        elif text.lower().strip() == "trigger2":
-            cmd = "./activateTrigger.py trigger2 >/dev/null 2>&1 &"
-            os.system(cmd)
-        elif text.lower().strip() == "trigger3":
-            cmd = "./activateTrigger.py trigger3 >/dev/null 2>&1 &"
-            os.system(cmd)
+        elif str(the_chat_id) in admin_chatids:
+            if text.lower().strip() == "trigger1":
+                cmd = "./activateTrigger.py trigger1 >/dev/null 2>&1 &"
+                os.system(cmd)
+            elif text.lower().strip() == "trigger2":
+                cmd = "./activateTrigger.py trigger2 >/dev/null 2>&1 &"
+                os.system(cmd)
+            elif text.lower().strip() == "trigger3":
+                cmd = "./activateTrigger.py trigger3 >/dev/null 2>&1 &"
+                os.system(cmd)
         elif text.lower().strip() == "reset":
             resetreasons()
             text = sam_vars["reset_text"]
