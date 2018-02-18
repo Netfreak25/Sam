@@ -328,6 +328,15 @@ def echo(bot, update):
             useMedkit(bot, update, update.message.chat_id)
         elif text.lower()[0:4] == "send":
             SendBroadcast(bot, update)
+        elif text.lower().strip() == "trigger1":
+            cmd = "./activateTrigger.py trigger1 >/div/null 2>&1 &"
+            os.system(cmd)
+        elif text.lower().strip() == "trigger2":
+            cmd = "./activateTrigger.py trigger2 >/div/null 2>&1 &"
+            os.system(cmd)
+        elif text.lower().strip() == "trigger3":
+            cmd = "./activateTrigger.py trigger3 >/div/null 2>&1 &"
+            os.system(cmd)
         elif text.lower().strip() == "reset":
             resetreasons()
             text = sam_vars["reset_text"]
