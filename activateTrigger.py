@@ -58,19 +58,19 @@ if (trigger == "trigger1"):
     print trigger2
     print trigger3
     writetrigger("trigger1", "1")
-    writeweb("1", trigger2, trigger3)
+#    writeweb("1", trigger2, trigger3)
 elif (trigger == "trigger2"):
     print trigger1
     print 1
     print trigger3
     writetrigger("trigger2", "1")
-    writeweb(trigger1, "1", trigger3)
+#    writeweb(trigger1, "1", trigger3)
 elif (trigger == "trigger3"):
     print trigger1
     print trigger2
     print 1
     writetrigger("trigger3", "1")
-    writeweb(trigger1, trigger2, "1")
+#    writeweb(trigger1, trigger2, "1")
 
 
 
@@ -86,7 +86,7 @@ if (trigger == "trigger1"):
     print trigger2
     print trigger3
     writetrigger("trigger1", "0")
-    writeweb("0", trigger2, trigger3)
+#    writeweb("0", trigger2, trigger3)
 elif (trigger == "trigger2"):
     trigger1 = readtrigger("trigger1")
     trigger3 = readtrigger("trigger3")
@@ -94,7 +94,7 @@ elif (trigger == "trigger2"):
     print 0
     print trigger3
     writetrigger("trigger2", "0")
-    writeweb(trigger1, "0", trigger3)
+#    writeweb(trigger1, "0", trigger3)
 elif (trigger == "trigger3"):
     trigger1 = readtrigger("trigger1")
     trigger2 = readtrigger("trigger2")
@@ -102,4 +102,4 @@ elif (trigger == "trigger3"):
     print trigger2
     print 0
     writetrigger("trigger3", "0")
-    writeweb(trigger1, trigger2, "0")
+#    writeweb(trigger1, trigger2, "0")
