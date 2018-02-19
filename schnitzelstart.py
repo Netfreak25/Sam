@@ -330,7 +330,7 @@ def echo(bot, update):
         elif text == "restart":
             text = "Restarting SAM..."
             bot.send_message(chat_id=update.message.chat_id, text=text)
-            cmd = "./start.sh > /tmp/alog.log 2>&1 &"
+            cmd = "./start.sh >> /tmp/alog.log 2>&1 &"
             os.system(cmd)
         elif text.lower()[0:4] == "send":
             SendBroadcast(bot, update)
