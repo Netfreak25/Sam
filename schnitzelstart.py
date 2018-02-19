@@ -327,6 +327,11 @@ def echo(bot, update):
             player(bot, update)
         elif text == "MedKit":
             useMedkit(bot, update, update.message.chat_id)
+        elif text == "restart":
+            text = "Restarting SAM..."
+            bot.send_message(chat_id=update.message.chat_id, text=text)
+            cmd = "./start.sh"
+            os.system(cmd)
         elif text.lower()[0:4] == "send":
             SendBroadcast(bot, update)
         elif str(the_chat_id) in admin_chatids:
