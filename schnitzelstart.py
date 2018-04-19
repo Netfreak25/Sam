@@ -590,7 +590,11 @@ def location(bot, update):
 
 
                 elif int(float(distance)*1000) <= 4999:
-                    the_text = "Der nächste Wegpunkt ist in "+str(int(distance*1000))+"m ("+str(direction(location, location_point))+")"
+                    if hasMap(chatid):
+                        direction_message = " ("+str(direction(location, location_point))+")"
+                    else:
+                        direction_message = ""
+                    the_text = "Der nächste Wegpunkt ist in "+str(int(distance*1000))+"m"+direction_message
 #                    bot.send_message(chat_id=update.message.chat_id, text=the_text, parse_mode='HTML')
                     custom_keyboard = get_keyboard_type(update.message.chat_id)
                     reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
@@ -644,7 +648,11 @@ def location2(bot, update, chatid = "", the_location = ""):
 
             distance = equi_rect_distance(location_point, location)
             if int(float(distance)*1000) <= 4999:
-                the_text = "Auf zum nächsten Wegpunkt!\n"+str(int(distance*1000))+"m ("+str(direction(location, location_point))+")"
+                if hasMap(chatid):
+                    direction_message = " ("+str(direction(location, location_point))+")"
+                else:
+                    direction_message = ""
+                the_text = "Auf zum nächsten Wegpunkt!\n"+str(int(distance*1000))+"m"+direction_message
            #     bot.send_message(chat_id=chatid, text=the_text, parse_mode='HTML')
                 custom_keyboard = get_keyboard_type(chatid,)
                 reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
@@ -928,6 +936,25 @@ def resetPoints(chatid):
         except:
             pass
 
+def hasMap(chatid):
+    hasMap = False
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = "SELECT inventory FROM `user` WHERE chatid = '"+str(chatid)+"'"
+        cursor6.execute(command6)
+        data = cursor6.fetchall()
+        db6.close()
+        values = str(data[0][0])
+        if "23," in values:
+            hasMap = True
+    except Exception, e:
+        try:
+            db6.close()
+        except:
+            pass
+        print e
+    return hasMap
 
 def resetInventory(chatid, total = False):
     InventoryArray = []
