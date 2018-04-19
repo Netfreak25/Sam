@@ -586,7 +586,9 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question;:;"+str(is_wrong)+";:;"+str(chatid)+";:;"+"false;:;"+str(long)+";:;"+str(lat))])
                             else:
                                 print "test7"
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question;:;"+str(is_wrong)+";:;"+str(chatid)+";:;"+"false;:;"+str(long)+";:;"+str(lat))])
+                                mydata = "question;:;"+str(is_wrong)+";:;"+str(chatid)+";:;"+"false;:;"+str(long)+";:;"+str(lat)
+                                print mydata
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data=mydata)])
                                 keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question;:;"+str(is_right)+";:;"+str(chatid)+";:;"+"true;:;"+str(long)+";:;"+str(lat))])
                             print "test9"
                             print keyboard
