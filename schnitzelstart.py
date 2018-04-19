@@ -43,7 +43,7 @@ trigger_distance_m = int(getconfig('trigger_distance_m'))
 invincible = int(getconfig('invincible'))
 extra_distance_m = int(getconfig('extra_distance_m'))
 
-pick_item_chance = 30
+pick_item_chance = 90
 
 
 # Load Telegram Token
