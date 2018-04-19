@@ -529,7 +529,6 @@ def location(bot, update):
                 location_point = (float(la), float(lo))
 
                 distance = equi_rect_distance(location_point, location)
-                print "test2"
                 if int(float(distance)*1000) <= trigger_distance_m:
                     if (str(id) == "0"):
                         revive(chatid)
@@ -548,7 +547,6 @@ def location(bot, update):
                     if voice is not None:
                         cmd = 'Telegram/sendTelegramVoiceSam ' + str(update.message.chat_id) + ' '+str(voice)
                         os.system(cmd)
-                    print "test3"
                     if trigger is not None:
                         cmd = "./activateTrigger.py " + str(trigger)+" >/dev/null 2>&1 &"
                         os.system(cmd)
@@ -561,17 +559,17 @@ def location(bot, update):
                             myint = random.randint(0,2)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:!!:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:!!:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:!!:"+str(long)+":!!:"+str(lat))])
                             elif myint == 1:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:!!:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:!!:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:!!:"+str(long)+":!!:"+str(lat))])
                             elif myint == 2:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:!!:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:!!:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:!!:"+str(long)+":!!:"+str(lat))])
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
                             print "test6"
@@ -579,11 +577,11 @@ def location(bot, update):
                             myint = random.randint(0,1)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:!!:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:!!:"+str(long)+":!!:"+str(lat))])
                             else:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:!!:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:!!:"+str(long)+":!!:"+str(lat))])
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
 
