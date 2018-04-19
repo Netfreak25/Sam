@@ -582,12 +582,12 @@ def location(bot, update):
                             keyboard = []
                             if myint == 0:
                                 print "test6"
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question::"+str(is_right)+"::"+str(chatid)+"::"+"true::"+str(long)+"::"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question::"+str(is_wrong)+"::"+str(chatid)+"::"+"false::"+str(long)+"::"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question;:;"+str(is_right)+";:;"+str(chatid)+";:;"+"true;:;"+str(long)+";:;"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question;:;"+str(is_wrong)+";:;"+str(chatid)+";:;"+"false;:;"+str(long)+";:;"+str(lat))])
                             else:
                                 print "test7"
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question::"+str(is_wrong)+"::"+str(chatid)+"::"+"false::"+str(long)+"::"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question::"+str(is_right)+"::"+str(chatid)+"::"+"true::"+str(long)+"::"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question;:;"+str(is_wrong)+";:;"+str(chatid)+";:;"+"false;:;"+str(long)+";:;"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question;:;"+str(is_right)+";:;"+str(chatid)+";:;"+"true;:;"+str(long)+";:;"+str(lat))])
                             print "test9"
                             print keyboard
                             reply_markup = InlineKeyboardMarkup(keyboard)
@@ -720,7 +720,7 @@ def button_all(bot, update):
     query = update.callback_query
 
     data = query.data
-    type = data.split("::")[0].encode('utf-8')
+    type = data.split(";:;")[0].encode('utf-8')
     if str(type) == "question":
         button_question(bot, update)
 
@@ -729,11 +729,11 @@ def button_question(bot, update):
     query = update.callback_query
 
     data = query.data
-    name = data.split("::")[1].encode('utf-8')
-    chatid = data.split("::")[2].encode('utf-8')
-    mode = data.split("::")[3].encode('utf-8')
-    lon = data.split("::")[4].encode('utf-8')
-    lat = data.split("::")[5].encode('utf-8')
+    name = data.split(";:;")[1].encode('utf-8')
+    chatid = data.split(";:;")[2].encode('utf-8')
+    mode = data.split(";:;")[3].encode('utf-8')
+    lon = data.split(";:;")[4].encode('utf-8')
+    lat = data.split(";:;")[5].encode('utf-8')
 
     old_location = (float(lat), float(lon))
 
