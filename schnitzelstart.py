@@ -559,28 +559,28 @@ def location(bot, update):
                             myint = random.randint(0,2)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:"+str(is_right)+":"+str(chatid)+":"+"true:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:"+str(is_wrong)+":"+str(chatid)+":"+"false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:"+str(is_wrong2)+":"+str(chatid)+":"+"false:"+str(long)+":"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
                             elif myint == 1:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:"+str(is_wrong)+":"+str(chatid)+":"+"false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:"+str(is_right)+":"+str(chatid)+":"+"true:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:"+str(is_wrong2)+":"+str(chatid)+":"+"false:"+str(long)+":"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
                             elif myint == 2:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:"+str(is_wrong)+":"+str(chatid)+":"+"false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:"+str(is_wrong2)+":"+str(chatid)+":"+"false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:"+str(is_right)+":"+str(chatid)+":"+"true:"+str(long)+":"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:!!:"+str(is_wrong2)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
                         else:
                             myint = random.randint(0,1)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:"+str(is_right)+":"+str(chatid)+":"+"true:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:"+str(is_wrong)+":"+str(chatid)+":"+"false:"+str(long)+":"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
                             else:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:"+str(is_wrong)+":"+str(chatid)+":"+"false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:"+str(is_right)+":"+str(chatid)+":"+"true:"+str(long)+":"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question:!!:"+str(is_wrong)+":!!:"+str(chatid)+":!!:"+"false:"+str(long)+":!!:"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
 
@@ -710,7 +710,7 @@ def button_all(bot, update):
     query = update.callback_query
 
     data = query.data
-    type = data.split(":")[0].encode('utf-8')
+    type = data.split(":!!:")[0].encode('utf-8')
     if str(type) == "question":
         button_question(bot, update)
 
@@ -719,11 +719,11 @@ def button_question(bot, update):
     query = update.callback_query
 
     data = query.data
-    name = data.split(":")[1].encode('utf-8')
-    chatid = data.split(":")[2].encode('utf-8')
-    mode = data.split(":")[3].encode('utf-8')
-    lon = data.split(":")[4].encode('utf-8')
-    lat = data.split(":")[5].encode('utf-8')
+    name = data.split(":!!:")[1].encode('utf-8')
+    chatid = data.split(":!!:")[2].encode('utf-8')
+    mode = data.split(":!!:")[3].encode('utf-8')
+    lon = data.split(":!!:")[4].encode('utf-8')
+    lat = data.split(":!!:")[5].encode('utf-8')
 
     old_location = (float(lat), float(lon))
 
