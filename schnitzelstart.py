@@ -43,6 +43,7 @@ trigger_distance_m = int(getconfig('trigger_distance_m'))
 invincible = int(getconfig('invincible'))
 extra_distance_m = int(getconfig('extra_distance_m'))
 
+pick_item_chance = 30
 
 
 # Load Telegram Token
@@ -407,6 +408,12 @@ def check_extras(bot, update, location):
         pass
 
 def addToInventory(chatid, extra):
+    # chance to pick it up
+    if pick_item_chance < 100:
+        myint = random.randint(1,100)
+        if myint > pick_item_chance:
+            return False
+
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
