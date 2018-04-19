@@ -1143,6 +1143,7 @@ def GetEmojis():
         emojiarray["20"] = "🍪"
         emojiarray["21"] = "🥃"
         emojiarray["22"] = "📯"
+        emojiarray["23"] = "🗺️"
         return emojiarray
     except:
         return {}
