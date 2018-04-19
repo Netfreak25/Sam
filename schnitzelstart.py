@@ -555,6 +555,7 @@ def location(bot, update):
                     if question is None:
                         next_waypoint(update.message.chat_id)
                         location2(bot, update, update.message.chat_id, location)
+                    print "test4"
                     if question is not None:
                         if is_wrong2 is not None:
                             myint = random.randint(0,2)
@@ -573,6 +574,7 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
+                            print "test6"
                         else:
                             myint = random.randint(0,1)
                             keyboard = []
@@ -584,7 +586,7 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
-                    print "test4"
+
                 elif int(float(distance)*1000) <= 4999:
                     the_text = "Der nächste Wegpunkt ist in "+str(int(distance*1000))+"m ("+str(direction(location, location_point))+")"
 #                    bot.send_message(chat_id=update.message.chat_id, text=the_text, parse_mode='HTML')
