@@ -496,7 +496,6 @@ def location(bot, update):
             radius = 1
             check_extras(bot, update, location)
             data = GetWaypoints(update.message.chat_id)
-            print "test"
             if len(data) == 0:
                 finished(bot, update)
             for i in data:
@@ -549,6 +548,7 @@ def location(bot, update):
                     if voice is not None:
                         cmd = 'Telegram/sendTelegramVoiceSam ' + str(update.message.chat_id) + ' '+str(voice)
                         os.system(cmd)
+                    print "test3"
                     if trigger is not None:
                         cmd = "./activateTrigger.py " + str(trigger)+" >/dev/null 2>&1 &"
                         os.system(cmd)
@@ -584,7 +584,7 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question:!!:"+str(is_right)+":!!:"+str(chatid)+":!!:"+"true:"+str(long)+":!!:"+str(lat))])
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
-
+                    print "test4"
                 elif int(float(distance)*1000) <= 4999:
                     the_text = "Der nächste Wegpunkt ist in "+str(int(distance*1000))+"m ("+str(direction(location, location_point))+")"
 #                    bot.send_message(chat_id=update.message.chat_id, text=the_text, parse_mode='HTML')
