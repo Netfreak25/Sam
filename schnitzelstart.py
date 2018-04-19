@@ -580,12 +580,11 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question;;"+str(is_right)+";;"+str(chatid)+";;"+"true;;"+str(long)+";;"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question;;"+str(is_wrong)+";;"+str(chatid)+";;"+"false;;"+str(long)+";;"+str(lat))])
                             else:
-                                emojidict = GetEmojis()
-                                mydata = "question;;"+str(is_wrong)+str(emojidict[1])+";;"+str(chatid)+";;"+"false;;"+str(long)+";;"+str(lat)
+                                mydata = "question;;"+str(is_wrong)+";;"+str(chatid)+";;"+"false;;"+str(long)+";;"+str(lat)
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data=mydata)])
                                 keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question;;"+str(is_right)+";;"+str(chatid)+";;"+"true;;"+str(long)+";;"+str(lat))])
 
-                            print keyboard
+
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
 
