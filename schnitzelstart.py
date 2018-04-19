@@ -496,6 +496,7 @@ def location(bot, update):
             radius = 1
             check_extras(bot, update, location)
             data = GetWaypoints(update.message.chat_id)
+            print test
             if len(data) == 0:
                 finished(bot, update)
             for i in data:
