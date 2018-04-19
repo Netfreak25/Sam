@@ -743,6 +743,8 @@ def button_question(bot, update):
     mytext = str(mytext)
 
     print query
+    print query
+
     if str(mode) == "true":
         mytext = sam_vars["rightanswer_text"]
         bot.edit_message_text(text=mytext,
