@@ -560,7 +560,6 @@ def location(bot, update):
                     if question is None:
                         next_waypoint(update.message.chat_id)
                         location2(bot, update, update.message.chat_id, location)
-                    print "test4"
                     if question is not None:
                         if is_wrong2 is not None:
                             myint = random.randint(0,2)
