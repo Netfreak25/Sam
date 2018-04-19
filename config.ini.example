@@ -23,3 +23,4 @@ www_path = /var/www/
 
 ### Game Options
 invincible = 0
+pickup_chance = 95
