@@ -496,7 +496,7 @@ def location(bot, update):
             radius = 1
             check_extras(bot, update, location)
             data = GetWaypoints(update.message.chat_id)
-            print test
+            print "test"
             if len(data) == 0:
                 finished(bot, update)
             for i in data:
@@ -530,7 +530,7 @@ def location(bot, update):
                 location_point = (float(la), float(lo))
 
                 distance = equi_rect_distance(location_point, location)
-
+                print "test2"
                 if int(float(distance)*1000) <= trigger_distance_m:
                     if (str(id) == "0"):
                         revive(chatid)
