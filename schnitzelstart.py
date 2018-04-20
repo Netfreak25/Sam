@@ -395,24 +395,23 @@ def check_extras(bot, update, location):
             id = i[0]
             waypoint_location = i[1]
             type = i[2]
+            amount = i[3]
+            chance = int(i[4])
             la = waypoint_location.split(", ")[0]
             lo = waypoint_location.split(", ")[1]
             location_point = (float(la), float(lo))
             distance = equi_rect_distance(location_point, location)
             if int(float(distance)*1000) <= extra_distance_m:
-                if (addToInventory(chatid, type)):
-                   itemFound(bot, update, type)
-                   reduceItem(id)
+                if pick_item_chance < 100:
+                    myint = random.randint(1,100)
+                    if myint <= pick_item_chance:
+                        if (addToInventory(chatid, type)):
+                           itemFound(bot, update, type)
+                           reduceItem(id)
     except:
         pass
 
 def addToInventory(chatid, extra):
-    # chance to pick it up
-    if pick_item_chance < 100:
-        myint = random.randint(1,100)
-        if myint > pick_item_chance:
-            return False
-
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
