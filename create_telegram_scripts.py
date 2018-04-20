@@ -58,3 +58,8 @@ writefile(file1, content_file1)
 writefile(file2, content_file2)
 writefile(file3, content_file3)
 writefile(file4, content_file4)
+
+os.chmod(file1, st.st_mode | 0o111)
+os.chmod(file2, st.st_mode | 0o111)
+os.chmod(file3, st.st_mode | 0o111)
+os.chmod(file4, st.st_mode | 0o111)
