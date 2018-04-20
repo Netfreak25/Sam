@@ -565,17 +565,17 @@ def location(bot, update):
                             myint = random.randint(0,2)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question:"+str(is_right)+":"+str(chatid)+":true:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question:"+str(is_wrong)+":"+str(chatid)+":false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:"+str(is_wrong2)+":"+str(chatid)+":false:"+str(long)+":"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question;;"+str(is_right)+";;"+str(chatid)+";;true;;"+str(long)+";;"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question;;"+str(is_wrong)+";;"+str(chatid)+";;false;;"+str(long)+";;"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question;;"+str(is_wrong2)+";;"+str(chatid)+";;false;;"+str(long)+";;"+str(lat))])
                             elif myint == 1:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question:"+str(is_wrong)+":"+str(chatid)+":false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question:"+str(is_right)+":"+str(chatid)+":true:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:"+str(is_wrong2)+":"+str(chatid)+":false:"+str(long)+":"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question;;"+str(is_wrong)+";;"+str(chatid)+";;false;;"+str(long)+";;"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question;;"+str(is_right)+";;"+str(chatid)+";;true;;"+str(long)+";;"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question;;"+str(is_wrong2)+";;"+str(chatid)+";;false;;"+str(long)+";;"+str(lat))])
                             elif myint == 2:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question:"+str(is_wrong)+":"+str(chatid)+":false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question:"+str(is_wrong2)+":"+str(chatid)+":false:"+str(long)+":"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question:"+str(is_right)+":"+str(chatid)+":true:"+str(long)+":"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question;;"+str(is_wrong)+";;"+str(chatid)+";;false;;"+str(long)+";;"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question;;"+str(is_wrong2)+";;"+str(chatid)+";;false;;"+str(long)+";;"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question;;"+str(is_right)+";;"+str(chatid)+";;true;;"+str(long)+";;"+str(lat))])
                             print keyboard
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
@@ -606,8 +606,8 @@ def location(bot, update):
                     reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
                     bot.send_message(chat_id=update.message.chat_id, text=the_text, reply_markup=reply_markup, parse_mode='HTML')
                 elif int(float(distance)*1000) >= 5000:
-                    the_text = "Der Start des Trail befindet sich in "+str(int(distance))+"km entfernung! Samsquetch kann dich weder hören noch riechen!\n\nDu solltest in der Gegend vom Schwarzbach suchen!"
-                    the_text = "Du bist noch zu weit entfernt!  "+str(int(distance))+"km entfernung! Samsquetch kann dich weder hören noch riechen!\n\nDu solltest in der Gegend vom Schwarzbach suchen!"
+                    #the_text sollte eine variable sein
+                    the_text = "Du bist noch zu weit entfernt!  "+str(int(distance))+"km entfernung!"
                     #bot.send_message(chat_id=update.message.chat_id, text=the_text, parse_mode='HTML')
                     custom_keyboard = get_keyboard_type(update.message.chat_id)
                     reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
