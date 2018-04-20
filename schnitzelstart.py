@@ -747,6 +747,10 @@ def button_all(bot, update):
 
 def trap(bot, update, chatid):
     try:
+        stop_text = sam_vars["stop_text"]
+        custom_keyboard = StartButton(chatid)
+        reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
+
         if invincible == 0:
             (returntext, returntextkurz) = died(chatid)
             the_text = returntext
@@ -754,11 +758,7 @@ def trap(bot, update, chatid):
 
 
         if invincible == 0:
-            stop_text = sam_vars["stop_text"]
-            custom_keyboard = StartButton(chatid)
-
             try:
-                reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
                 bot.send_message(chat_id=chatid, text=stop_text, reply_markup=reply_markup)
             except Exception, e:
                 print e
