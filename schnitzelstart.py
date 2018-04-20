@@ -745,30 +745,33 @@ def button_all(bot, update):
         button_question(bot, update)
 
 def trap(bot, update):
-    query = update.callback_query
+    try:
+        query = update.callback_query
 
-    if invincible == 0:
-        (returntext, returntextkurz) = died(chatid)
-        the_text = returntext
+        if invincible == 0:
+            (returntext, returntextkurz) = died(chatid)
+            the_text = returntext
 
-        bot.edit_message_text(text=the_text,
-                          chat_id=query.message.chat_id,
-                          message_id=query.message.message_id)
+            bot.edit_message_text(text=the_text,
+                              chat_id=query.message.chat_id,
+                              message_id=query.message.message_id)
 
-    if invincible == 0:
-        stop_text = sam_vars["stop_text"]
-        custom_keyboard = StartButton(chatid)
+        if invincible == 0:
+            stop_text = sam_vars["stop_text"]
+            custom_keyboard = StartButton(chatid)
 
-        try:
-            reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
-            bot.send_message(chat_id=chatid, text=stop_text, reply_markup=reply_markup)
-        except Exception, e:
-            print e
+            try:
+                reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
+                bot.send_message(chat_id=chatid, text=stop_text, reply_markup=reply_markup)
+            except Exception, e:
+                print e
 
-        try:
-            SendBroadcast(bot, update, str(GetUsername(chatid))+": "+str(returntextkurz))
-        except Exception, e:
-            print e
+            try:
+                SendBroadcast(bot, update, str(GetUsername(chatid))+": "+str(returntextkurz))
+            except Exception, e:
+                print e
+    except Exception, e3:
+      print e3
 
 		
 def button_question(bot, update):
