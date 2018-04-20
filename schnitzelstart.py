@@ -406,6 +406,8 @@ def check_extras(bot, update, location):
                 if pick_item_chance < 100:
                     myint = random.randint(1,100)
                     if myint <= pick_item_chance:
+                        print type
+                        print id
                         if int(type) == 14:
                             print "In Falle getappt"
                             trap(bot, update)
