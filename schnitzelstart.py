@@ -510,14 +510,15 @@ def location(bot, update):
             radius = 1
             chatid = update.message.chat_id
             check_extras(bot, update, location)
-            verify = AliveStatus(chatid)
-            if verify[1] != 0:
-                return
+
             data = GetWaypoints(chatid)
             if len(data) == 0:
                 finished(bot, update)
             for i in data:
                 id = i[0]
+                verify = AliveStatus(chatid)
+                if ((verify[1] != 0) and (int(id) != 0)):
+                    return
                 waypoint_location = i[1]
 
                 text = i[2]
