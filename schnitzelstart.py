@@ -514,7 +514,7 @@ def location(bot, update):
             verify = AliveStatus(chatid)
             if verify[1] != 0:
                 print "stopping as player is death"
-                break
+                return
             data = GetWaypoints(chatid)
             if len(data) == 0:
                 finished(bot, update)
