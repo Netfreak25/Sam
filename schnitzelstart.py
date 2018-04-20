@@ -12,6 +12,7 @@ import logging, MySQLdb, time, os, math
 from datetime import datetime, timedelta
 import random
 from s2sphere import LatLng
+import emoji
 
 admin_chatids = [ "108319947" ]
 
@@ -520,13 +521,18 @@ def location(bot, update):
                 is_wrong2 = i[12]
                 if text is not None:
                     text = i[2].encode('utf-8', 'ignore')
+                    text = emoji.emojize(text, use_aliases=True)
 
                 if question is not None:
                     question = i[9].encode('utf-8', 'ignore')
                     is_wrong = i[10].encode('utf-8', 'ignore')
                     is_right = i[11].encode('utf-8', 'ignore')
+                    question = emoji.emojize(question, use_aliases=True)
+                    is_wrong = emoji.emojize(is_wrong, use_aliases=True)
+                    is_right = emoji.emojize(is_right, use_aliases=True)
                 if is_wrong2 is not None:
                     is_wrong2 = i[12].encode('utf-8', 'ignore')
+                    is_wrong2 = emoji.emojize(is_wrong2, use_aliases=True)
 
                 chatid = update.message.chat_id
                 la = waypoint_location.split(", ")[0]
