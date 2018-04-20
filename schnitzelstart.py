@@ -576,7 +576,6 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question|"+str(is_wrong2)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question|"+str(is_right)+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
-                            print keyboard
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(question, reply_markup=reply_markup)
                         else:
