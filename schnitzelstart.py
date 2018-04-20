@@ -413,6 +413,7 @@ def check_extras(bot, update, location):
                             trap(bot, update, chatid)
                             reduceItem(id)
                             removeTrap(chatid)
+                            break
                         else:
                             if (addToInventory(chatid, type)):
                                itemFound(bot, update, type)
