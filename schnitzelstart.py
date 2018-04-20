@@ -509,10 +509,11 @@ def location(bot, update):
             location = (float(lat), float(long))
             UpdateLocation(update.message.chat_id, str(lat)+", "+str(long))
             radius = 1
+            chatid = update.message.chat_id
             check_extras(bot, update, location)
             verify = AliveStatus(chatid)
             print verify
-            data = GetWaypoints(update.message.chat_id)
+            data = GetWaypoints(chatid)
             if len(data) == 0:
                 finished(bot, update)
             for i in data:
