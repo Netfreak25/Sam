@@ -406,9 +406,15 @@ def check_extras(bot, update, location):
                 if pick_item_chance < 100:
                     myint = random.randint(1,100)
                     if myint <= pick_item_chance:
-                        if (addToInventory(chatid, type)):
-                           itemFound(bot, update, type)
-                           reduceItem(id)
+                        if int(id) = 14:
+                            print "In Falle getappt"
+                            trap(bot, update)
+                            reduceItem(id)
+                            removeTrap(chatid)
+                        else:
+                            if (addToInventory(chatid, type)):
+                               itemFound(bot, update, type)
+                               reduceItem(id)
     except:
         pass
 
@@ -735,6 +741,32 @@ def button_all(bot, update):
     type = data.split("|")[0].encode('utf-8')
     if str(type) == "question":
         button_question(bot, update)
+
+def trap(bot, update):
+    query = update.callback_query
+
+    if invincible == 0:
+        (returntext, returntextkurz) = died(chatid)
+        the_text = returntext
+
+        bot.edit_message_text(text=the_text,
+                          chat_id=query.message.chat_id,
+                          message_id=query.message.message_id)
+
+    if invincible == 0:
+        stop_text = sam_vars["stop_text"]
+        custom_keyboard = StartButton(chatid)
+
+        try:
+            reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
+            bot.send_message(chat_id=chatid, text=stop_text, reply_markup=reply_markup)
+        except Exception, e:
+            print e
+
+        try:
+            SendBroadcast(bot, update, str(GetUsername(chatid))+": "+str(returntextkurz))
+        except Exception, e:
+            print e
 
 		
 def button_question(bot, update):
@@ -1094,6 +1126,29 @@ def removeMedkit(chatid):
         except:
             pass
 
+
+def removeTrap(chatid):
+    try:
+        command = "SELECT inventory FROM user WHERE chatid = '" + str(chatid) +"'"
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor = db6.cursor()
+        cursor.execute(command)
+        data = cursor.fetchall()
+        db6.close()
+        newinventory = str(data[0][0]).replace('14,', '', 1)
+
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """UPDATE user SET inventory = '"""+str(newinventory)+"""' WHERE chatid = '"""+str(chatid)+"""' """
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        return []
+        try:
+            db6.close()
+        except:
+            pass
 
 def useMedkit(bot, update, chatid):
     if ReviveStatus(chatid):
