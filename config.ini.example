@@ -21,6 +21,5 @@ www_path = /var/www/SamGui/trigger/
 
 ### Game Options
 invincible = 0
-pickup_chance = 95
 extra_distance_m = 25
 trigger_distance_m = 30
