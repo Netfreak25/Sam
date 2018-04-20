@@ -542,15 +542,11 @@ def location(bot, update):
                 except:
                     custom_trigger_distance_m = 0
 
-                print custom_trigger_distance_m
 
                 if custom_trigger_distance_m != 0:
                     the_trigger_distance = custom_trigger_distance_m
                 else:
                     the_trigger_distance = trigger_distance_m
-
-
-                print the_trigger_distance
 
                 if text is not None:
                     text = i[2].encode('utf-8', 'ignore')
