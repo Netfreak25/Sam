@@ -410,7 +410,7 @@ def check_extras(bot, update, location):
                         print id
                         if int(type) == 14:
                             print "In Falle getappt"
-                            trap(bot, update)
+                            trap(bot, update, chatid)
                             reduceItem(id)
                             removeTrap(chatid)
                         else:
@@ -744,11 +744,8 @@ def button_all(bot, update):
     if str(type) == "question":
         button_question(bot, update)
 
-def trap(bot, update):
+def trap(bot, update, chatid):
     try:
-
-        query = update.callback_query
-        chatid = query.message.chat_id
         if invincible == 0:
             (returntext, returntextkurz) = died(chatid)
             the_text = returntext
