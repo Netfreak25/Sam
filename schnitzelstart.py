@@ -747,13 +747,13 @@ def button_all(bot, update):
 def trap(bot, update):
     try:
         query = update.callback_query
-
+        chatid = query.message.chat_id
         if invincible == 0:
             (returntext, returntextkurz) = died(chatid)
             the_text = returntext
 
             bot.edit_message_text(text=the_text,
-                              chat_id=query.message.chat_id,
+                              chat_id=chatid,
                               message_id=query.message.message_id)
 
         if invincible == 0:
