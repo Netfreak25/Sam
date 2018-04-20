@@ -746,15 +746,14 @@ def button_all(bot, update):
 
 def trap(bot, update):
     try:
+
         query = update.callback_query
-        chatid = query.message.chat_id
+        chatid = bot.query.message.chat_id
         if invincible == 0:
             (returntext, returntextkurz) = died(chatid)
             the_text = returntext
+            bot.send_message(chat_id=chatid, text=the_text, reply_markup=reply_markup)
 
-            bot.edit_message_text(text=the_text,
-                              chat_id=chatid,
-                              message_id=query.message.message_id)
 
         if invincible == 0:
             stop_text = sam_vars["stop_text"]
