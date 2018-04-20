@@ -410,9 +410,9 @@ def check_extras(bot, update, location):
                         print id
                         if int(type) == 14:
                             print "In Falle getappt"
-                            trap(bot, update, chatid)
                             reduceItem(id)
                             removeTrap(chatid)
+                            trap(bot, update, chatid)
                             break
                         else:
                             if (addToInventory(chatid, type)):
@@ -510,6 +510,8 @@ def location(bot, update):
             UpdateLocation(update.message.chat_id, str(lat)+", "+str(long))
             radius = 1
             check_extras(bot, update, location)
+            verify = AliveStatus(chatid)
+            print verify
             data = GetWaypoints(update.message.chat_id)
             if len(data) == 0:
                 finished(bot, update)
