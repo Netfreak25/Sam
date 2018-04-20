@@ -666,7 +666,7 @@ def location2(bot, update, chatid = "", the_location = ""):
                 reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
                 bot.send_message(chat_id=chatid, text=the_text, reply_markup=reply_markup)
             elif int(float(distance)*1000) >= 5000:
-                the_text = "Der Start des Trail befindet sich in "+str(int(distance))+"km entfernung! Samsquetch kann dich weder hören noch riechen!\n\nDu solltest in der Gegend vom Schwarzbach suchen!"
+                the_text = "Der Start des Trail befindet sich in "+str(int(distance))+"km entfernung!"
             #    bot.send_message(chat_id=chatid, text=the_text, parse_mode='HTML')
                 custom_keyboard = get_keyboard_type(chatid,)
                 reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
