@@ -531,6 +531,21 @@ def location(bot, update):
                 is_wrong = i[10]
                 is_right = i[11]
                 is_wrong2 = i[12]
+                try:
+                    wayname = i[13]
+                except:
+                    wayname = "Null"
+                try:
+                    custom_trigger_distance_m = i[14]
+                except:
+                    custom_trigger_distance_m = 0
+
+
+                if custom_trigger_distance_m != 0:
+                    the_trigger_distance = custom_trigger_distance_m
+                else:
+                    the_trigger_distance = trigger_distance_m
+
                 if text is not None:
                     text = i[2].encode('utf-8', 'ignore')
                     text = emoji.emojize(text, use_aliases=True)
@@ -552,7 +567,7 @@ def location(bot, update):
                 location_point = (float(la), float(lo))
 
                 distance = equi_rect_distance(location_point, location)
-                if int(float(distance)*1000) <= trigger_distance_m:
+                if int(float(distance)*1000) <= the_trigger_distance:
                     if (str(id) == "0"):
                         revive(chatid)
                         resetPoints(chatid)
