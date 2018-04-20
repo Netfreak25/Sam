@@ -406,8 +406,7 @@ def check_extras(bot, update, location):
                 if pick_item_chance < 100:
                     myint = random.randint(1,100)
                     if myint <= pick_item_chance:
-                        print type
-                        print id
+
                         if int(type) == 14:
                             print "In Falle getappt"
                             reduceItem(id)
@@ -513,7 +512,6 @@ def location(bot, update):
             check_extras(bot, update, location)
             verify = AliveStatus(chatid)
             if verify[1] != 0:
-                print "stopping as player is death"
                 return
             data = GetWaypoints(chatid)
             if len(data) == 0:
