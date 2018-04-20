@@ -42,7 +42,6 @@ telegram_token = str(getconfig('telegram_token'))
 trigger_distance_m = int(getconfig('trigger_distance_m'))
 invincible = int(getconfig('invincible'))
 extra_distance_m = int(getconfig('extra_distance_m'))
-
 pick_item_chance = int(getconfig('pickup_chance'))
 
 
@@ -412,10 +411,7 @@ def addToInventory(chatid, extra):
     if pick_item_chance < 100:
         myint = random.randint(1,100)
         if myint > pick_item_chance:
-            print "Am Item vorbei gelaufen"
             return False
-        else:
-            print "Item erhalten"
 
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')

@@ -15,12 +15,12 @@ telegram_token = 542342341:AAF84z1J61N77s51sdfsdfsdfsdfsdfsddsdfs
 
 ### Trigger Settings
 reset_minutes = 2
-trigger_distance_m = 15
-extra_distance_m = 5
 
 ### Webserver Settings
-www_path = /var/www/
+www_path = /var/www/SamGui/trigger/
 
 ### Game Options
 invincible = 0
 pickup_chance = 95
+extra_distance_m = 25
+trigger_distance_m = 30
