@@ -789,6 +789,8 @@ def button_all(bot, update):
         button_question(bot, update)
 
 def trap(bot, update, chatid):
+    the_text = "Du bist in eine Falle geraten!"
+    bot.send_message(chat_id=chatid, text=the_text, reply_markup=reply_markup)
     try:
         stop_text = sam_vars["stop_text"]
         custom_keyboard = StartButton(chatid)
