@@ -43,7 +43,6 @@ telegram_token = str(getconfig('telegram_token'))
 trigger_distance_m = int(getconfig('trigger_distance_m'))
 invincible = int(getconfig('invincible'))
 extra_distance_m = int(getconfig('extra_distance_m'))
-pick_item_chance = int(getconfig('pickup_chance'))
 
 
 # Load Telegram Token
@@ -414,9 +413,9 @@ def check_extras(bot, update, location):
             location_point = (float(la), float(lo))
             distance = equi_rect_distance(location_point, location)
             if int(float(distance)*1000) <= the_trigger_distance:
-                if pick_item_chance < 100:
+                if chance < 100:
                     myint = random.randint(1,100)
-                    if myint <= pick_item_chance:
+                    if myint <= chance:
 
                         if int(type) == 14:
                             print "In Falle getappt"
