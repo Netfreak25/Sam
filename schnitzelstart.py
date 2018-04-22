@@ -398,11 +398,22 @@ def check_extras(bot, update, location):
             type = i[2]
             amount = i[3]
             chance = int(i[4])
+
+            try:
+                custom_trigger_distance_m = int(i[5])
+            except:
+                custom_trigger_distance_m = 0
+
+            if custom_trigger_distance_m != 0:
+                the_trigger_distance = custom_trigger_distance_m
+            else:
+                the_trigger_distance = extra_distance_m
+
             la = waypoint_location.split(", ")[0]
             lo = waypoint_location.split(", ")[1]
             location_point = (float(la), float(lo))
             distance = equi_rect_distance(location_point, location)
-            if int(float(distance)*1000) <= extra_distance_m:
+            if int(float(distance)*1000) <= the_trigger_distance:
                 if pick_item_chance < 100:
                     myint = random.randint(1,100)
                     if myint <= pick_item_chance:
