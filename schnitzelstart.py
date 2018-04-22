@@ -415,17 +415,12 @@ def check_extras(bot, update, location):
             location_point = (float(la), float(lo))
             distance = equi_rect_distance(location_point, location)
 
-            print the_trigger_distance
-            print int(float(distance)*1000)
-
-
             if int(float(distance)*1000) <= the_trigger_distance:
                 if chance < 100:
                     myint = random.randint(1,100)
                     if myint <= chance:
 
                         if int(type) == 14:
-                            print "In Falle getappt"
                             reduceItem(id)
                             removeTrap(chatid)
                             trap(bot, update, chatid)
@@ -434,6 +429,17 @@ def check_extras(bot, update, location):
                             if (addToInventory(chatid, type)):
                                itemFound(bot, update, type)
                                reduceItem(id)
+                else:
+                    if int(type) == 14:
+                        reduceItem(id)
+                        removeTrap(chatid)
+                        trap(bot, update, chatid)
+                        break
+                    else:
+                        if (addToInventory(chatid, type)):
+                           itemFound(bot, update, type)
+                           reduceItem(id)
+
     except:
         pass
 
