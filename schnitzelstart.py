@@ -408,6 +408,8 @@ def check_extras(bot, update, location):
             else:
                 the_trigger_distance = extra_distance_m
 
+            print the_trigger_distance
+
             la = waypoint_location.split(", ")[0]
             lo = waypoint_location.split(", ")[1]
             location_point = (float(la), float(lo))
