@@ -789,12 +789,13 @@ def button_all(bot, update):
         button_question(bot, update)
 
 def trap(bot, update, chatid):
+    custom_keyboard = StartButton(chatid)
+    reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
     the_text = "Du bist in eine Falle geraten!"
     bot.send_message(chat_id=chatid, text=the_text, reply_markup=reply_markup)
     try:
         stop_text = sam_vars["stop_text"]
-        custom_keyboard = StartButton(chatid)
-        reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
+
 
         if invincible == 0:
             (returntext, returntextkurz) = died(chatid)
