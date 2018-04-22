@@ -408,13 +408,17 @@ def check_extras(bot, update, location):
             else:
                 the_trigger_distance = extra_distance_m
 
-            print the_trigger_distance
-            print int(float(distance)*1000)
+
 
             la = waypoint_location.split(", ")[0]
             lo = waypoint_location.split(", ")[1]
             location_point = (float(la), float(lo))
             distance = equi_rect_distance(location_point, location)
+
+            print the_trigger_distance
+            print int(float(distance)*1000)
+
+
             if int(float(distance)*1000) <= the_trigger_distance:
                 if chance < 100:
                     myint = random.randint(1,100)
