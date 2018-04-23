@@ -509,8 +509,12 @@ print r"""
 
 * {font-family:"Courier New", Courier, monospace}
 
-  <title>Gegenstand hinzufügen</title>
+  <title>Map</title>
 
+<script type="text/javascript"> 
+function openwindow(url){
+      NewWindow=window.open(url,'newWin','width=400,height=600,left=20,top=20,toolbar=No,location=No,scrollbars=no,status=No,resizable=no,fullscreen=No');  NewWindow.focus(); void(0);  }
+</script>
   
 <style type="text/css">.gm-style {
         font: 400 11px Roboto, Arial, sans-serif;
