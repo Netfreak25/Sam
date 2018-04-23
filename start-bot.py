@@ -92,9 +92,13 @@ def write_telegram_files():
     writefile(file3, content_file3)
     writefile(file4, content_file4)
 
+    st = os.stat('file1')
     os.chmod(file1, st.st_mode | 0o111)
+    st = os.stat('file2')
     os.chmod(file2, st.st_mode | 0o111)
+    st = os.stat('file3')
     os.chmod(file3, st.st_mode | 0o111)
+    st = os.stat('file4')
     os.chmod(file4, st.st_mode | 0o111)
 
 write_telegram_files()
