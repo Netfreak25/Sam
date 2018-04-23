@@ -62,6 +62,7 @@ form = cgi.FieldStorage()
 try:
     mode = form["action"].value
     action = mode
+    print mode
 except Exception, e:
     mode = "Null"
     action = "Null"
