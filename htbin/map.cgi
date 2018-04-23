@@ -537,8 +537,8 @@ print """
 <div style='float: left'>
 <form action="map.cgi" method="post">
 
-<input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lat" id="lat" size="9" readonly>
-<input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lng" id="lng" size="9" readonly>
+<input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lat" id="lat2" size="9" readonly>
+<input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lng" id="lng2" size="9" readonly>
 
 """
 typeDropDown()
@@ -588,6 +588,9 @@ function initialize() {
       }      
       document.getElementById('lat').value = event.latLng.lat();
       document.getElementById('lng').value = event.latLng.lng();
+
+      document.getElementById('lat2').value = event.latLng.lat();
+      document.getElementById('lng2').value = event.latLng.lng();
   });
 
   setMarkers(map);
