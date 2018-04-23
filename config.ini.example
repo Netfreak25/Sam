@@ -14,7 +14,7 @@ sam_db_pw = YOURPASSWORD
 telegram_token = 542342341:AAF84z1J61N77s51sdfsdfsdfsdfsdfsddsdfs
 
 ### Webserver Settings
-www_path = /var/www/SamGui/trigger/
+www_path = htbin/trigger/
 
 ### Game Options
 invincible = 0
@@ -23,3 +23,14 @@ trigger_distance_m = 30
 
 ### Trigger Settings
 reset_minutes = 2
+
+### GMaps Key
+gmaps_key = sdfsdfsdfsdfsdfsdfsdfsdsfd 
+
+### Gui Settings
+botname = DeinBotName
+pagename = SamGuiTest
+
+### Waypoint Editor Options
+zoom_koordinaten = 44.993060,7.652171 
+zoom_level = 16 
