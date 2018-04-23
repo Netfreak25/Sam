@@ -442,7 +442,7 @@ def printWayPointMarker():
 
 
         removeurl = '<a href="map.cgi?action=deleteWaypoint&id='+str(id)+'">entfernen<a/>'
-        editurl = """<a href="website" onclick="openwindow(\\'map.cgi?id="""+str(id)+"""\\'); return false;">editieren<a/>"""
+        editurl = """<a href="website" onclick="openwindow(\\'waypoint.cgi?id="""+str(id)+"""\\'); return false;">editieren<a/>"""
         beschreibung = """Wegpunkt """+str(id)+""":<br><br>"""+str(text).replace("\r\n","<br>")+"""<br>"""+str(extradata)+"""<br><br>"""+str(editurl)+"""<br>"""+str(removeurl)
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", 'Wegpunkt """+str(id)+"""'],\n"""
         count = count + 1
