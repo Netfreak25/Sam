@@ -523,7 +523,7 @@ print r"""
 <body>
 
 <div style="padding: 6px 12px; border: 1px solid #ccc; overflow: hidden; margin: 5px; height: 85px">
-    <div id="header" style="padding-left: 20px; padding-top: 2px; height: 40px; display: table">
+    <div id="header" style="padding-left: 0px; padding-top: 0px; padding-bottom: 10px; display: table">
     <div><h3 style="margin: 0px; margin-bottom: 2px"><a href="index.cgi">Home</a></h3></div>"""
 print "<div style='margin-top: -10px;'>"+action_message+"</div>"
 print """
