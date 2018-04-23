@@ -39,7 +39,7 @@ handler = CGIHTTPServer.CGIHTTPRequestHandler
 server_address = (web_gui_ip, web_gui_port)
 handler.cgi_directories = ["/htbin"]
 
-httpd = server(server_address, handler)
-httpd.serve_forever()
 print "The Admin Interface is running under:"
 print "http://"+text_ip+":"+web_gui_port+"/"
+httpd = server(server_address, handler)
+httpd.serve_forever()
