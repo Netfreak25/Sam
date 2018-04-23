@@ -16,7 +16,7 @@ print "<head>"
 
 
 ### Konfiguration laden / do not change
-configfile = "./config.ini"
+configfile = "../config.ini"
 f = open(configfile, 'r')
 configdb = {}
 
