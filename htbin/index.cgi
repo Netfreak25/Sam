@@ -1650,7 +1650,7 @@ for i in printTriggerClients():
 
 
 print """<div style="clear:both; padding-top: 20px"><a target="_new" href="https://play.google.com/store/apps/details?id=cloudffm.eu.samtrigger">[Download Client from Android PlayStore]</a></div>"""
-print """<div style="clear:both;"><a target="_new" href="trigger/trigger.apk">[Download Client]</a></div>"""
+print """<div style="clear:both;"><a target="_new" href="../trigger/trigger.apk">[Download Client]</a></div>"""
 print "</div>"
 print """
 </div>
