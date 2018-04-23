@@ -1183,7 +1183,7 @@ print """
 if (str(action) == "deleteWaypoint"):
     print "<div><b>Wegpunkt von der Karte entfernt!</b></div>"
 print """
-<h2 style="margin-top: 5px"><a href="map-waypoints.cgi">[Karte der Wegpunkte]</a><br><p></h2>"""
+<h2 style="margin-top: 5px"><a href="map.cgi">[Karte]</a><br><p></h2>"""
 for i in wps:
     print "<div id='waypoint"+str(i[0])+"' style='height: 25px; overflow: hidden; padding: 5px; margin-bottom: 10px; border: 1px solid #ccc;'>"
     id = i[0]
@@ -1335,7 +1335,7 @@ print """
 
 
 
-<h2 style="margin-top: 5px"><a href="map-items.cgi">[Karte der Gegenstände]</a><br><p></h2>"""
+<h2 style="margin-top: 5px"><a href="map.cgi">[Karte]</a><br><p></h2>"""
 for i in itms:
     id = i[0]
     location = i[1]
