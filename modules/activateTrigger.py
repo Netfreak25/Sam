@@ -19,8 +19,10 @@ def getconfig(a):
     else:
         return configdb[a]
 
-www_path = str(getconfig('www_path'))
+
 reset_minutes = str(getconfig('reset_minutes'))
+www_path = trigger
+
 
 if len(sys.argv) <= 1:
     print "No trigger provided"
