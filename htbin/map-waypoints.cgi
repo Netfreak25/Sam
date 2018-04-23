@@ -156,8 +156,12 @@ def get_waypoints():
 action_message = ""
 itms = get_waypoints()
 
-print itms[0][1].replace(" ","")
-
+try:
+    val = itms[0][1].replace(" ","")
+    zoom_koordinaten = val
+except:
+    pass
+    
 if (str(action) == "addWaypoint"):
     action_message = "Wegpunkt der Karte hinzugefügt!"
 
