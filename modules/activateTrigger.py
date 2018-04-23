@@ -21,7 +21,7 @@ def getconfig(a):
 
 
 reset_minutes = str(getconfig('reset_minutes'))
-www_path = trigger
+www_path = "trigger"
 
 
 if len(sys.argv) <= 1:
