@@ -535,7 +535,7 @@ print """
 
 
 <div style='float: left'>
-<form action="items.cgi" method="post">
+<form action="map.cgi" method="post">
 
 <input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lat" id="lat" size="9" readonly>
 <input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lng" id="lng" size="9" readonly>
@@ -547,14 +547,13 @@ print """
 <button type="submit" name="action" value="addItem" style="display:table-cell; vertical-align:middle;">Item hinzufügen</button>
 </div>
 
-    <div style='clear: both'>
-    <form action="waypoints.cgi" method="post">
+    <div style='float: left'>
+    <form action="map.cgi" method="post">
 
     <input style="border: 1px solid #ccc;" type="text" name="lat" id="lat" size="9" readonly>
     <input style="border: 1px solid #ccc;" type="text" name="lng" id="lng" size="9" readonly>
 
-    """
-    print """
+
     <button type="submit" name="action" value="addWaypoint">Wegpunkt hinzufügen</button>
     </div>
 
