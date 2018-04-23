@@ -158,7 +158,7 @@ itms = get_waypoints()
 
 try:
     val = itms[0][1].replace(" ","")
-    #zoom_koordinaten = val
+    zoom_koordinaten = str(val).strip()
 except:
     pass
 
