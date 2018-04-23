@@ -60,42 +60,42 @@ def writefile(filename, text):
 
 
 def write_telegram_files():
-  telegram_directory = "Telegram"
+    telegram_directory = "Telegram"
 
-  if not os.path.exists("./"+telegram_directory):
+    if not os.path.exists("./"+telegram_directory):
       os.makedirs(telegram_directory)
 
-  file1 = "Telegram/sendTelegramAudioSam"
-  file2 = "Telegram/sendTelegramPicSam"
-  file3 = "Telegram/sendTelegramVideoSam"
-  file4 = "Telegram/sendTelegramVoiceSam"
+    file1 = "Telegram/sendTelegramAudioSam"
+    file2 = "Telegram/sendTelegramPicSam"
+    file3 = "Telegram/sendTelegramVideoSam"
+    file4 = "Telegram/sendTelegramVoiceSam"
 
 
-  content_file1 = """#!/bin/bash
-  curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendChatAction" -F chat_id=$1 -F action=upload_audio> /dev/null 2>&1
-  curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendAudio" -F chat_id=$1 -F audio="@$2" > /dev/null 2>&1"""
+    content_file1 = """#!/bin/bash
+    curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendChatAction" -F chat_id=$1 -F action=upload_audio> /dev/null 2>&1
+    curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendAudio" -F chat_id=$1 -F audio="@$2" > /dev/null 2>&1"""
 
-  content_file2 = """#!/bin/bash
-  curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendChatAction" -F chat_id=$1 -F action=upload_photo> /dev/null 2>&1
-  curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendPhoto" -F chat_id=$1 -F photo="@$2" > /dev/null 2>&1"""
+    content_file2 = """#!/bin/bash
+    curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendChatAction" -F chat_id=$1 -F action=upload_photo> /dev/null 2>&1
+    curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendPhoto" -F chat_id=$1 -F photo="@$2" > /dev/null 2>&1"""
 
-  content_file3 = """#!/bin/bash
-  curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendChatAction" -F chat_id=$1 -F action=upload_video> /dev/null 2>&1
-  curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendVideo" -F chat_id=$1 -F video="@$2" > /dev/null 2>&1"""
+    content_file3 = """#!/bin/bash
+    curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendChatAction" -F chat_id=$1 -F action=upload_video> /dev/null 2>&1
+    curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendVideo" -F chat_id=$1 -F video="@$2" > /dev/null 2>&1"""
 
-  content_file4 = """#!/bin/bash
-  curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendChatAction" -F chat_id=$1 -F action=record_audio> /dev/null 2>&1
-  curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendVoice" -F chat_id=$1 -F voice="@$2" >/dev/null 2>&1"""
+    content_file4 = """#!/bin/bash
+    curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendChatAction" -F chat_id=$1 -F action=record_audio> /dev/null 2>&1
+    curl -X  POST "https://api.telegram.org/bot"""+telegram_token+"""/sendVoice" -F chat_id=$1 -F voice="@$2" >/dev/null 2>&1"""
 
-  writefile(file1, content_file1)
-  writefile(file2, content_file2)
-  writefile(file3, content_file3)
-  writefile(file4, content_file4)
+    writefile(file1, content_file1)
+    writefile(file2, content_file2)
+    writefile(file3, content_file3)
+    writefile(file4, content_file4)
 
-  os.chmod(file1, st.st_mode | 0o111)
-  os.chmod(file2, st.st_mode | 0o111)
-  os.chmod(file3, st.st_mode | 0o111)
-  os.chmod(file4, st.st_mode | 0o111)
+    os.chmod(file1, st.st_mode | 0o111)
+    os.chmod(file2, st.st_mode | 0o111)
+    os.chmod(file3, st.st_mode | 0o111)
+    os.chmod(file4, st.st_mode | 0o111)
 
 write_telegram_files()
 # load variables from database
