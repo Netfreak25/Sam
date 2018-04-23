@@ -256,7 +256,32 @@ def AmounttypeDropDown():
     print "</select>"
 
 
+# load variables from database
+def get_waypoints():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """SELECT * FROM waypoints"""
+        cursor6.execute(command6)
+        data = cursor6.fetchall()
+        db6.close()
+        return data
+    except Exception, e:
+        print e
 
+
+
+
+
+
+action_message = ""
+wps = get_waypoints()
+
+try:
+    val = wps[0][1].replace(" ","")
+    zoom_koordinaten = str(val).strip()
+except:
+    pass
 
 
 

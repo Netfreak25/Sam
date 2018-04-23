@@ -162,8 +162,6 @@ try:
 except:
     pass
 
-print zoom_koordinaten
-print val
 if (str(action) == "addWaypoint"):
     action_message = "Wegpunkt der Karte hinzugefügt!"
 
