@@ -338,7 +338,7 @@ action_message = ""
 wps = get_waypoints()
 
 try:
-    val = wps[0][1].replace(" ","")
+    val = wps[len(wps)][1].replace(" ","")
     zoom_koordinaten = str(val).strip()
 except:
     pass
