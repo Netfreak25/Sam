@@ -545,6 +545,7 @@ typeDropDown()
 AmounttypeDropDown()
 print """
 <button type="submit" name="action" value="addItem" style="display:table-cell; vertical-align:middle;">Item hinzufügen</button>
+</form>
 </div>
 
     <div style='float: left'>
@@ -555,6 +556,7 @@ print """
 
 
     <button type="submit" name="action" value="addWaypoint">Wegpunkt hinzufügen</button>
+    </form>
     </div>
 
 </div>
