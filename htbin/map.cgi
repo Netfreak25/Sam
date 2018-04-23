@@ -508,6 +508,7 @@ print r"""
 }
 
 * {font-family:"Courier New", Courier, monospace}
+</style>
 
   <title>Map</title>
 
