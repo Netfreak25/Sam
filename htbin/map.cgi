@@ -441,8 +441,8 @@ def printWayPointMarker():
                 extradata = extradata + "<br>Falsche Antwort 2: "+str(is_wrong)
 
 
-        removeurl = '<a href="waypoints.cgi?action=deleteWaypoint&id='+str(id)+'">entfernen<a/>'
-        editurl = """<a href="website" onclick="openwindow(\\'waypoint.cgi?id="""+str(id)+"""\\'); return false;">editieren<a/>"""
+        removeurl = '<a href="map.cgi?action=deleteWaypoint&id='+str(id)+'">entfernen<a/>'
+        editurl = """<a href="website" onclick="openwindow(\\'map.cgi?id="""+str(id)+"""\\'); return false;">editieren<a/>"""
         beschreibung = """Wegpunkt """+str(id)+""":<br><br>"""+str(text).replace("\r\n","<br>")+"""<br>"""+str(extradata)+"""<br><br>"""+str(editurl)+"""<br>"""+str(removeurl)
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", 'Wegpunkt """+str(id)+"""'],\n"""
         count = count + 1
@@ -459,9 +459,9 @@ def printMarker():
         typename = type_dict[type]
         typename = typename.split(",")[0]
         emoji = emojidict[str(type)]
-        deleteurl = '<a href="items.cgi?action=deleteItem&id='+str(id)+'">entfernen<a/>'
-        plusurl = '<a href="items.cgi?action=plusItem&id='+str(id)+'">+1<a/>'
-        minusurl = '<a href="items.cgi?action=minusItem&id='+str(id)+'">-1<a/>'
+        deleteurl = '<a href="map.cgi?action=deleteItem&id='+str(id)+'">entfernen<a/>'
+        plusurl = '<a href="map.cgi?action=plusItem&id='+str(id)+'">+1<a/>'
+        minusurl = '<a href="map.cgi?action=minusItem&id='+str(id)+'">-1<a/>'
         beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(deleteurl)+"""<br>"""
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", '/img/emoji/"""+str(type)+""".png', '"""+str(typename)+"""'],\n"""
         count = count + 1
