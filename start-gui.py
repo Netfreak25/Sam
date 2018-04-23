@@ -29,8 +29,10 @@ except:
     
 try:
     web_gui_ip = str(getconfig('web_gui_ip'))
+    text_ip = str(web_gui_ip)
 except:
     web_gui_ip = ""
+    text_ip = "0.0.0.0"
 
 server = BaseHTTPServer.HTTPServer
 handler = CGIHTTPServer.CGIHTTPRequestHandler
@@ -39,3 +41,5 @@ handler.cgi_directories = ["/htbin"]
 
 httpd = server(server_address, handler)
 httpd.serve_forever()
+print "The Admin Interface is running under:"
+print "http://"+text_ip+":"+web_gui_port+"/"
