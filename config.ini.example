@@ -30,6 +30,7 @@ gmaps_key = sdfsdfsdfsdfsdfsdfsdfsdsfd
 ### Gui Settings
 botname = DeinBotName
 pagename = SamGuiTest
+web_port = 8000
 
 ### Waypoint Editor Options
 zoom_koordinaten = 44.993060,7.652171 

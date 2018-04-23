@@ -13,7 +13,7 @@ cgitb.enable(display=1, logdir="/var/www/log/")
 
 
 ### Konfiguration laden / do not change
-configfile = "../config.ini"
+configfile = "./config.ini"
 f = open(configfile, 'r')
 configdb = {}
 
