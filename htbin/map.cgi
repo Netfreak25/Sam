@@ -398,7 +398,7 @@ if (str(action) == "deleteWaypoint"):
 def printWayPointMarker():
     data = ""
     count = 1
-    for i in itms:
+    for i in wps:
         id = i[0]
         location = i[1]
         try:
