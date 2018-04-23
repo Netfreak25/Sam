@@ -57,15 +57,12 @@ sam_db_pw = str(getconfig('sam_db_pw'))
 ###### Read html input
 form = cgi.FieldStorage()
 
-
-
 try:
     mode = form["action"].value
     action = mode
-    print "Mode:"+str(mode)
-except Exception, e:
-    mode = "Null"
-    action = "Null"
+except Exception, e3:
+    mode = "none"
+    action = "none"
     pass
 
 try:
@@ -307,7 +304,7 @@ def availableFiles(selected_file, extension = "all", extension2 = "all"):
 print "<div style='margin-top: -10px;'>"+action_message+"</div>"
 print "<div>"
 print '''
-<form action="waypoint.cgi" method="get">
+<form action="waypoint.cgi" method="POST">
 
 <div style= "clear: both;">
   <input type="hidden" name="action" value="editWaypoint">
