@@ -91,7 +91,7 @@ def updateUserdata():
             pass
 
 def readtrigger(triggerfile):
-    triggerdatafile = "../trigger/" + triggerfile
+    triggerdatafile = "trigger/" + triggerfile
     f = open(triggerdatafile, 'r')
     triggerx = f.read().strip()
     f.close()
