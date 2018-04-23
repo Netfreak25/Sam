@@ -180,6 +180,7 @@ def doChanges():
 
 action_message = ""
 if (str(action) == "editWaypoint"):
+    print "high"
     doChanges()
     action_message = "Änderung gespeichert!"
     print """
