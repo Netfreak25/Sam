@@ -534,7 +534,7 @@ print """
     <div style='float: left'>
 
 
-<div style='float: left'>
+<div style='margin: 5px;'>
 <form action="map.cgi" method="post">
 
 <input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lat" id="lat2" size="9" readonly>
@@ -548,7 +548,7 @@ print """
 </form>
 </div>
 
-    <div style='float: left'>
+    <div style='margin: 5px;'>
     <form action="map.cgi" method="post">
 
     <input style="border: 1px solid #ccc;" type="text" name="lat" id="lat" size="9" readonly>
