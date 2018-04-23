@@ -166,6 +166,7 @@ def doChanges():
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
         command6 = """UPDATE waypoints SET id = """+prepareText(html_waypoint)+""", location = """+prepareText(html_location)+""", trigger_distance_m = """+prepareText(html_tdistance)+""", name = """+prepareText(html_wayname)+""", text = """+prepareText(html_text)+""", bild = """+prepareText(html_bild)+""", audio = """+prepareText(html_audio)+""", video = """+prepareText(html_video)+""", voice = """+prepareText(html_voice)+""", samtrigger = """+prepareText(html_trigger)+""", question = """+prepareText(html_question)+""", is_wrong = """+prepareText(html_wrong1)+""", is_wrong2 = """+prepareText(html_wrong2)+""", is_right = """+prepareText(html_right)+"""  WHERE id = """+str(html_realid)
+        print command6
         cursor6.execute(command6)
         db6.commit()
         db6.close()
