@@ -528,12 +528,12 @@ function openwindow(url){
 <body>
 
 <div style="padding: 6px 12px; border: 1px solid #ccc; overflow: hidden; margin: 5px; height: 85px">
-    <div id="header" style="padding-left: 0px; padding-top: 0px; padding-bottom: 10px; display: table">
+    <div id="header" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; display: table">
     <div style="float: left"><h3 style="margin: 0px; margin-bottom: 2px"><a href="index.cgi">Home</a></h3></div>"""
 print "<div style='margin: -3px; margin-left: 50px; width: 400px'>"+action_message+"</div>"
 print """
     </div>
-    <div id="header" style="float: left; padding-left: 20px; height: 50px">
+    <div id="header" style="">
 
 
     <div style='float: left'>
