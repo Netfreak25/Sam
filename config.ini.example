@@ -13,9 +13,6 @@ sam_db_pw = YOURPASSWORD
 ### Telegram Settings (without the bot:)
 telegram_token = 542342341:AAF84z1J61N77s51sdfsdfsdfsdfsdfsddsdfs
 
-### Trigger Settings
-reset_minutes = 2
-
 ### Webserver Settings
 www_path = /var/www/SamGui/trigger/
 
@@ -23,3 +20,6 @@ www_path = /var/www/SamGui/trigger/
 invincible = 0
 extra_distance_m = 25
 trigger_distance_m = 30
+
+### Trigger Settings
+reset_minutes = 2
