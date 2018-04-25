@@ -21,23 +21,6 @@ configfile = "./config.ini"
 f = open(configfile, 'r')
 configdb = {}
 
-def getBaseconfig(a):
-    if len(configdb) == 0:
-        for i in f:
-            if i[0] != "#":
-                x = i[:-1]
-                y = x.split()
-                if len(y) > 0:
-                    configdb[y[0]] = y[2]
-        return configdb[a]
-    else:
-        return configdb[a]
-
-sam_host = str(getBaseconfig('sam_host'))
-sam_db = str(getBaseconfig('sam_db'))
-sam_db_user = str(getBaseconfig('sam_db_user'))
-sam_db_pw = str(getBaseconfig('sam_db_pw'))
-
 def getconfig(a):
     if len(configdb) == 0:
         for i in f:
@@ -50,7 +33,26 @@ def getconfig(a):
     else:
         return configdb[a]
 
+sam_host = str(getconfig('sam_host'))
+sam_db = str(getconfig('sam_db'))
+sam_db_user = str(getconfig('sam_db_user'))
+sam_db_pw = str(getconfig('sam_db_pw'))
 
+
+def addDBConfig():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """SELECT * FROM config"""
+        cursor6.execute(command6)
+        data = cursor6.fetchall()
+        db6.close()
+        for i in data:
+            configdb.update({str(i[0].encode('utf-8')): str(i[1].encode('utf-8'))})
+    except Exception, e:
+        print e
+
+addDBConfig()
 
 telegram_token = str(getconfig('telegram_token'))
 
