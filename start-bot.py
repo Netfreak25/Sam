@@ -573,8 +573,9 @@ def location(bot, update):
     try:
         user_location = update.message.location
         try:
+            verified = update.message.reply_to_message
             if str(cheat_detection) == "1":
-                verified = update.message.reply_to_message
+                verified = "doesnotmatter"
             if verified == None:
                 if invincible == 0:
                     (returntext, returntextkurz) = died(update.message.chat_id, 1)
