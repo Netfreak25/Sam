@@ -692,7 +692,6 @@ function setMarkers(map) {
     var theitem = samitems[i];
     var contentString = samitems[i][0] + '';
     var marker = new google.maps.Marker({
-      position: {lat: theitem[1], lng: theitem[2]},
       center: {lat: theitem[1], lng: theitem[2]},
       map: map,
       icon: theitem[4],
@@ -758,7 +757,7 @@ function setWaypointMarkers(map) {
     var theitem = samwaypoints[i];
     var contentString = samwaypoints[i][0] + '';
     var marker = new google.maps.Marker({
-      position: {lat: theitem[1], lng: theitem[2]},
+      center: {lat: theitem[1], lng: theitem[2]},
       map: map,
       icon: image,
       shape: shape,
