@@ -427,6 +427,9 @@ def save_chase():
             pass
 
 
+def restart():
+    cmd = './start.sh > /tmp/test.log 2>&1 &'
+    os.system(cmd)
 
 
 def save_uploaded_file():
@@ -942,6 +945,8 @@ elif (str(action) == "deleteChase"):
     delete_chase()
 elif (str(action) == "resetChase"):
     reset_chase()
+elif (str(action) == "restart"):
+    restart()
 
 
 
