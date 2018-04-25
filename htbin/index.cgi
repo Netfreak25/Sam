@@ -1087,21 +1087,31 @@ elif (str(action) == "resetChase"):
     print "<div><b>Alle aktuellen Wegpunkte und Gegenstände wurden gelöscht!</b></div>"
 elif (str(action) == "resetChase"):
     print "<div><b>Projekt '"+str(html_name)+"' gelöscht!</b></div>"
+elif (str(action) == "changeConfigDone"):
+    print "<div><b>Variable '"+str(html_name)+"' gespeichert!</b></div>"
 elif (str(action) == "changeConfig"):
     print "<div><b>Variable '"+str(html_name)+"' gespeichert!</b></div>"
-elif (str(action) == "deleteConfig"):
-    print "<div><b>Variable '"+str(html_name)+"' gelöscht!</b></div>"
     print """
-
-
 <script>
 function newDoc() {
-    window.location.assign("https://www.w3schools.com")
+    window.location.assign('/htbin/index.cgi?tab=config&action=changeConfigDone&name="""+html_name+"""')
 }
 
 newDoc()
 </script>
-    
+"""
+elif (str(action) == "deleteConfigDone"):
+    print "<div><b>Variable '"+str(html_name)+"' wurde gelöscht!</b></div>"
+elif (str(action) == "deleteConfig"):
+    print "<div><b>Variable '"+str(html_name)+"' wurde gelöscht!</b></div>"
+    print """
+<script>
+function newDoc() {
+    window.location.assign('/htbin/index.cgi?tab=config&action=deleteConfigDone&name="""+html_name+"""')
+}
+
+newDoc()
+</script>
 """
 
 
