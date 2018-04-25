@@ -452,6 +452,7 @@ def printWayPointMarker():
         bild = i[3]
         audio = i[4]
         video = i[5]
+        voice = i[6]
         samtrigger = i[7]
         try:
             question = i[9].encode("UTF-8")
@@ -491,6 +492,7 @@ def printWayPointMarker():
         extradata = extradata + "<br>Bild: "+str(bild)
         extradata = extradata + "<br>Audio: "+str(audio)
         extradata = extradata + "<br>Video: "+str(video)
+        extradata = extradata + "<br>Sprachnachricht: "+str(voice)
         extradata = extradata + "<br>Trigger: "+str(samtrigger)
         extradata = extradata + "<br>Frage: "+str(question)
         if str(question) != "None":
