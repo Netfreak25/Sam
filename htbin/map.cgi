@@ -637,7 +637,7 @@ print """
     <input style="border: 1px solid #ccc;" type="hidden" name="lng" id="lng" size="9" readonly>
 
 
-    <button style="width: 160px" type="submit" name="action" value="addWaypoint">Wegpunkt hinzufügen</button>
+    <button style="width: 170px" type="submit" name="action" value="addWaypoint">Wegpunkt hinzufügen</button>
     </form>
     </div>
 
