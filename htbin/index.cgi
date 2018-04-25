@@ -826,16 +826,28 @@ def changeConfig():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
-        command6 = """UPDATE config SET value = '"""+str(html_text).replace("'","\\'")+"""' WHERE name = '"""+str(html_name)+"""' """
+        command6 = """INSERT INTO config (name, value) VALUES ('"""+str(html_name)+"""', '"""+str(html_text)+""")"""     
         cursor6.execute(command6)
         db6.commit()
         db6.close()
     except Exception, e2:
-        print e2
         try:
             db6.close()
         except:
             pass
+        try:
+            db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+            cursor6 = db6.cursor()
+            command6 = """UPDATE config SET value = '"""+str(html_text).replace("'","\\'")+"""' WHERE name = '"""+str(html_name)+"""' """
+            cursor6.execute(command6)
+            db6.commit()
+            db6.close()
+        except Exception, e2:
+            print e2
+            try:
+                db6.close()
+            except:
+                pass
 
 def deleteConfig():
     try:
