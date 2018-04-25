@@ -1208,7 +1208,7 @@ function toggleLoeschen() {
 for i in configdata:
     var = i[0]
     text = i[1].encode("UTF-8")
-    print "<div><div id='var-parent' style='clear:both;'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
+    print "<div style='clear:both;'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
 
 
 print """
