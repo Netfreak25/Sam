@@ -60,6 +60,7 @@ trigger_distance_m = int(getconfig('trigger_distance_m'))
 invincible = int(getconfig('invincible'))
 extra_distance_m = int(getconfig('extra_distance_m'))
 
+cheat_detection = int(getconfig('cheat_detection'))
 
 # Load Telegram Token
 updater = Updater(token=telegram_token)
@@ -572,7 +573,8 @@ def location(bot, update):
     try:
         user_location = update.message.location
         try:
-            verified = update.message.reply_to_message
+            if str(cheat_detection) == "1":
+                verified = update.message.reply_to_message
             if verified == None:
                 if invincible == 0:
                     (returntext, returntextkurz) = died(update.message.chat_id, 1)
