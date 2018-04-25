@@ -1202,7 +1202,9 @@ function toggleLoeschen() {
 </div>
 
 </form>
-<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div><div>"""
+<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
+<h3 style="margin-top: 5px">Config via DB</h3>
+<div>"""
 
 
 for i in configdata:
@@ -1212,6 +1214,42 @@ for i in configdata:
 
 
 print """
+
+
+
+
+
+<div>
+<form action="index.cgi" method="POST">
+<input type="hidden" name="action" value="changeConfig">
+<input type="hidden" name="tab" value="config">
+
+<div>
+    <div style="float: left">
+        <label for="name">Variable</label>
+    </div>
+
+    <div style="width: 150px">
+    <input id="name" name="name">
+    </div>
+
+
+</div>
+
+<div>
+    <div style="width: 150px;">
+        <label for="text">Wert</label>
+    </div>
+    <div style="loat: left">
+        <input id="text" name="text" value=""></textarea>
+    </div>
+</div>
+
+
+
+
+
+
 </div>
 </div>
 
