@@ -55,6 +55,7 @@ addDBConfig()
 botname = str(getconfig('botname'))
 pagename = str(getconfig('pagename'))
 
+invincible = int(getconfig('invincible'))
 
 ###### Read html input
 form = cgi.FieldStorage()
@@ -940,7 +941,10 @@ print """
 print '''
 <button class="'''+str(weg)+'''" onclick="openOption(event, 'Wegpunkte')">Wegpunkte</button>
 <button class="'''+str(items)+'''" onclick="openOption(event, 'Items')">Gegenstände</button>
-<button class="'''+str(deathreason)+'''" onclick="openOption(event, 'deathreason')">Todes Gründe</button>
+'''
+if str(invincible) == "0":
+    print '''<button class="'''+str(deathreason)+'''" onclick="openOption(event, 'deathreason')">Todes Gründe</button>'''
+print '''
 <button class="'''+str(dateien)+'''" onclick="openOption(event, 'Dateien')">Dateien</button>
 <button class="'''+str(benutzer)+'''" onclick="openOption(event, 'user')">Benutzer</button>
 <button class="'''+str(triggerclients)+'''" onclick="openOption(event, 'triggerclients')">Trigger Clients</button>

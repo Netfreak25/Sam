@@ -10,6 +10,12 @@ sam_db = YOURDB
 sam_db_user = YOURDBUSER
 sam_db_pw = YOURPASSWORD
 
+### Web Gui Settings
+web_gui_port = 8000
+web_gui_ip = 127.0.0.1
+
+
+### The settings below can be overwirtten via DB
 ### Telegram Settings (without the bot:)
 telegram_token = 542342341:AAF84z1J61N77s51sdfsdfsdfsdfsdfsddsdfs
 
@@ -28,8 +34,7 @@ gmaps_key = sdfsdfsdfsdfsdfsdfsdfsdsfd
 ### Gui Settings
 botname = DeinBotName
 pagename = SamGuiTest
-web_gui_port = 8000
-web_gui_ip = 127.0.0.1
+
 
 ### Waypoint Editor Options
 zoom_koordinaten = 44.993060,7.652171 
