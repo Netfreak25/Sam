@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 10
 echo -ne "[1/5] Updating SAM via git pull"
 git pull > /tmp/sam-update.log 2>&1
 echo -ne "\\r[1/5] Updating SAM via git pull - DONE"
