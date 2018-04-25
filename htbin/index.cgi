@@ -430,7 +430,7 @@ def save_chase():
 def restart():
     pid=os.fork()
     if pid==0: # new process
-        cmd = 'sudo ./start.sh > /tmp/sam-restart.log 2>&1 &'
+        cmd = 'sudo /sam/start.sh > /tmp/sam-restart.log 2>&1 &'
         os.system(cmd)
         sys.exit()
 
