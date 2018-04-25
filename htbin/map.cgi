@@ -76,8 +76,6 @@ zoom_level = str(getconfig('zoom_level'))
 
 trigger_distance_m = int(getconfig('trigger_distance_m'))
 extra_distance_m = int(getconfig('extra_distance_m'))
-defaultRadius = false
-defaultItemRadius = false
 
 sam_host = str(getconfig('sam_host'))
 sam_db = str(getconfig('sam_db'))
@@ -478,7 +476,6 @@ def printWayPointMarker():
 
         radiusShown = ""
         if str(radius) == '0':
-            defaultRadius = true
             radius = str(trigger_distance_m)
             radiusShown = str(trigger_distance_m) + "m (Global)"
         else:
@@ -520,7 +517,6 @@ def printMarker():
         radius = i[5]
         radiusShown = ""
         if str(radius) == '0':
-            defaultItemRadius = true
             radius = str(extra_distance_m)
             radiusShown = str(extra_distance_m) + "m (Global)"
         else:
