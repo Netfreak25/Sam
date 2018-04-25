@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 3
+sleep 0.5
 cd /sam/
 chmod 777 /tmp/sam-gui.log
 chmod 777 /tmp/sam.log
