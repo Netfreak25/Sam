@@ -159,7 +159,7 @@ def minusItemRadius(itemid):
         db6.commit()
         db6.close()
     except Exception, e2:
-        print e2
+        print "<center>Radius darf nicht negativ sein!</center>"
         try:
             db6.close()
         except:
@@ -174,7 +174,7 @@ def minusOne(itemid):
         db6.commit()
         db6.close()
     except Exception, e2:
-        print e2
+        print "<center>Du kannst keine negative Anzahl Items festlegen!</center>"
         try:
             db6.close()
         except:
