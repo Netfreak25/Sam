@@ -1235,8 +1235,7 @@ print """
         <input id="text" name="text" value="">
 
 </div>
-
-<div><button>Änderung speichern!</button>
+<button>Änderung speichern!</button>
 </form>
 
 
