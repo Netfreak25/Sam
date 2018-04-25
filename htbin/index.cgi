@@ -837,6 +837,21 @@ def changeConfig():
         except:
             pass
 
+def deleteConfig():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """DELETE FROM `samsquetch`.`config` WHERE `config`.`name` = '"""+str(html_name)+"""' """
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e2:
+        print e2
+        try:
+            db6.close()
+        except:
+            pass
+
 def deleteUser():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
@@ -896,6 +911,8 @@ elif (str(action) == "changeText"):
     changeText()
 elif (str(action) == "changeConfig"):
     changeConfig()
+elif (str(action) == "deleteConfig"):
+    deleteConfig()
 elif (str(action) == "deleteUser"):
     deleteUser()
 elif (str(action) == "deleteTriggerClient"):
@@ -1213,7 +1230,9 @@ function toggleLoeschen() {
 for i in configdata:
     var = i[0]
     text = i[1].encode("UTF-8")
-    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left; width: 30px'> = </div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
+    removeurl = '<div><a class="eLink" href="index.cgi?action=deleteConfig&tab=config&name='+str(var)+'">[entfernen]</a></div>'
+    
+    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left; width: 30px'> = </div> <div class='config-field' style='float: left'>"+str(text)+"</div> "+str(removeurl)+"</div>"
 
 
 print """
@@ -1235,7 +1254,7 @@ print """
         <input id="text" name="text" placeholder="Neuer Wert">
 
 </div>
-<div style="clear: both">
+<div style="clear: both; padding-top: 10px">
 <button>hinzufügen/überschreiben</button>
 </div>
 </form>
