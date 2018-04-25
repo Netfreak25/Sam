@@ -1092,9 +1092,16 @@ elif (str(action) == "changeConfig"):
 elif (str(action) == "deleteConfig"):
     print "<div><b>Variable '"+str(html_name)+"' gelöscht!</b></div>"
     print """
+
+
 <script>
-window.location.href = 'http://www.google.com' " />
+function newDoc() {
+    window.location.assign("https://www.w3schools.com")
+}
+
+newDoc()
 </script>
+    
 """
 
 
