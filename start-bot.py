@@ -576,7 +576,7 @@ def location(bot, update):
             if str(cheat_detection) == "0":
                 raise ValueError('Cheat detection disabled!')
             verified = update.message.reply_to_message
-            print verified
+
             if verified == None:
                 if invincible == 0:
                     (returntext, returntextkurz) = died(update.message.chat_id, 1)
@@ -597,8 +597,7 @@ def location(bot, update):
                     except Exception, e:
                         print e
                     
-        except Exception, e3:
-            print e3
+        except:
             lat = user_location.latitude
             long = user_location.longitude
             location = (float(lat), float(long))
