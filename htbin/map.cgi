@@ -431,9 +431,20 @@ def printWayPointMarker():
             is_wrong2 = i[12].encode("UTF-8")
         except:
             is_wrong2 = "None"
+
+        try:
+            waypoint_name = i[13].encode("UTF-8")
+        except:
+            waypoint_name = "None"
+        radius = i[14]
+
+        if str(radius) == '0':
+            radius = str(trigger_distance_m)
     #    print "<div>"+str()+": "+str(text)+"</div>"
         extradata = ""
-        extradata = extradata + "<br>Location: "+str(location)
+        if waypoint_name != "None":
+            extradata = extradata + "<br>Name: "+str(waypoint_name)
+        extradata = extradata + "<br>Ort: "+str(location)
         extradata = extradata + "<br>Bild: "+str(bild)
         extradata = extradata + "<br>Audio: "+str(audio)
         extradata = extradata + "<br>Video: "+str(video)
@@ -449,7 +460,7 @@ def printWayPointMarker():
         removeurl = '<a href="map.cgi?action=deleteWaypoint&id='+str(id)+'">entfernen<a/>'
         editurl = """<a href="website" onclick="openwindow(\\'waypoint.cgi?id="""+str(id)+"""\\'); return false;">editieren<a/>"""
         beschreibung = """Wegpunkt """+str(id)+""":<br><br>"""+str(text).replace("\r\n","<br>")+"""<br>"""+str(extradata)+"""<br><br>"""+str(editurl)+"""<br>"""+str(removeurl)
-        data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", 'Wegpunkt """+str(id)+"""'],\n"""
+        data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", 'Wegpunkt """+str(id)+"""', '"""+str(radius)+"""'],\n"""
         count = count + 1
     return data[:-2]
 
@@ -785,7 +796,7 @@ function setWaypointMarkers(map) {
         fillOpacity: 0.35,
         map: map,
         center: {lat: theitem[1], lng: theitem[2]},
-        radius: 10
+        radius: parseInt(theitem[5]) / 2
       });
 
           var infowindow = new google.maps.InfoWindow({});
