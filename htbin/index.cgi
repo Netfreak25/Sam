@@ -1804,7 +1804,7 @@ function getFieldWidth() {
       
     }
 
-    var newvalue = (parseInt(mywidth2.replace(/px/,""))-200)+"px"
+    var newvalue = (parseInt(mywidth2.replace(/px/,""))-200)+"px";
 
     var cols3 = document.getElementsByClassName('var-field');
     for(i=0; i<cols3.length; i++) {
@@ -1812,7 +1812,7 @@ function getFieldWidth() {
     }
 
 
-    var newvalue2 = (parseInt(mywidth2.replace(/px/,""))-500)+"px"
+    var newvalue2 = (parseInt(mywidth2.replace(/px/,""))-500)+"px";
 
     var cols3 = document.getElementsByClassName('config-field');
     for(i=0; i<cols3.length; i++) {
