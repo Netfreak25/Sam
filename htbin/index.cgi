@@ -1213,7 +1213,7 @@ function toggleLoeschen() {
 for i in configdata:
     var = i[0]
     text = i[1].encode("UTF-8")
-    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
+    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left'> = </div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
 
 
 print """
@@ -1221,24 +1221,21 @@ print """
 
 
 <br>
-Variable hinzufügen/überschreiben:
 <div>
 <form action="index.cgi" method="POST">
 <input type="hidden" name="action" value="changeConfig">
 <input type="hidden" name="tab" value="config">
 
-<div>
-        <label for="name">Variable:</label>
+<div style="float: left; width: 160px">
         <input id="name" name="name">
 
 </div>
-
-<div>
-        <label for="text">Wert:</label>
+<div style='float: left'> = </div>
+<div class='config-field' style='float: left'>
         <input id="text" name="text" value="">
 
 </div>
-<button>Änderung speichern!</button>
+<button>hinzufügen/überschreiben</button>
 </form>
 
 
