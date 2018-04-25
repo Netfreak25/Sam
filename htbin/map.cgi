@@ -618,7 +618,7 @@ print """
 
 <div style='margin: 2px;'>
 <form style="margin: 0px" action="map.cgi" method="post">
-
+<div style="width: 180px; float: left">
 <input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="hidden" name="lat" id="lat2" size="9" readonly>
 <input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="hidden" name="lng" id="lng2" size="9" readonly>
 
@@ -626,18 +626,22 @@ print """
 typeDropDown()
 AmounttypeDropDown()
 print """
+</div>
+<div>
 <button style="width: 160px" type="submit" name="action" value="addItem" style="display:table-cell; vertical-align:middle;">Item hinzufügen</button>
+</div>
 </form>
 </div>
 
     <div style='margin: 2px;'>
-    <form style="margin: 0px; padding-left: 180px" action="map.cgi" method="post">
-
+    <form style="margin: 0px" action="map.cgi" method="post">
+<div style="width: 180px; float: left">
     <input style="border: 1px solid #ccc;" type="hidden" name="lat" id="lat" size="9" readonly>
     <input style="border: 1px solid #ccc;" type="hidden" name="lng" id="lng" size="9" readonly>
-
-
+</div>
+<div>
     <button style="width: 170px" type="submit" name="action" value="addWaypoint">Wegpunkt hinzufügen</button>
+</div>
     </form>
     </div>
 
