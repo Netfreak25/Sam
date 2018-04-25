@@ -135,6 +135,35 @@ def plusOne(itemid):
         except:
             pass
 
+def plusItemRadius(itemid):
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """UPDATE extra_waypoints SET item_distance_m = item_distance_m + 10 WHERE id = '"""+str(itemid)+"""' """
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e2:
+        print e2
+        try:
+            db6.close()
+        except:
+            pass
+
+def minusItemRadius(itemid):
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """UPDATE extra_waypoints SET item_distance_m = item_distance_m - 10 WHERE id = '"""+str(itemid)+"""' """
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e2:
+        print e2
+        try:
+            db6.close()
+        except:
+            pass
 
 def minusOne(itemid):
     try:
@@ -223,6 +252,13 @@ if (str(action) == "minusItem"):
 
 if (str(action) == "plusItem"):
     plusOne(html_id)
+
+
+if (str(action) == "minusItemRadius"):
+    minusItemRadius(html_id)
+
+if (str(action) == "plusItemRadius"):
+    plusItemRadius(html_id)
 
 def GetInventoryTypes():
     try:
@@ -484,8 +520,8 @@ def printMarker():
         plusurl = '<a href="map.cgi?action=plusItem&id='+str(id)+'">+1<a/>'
         minusurl = '<a href="map.cgi?action=minusItem&id='+str(id)+'">-1<a/>'
 
-        plusmurl = '<a href="map.cgi?action=plusRadius&id='+str(id)+'">+10m<a/>'
-        minusmurl = '<a href="map.cgi?action=minusRadius&id='+str(id)+'">-10m<a/>'
+        plusmurl = '<a href="map.cgi?action=plusItemRadius&id='+str(id)+'">+10m<a/>'
+        minusmurl = '<a href="map.cgi?action=minusItemRadius&id='+str(id)+'">-10m<a/>'
         beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>Radius: """+str(radius)+"""m<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(plusmurl)+""" """+str(minusmurl)+"""<br>"""+str(deleteurl)+"""<br>"""
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", '/img/emoji/"""+str(type)+""".png', '"""+str(typename)+"""', '"""+str(radius)+"""'],\n"""
         count = count + 1
