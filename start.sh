@@ -1,4 +1,11 @@
 #!/bin/bash
+chmod 777 /tmp/sam-gui.log
+chmod 777 /tmp/sam.log
+chmod 777 /tmp/sam-update.log
+
+export username=`whoami`
+chown -R nobody:$username ./*
+
 echo -ne "[1/5] Updating SAM via git pull"
 git pull > /tmp/sam-update.log 2>&1
 echo -ne "\\r[1/5] Updating SAM via git pull - DONE"
@@ -11,7 +18,7 @@ echo -ne "\\r[2/5] Killing old Bot Instance - DONE"
 echo
 
 echo -ne "[3/5] Starting Bot Instance"
-/usr/bin/python start-bot.py >> /tmp/sam.log 2>&1 &
+sudo -u nobody /usr/bin/python start-bot.py >> /tmp/sam.log 2>&1 &
 echo -ne "\\r[3/5] Starting Bot Instance - DONE"
 echo
 
@@ -22,7 +29,7 @@ echo -ne "\\r[4/5] Killing old WebGui Instance - DONE"
 echo
 
 echo -ne "[5/5] Staring WebGui Instance"
-/usr/bin/python start-gui.py >> /tmp/sam-gui.log 2>&1 &
+sudo -u nobody /usr/bin/python start-gui.py >> /tmp/sam-gui.log 2>&1 &
 echo -ne "\\r[5/5] Staring WebGui Instance - DONE"
 echo
 
