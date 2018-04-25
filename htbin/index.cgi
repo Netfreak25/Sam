@@ -430,7 +430,7 @@ def save_chase():
 def restart():
     cmd = 'sudo /sam/start.sh > /tmp/sam-restart.log 2>&1 &'
     os.system(cmd)
-    sys.exit()
+
 
 
 def save_uploaded_file():
