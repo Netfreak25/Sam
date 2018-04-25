@@ -15,6 +15,7 @@ telegram_token = 542342341:AAF84z1J61N77s51sdfsdfsdfsdfsdfsddsdfs
 
 ### Game Options
 invincible = 0
+cheat_detection = 0
 extra_distance_m = 25
 trigger_distance_m = 30
 
