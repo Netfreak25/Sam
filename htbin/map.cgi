@@ -720,7 +720,6 @@ function setMarkers(map) {
         fillColor: '#FF0000',
         fillOpacity: 0.35,
         map: map,
-        center: {lat: waypoint[1], lng: waypoint[2]},
         radius: 100
       });
     };
