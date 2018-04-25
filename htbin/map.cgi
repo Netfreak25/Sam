@@ -695,7 +695,7 @@ function setMarkers(map) {
       position: {lat: theitem[1], lng: theitem[2]},
       center: {lat: theitem[1], lng: theitem[2]},
       map: map,
-      icon: theitem[4],
+      icon: { url: theitem[4], size: new google.maps.Size(16, 16), origin: new google.maps.Point(0, 0), anchor: new google.maps.Point(8, 8) },
       shape: shape,
       title: theitem[5],
       zIndex: theitem[3],
