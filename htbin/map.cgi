@@ -442,6 +442,8 @@ def printWayPointMarker():
     for i in wps:
         id = i[0]
         location = i[1]
+        shownLocation = location.split(", ")
+        shownLocation = str(shownLocation[0][0:6])+", "+str(shownLocation[1][0:6])
         try:
             text = i[2].encode("utf-8")
         except:
@@ -484,7 +486,7 @@ def printWayPointMarker():
         extradata = ""
         if (waypoint_name != "None") and (len(waypoint_name) >= 1):
             extradata = extradata + "<br>Name: "+str(waypoint_name)
-        extradata = extradata + "<br>Ort: "+str(location)
+        extradata = extradata + "<br>Ort: "+str(shownLocation)
         extradata = extradata + "<br>Radius: "+str(radiusShown)
         extradata = extradata + "<br>Bild: "+str(bild)
         extradata = extradata + "<br>Audio: "+str(audio)
