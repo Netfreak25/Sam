@@ -830,8 +830,7 @@ def changeConfig():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
-        command6 = """INSERT INTO config (name, value) VALUES ('"""+str(html_name)+"""', '"""+str(html_text)+"""')""" 
-        print command6    
+        command6 = """INSERT INTO config (name, value) VALUES ('"""+str(html_name)+"""', '"""+str(html_text)+"""')"""   
         cursor6.execute(command6)
         db6.commit()
         db6.close()
