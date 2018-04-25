@@ -714,13 +714,14 @@ function setMarkers(map) {
     for (var waypoint in samitems) {
   // Add the circle for this city to the map.
     var cityCircle = new google.maps.Circle({
+        var theitem = samitems[i];
         strokeColor: '#FF0000',
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: '#FF0000',
         fillOpacity: 0.35,
         map: map,
-        center: citymap[city].center,
+        center: {lat: waypoint[1], lng: waypoint[2]},
         radius: 100
       });
     };
