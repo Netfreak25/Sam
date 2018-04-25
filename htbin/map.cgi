@@ -718,7 +718,7 @@ function setMarkers(map) {
         fillOpacity: 0.35,
         map: map,
         center: {lat: theitem[1], lng: theitem[2]},
-        radius: theitem[6]
+        radius: parseInt(theitem[6])
       });
 
           var infowindow = new google.maps.InfoWindow({});
