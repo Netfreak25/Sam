@@ -628,7 +628,7 @@ AmounttypeDropDown()
 print """
 </div>
 <div>
-<button style="width: 160px" type="submit" name="action" value="addItem" style="display:table-cell; vertical-align:middle;">Item hinzufügen</button>
+<button style="width: 170px" type="submit" name="action" value="addItem" style="display:table-cell; vertical-align:middle;">Item hinzufügen</button>
 </div>
 </form>
 </div>
