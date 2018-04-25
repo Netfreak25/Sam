@@ -700,6 +700,16 @@ function setMarkers(map) {
       zIndex: theitem[3],
       contentString: contentString
     });
+    var cityCircle = new google.maps.Circle({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: map,
+        center: {lat: theitem[1], lng: theitem[2]},
+        radius: 60350200
+      });
 
           var infowindow = new google.maps.InfoWindow({});
 
@@ -711,18 +721,6 @@ function setMarkers(map) {
   }
 
 
-    for (var waypoint in samitems) {
-  // Add the circle for this city to the map.
-    var cityCircle = new google.maps.Circle({
-        strokeColor: '#FF0000',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#FF0000',
-        fillOpacity: 0.35,
-        map: map,
-        radius: 60350200
-      });
-    }
 };
 
 
