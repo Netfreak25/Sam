@@ -1261,10 +1261,18 @@ function toggleLoeschen() {
 
 <div id='optionen' style='border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
 <h3 onclick="toggleOptionen()" style="margin-top: 5px">Andere Optionen</h3>
-<form action="index.cgi" method="GET">
+<form action="index.cgi" method="POST">
 <input type="hidden" name="action" value="resetChase">
 <input type="hidden" name="tab" value="config">
 <div ><button>Projekt Zurücksetzen</button>
+</div>
+
+</form>
+
+<form action="index.cgi" method="POST">
+<input type="hidden" name="action" value="restart">
+<input type="hidden" name="tab" value="config">
+<div ><button>Bot & Gui Neustarten</button>
 </div>
 
 </form>
