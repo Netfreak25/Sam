@@ -946,8 +946,6 @@ elif (str(action) == "deleteChase"):
     delete_chase()
 elif (str(action) == "resetChase"):
     reset_chase()
-elif (str(action) == "restart"):
-    restart()
 
 
 
@@ -1085,7 +1083,9 @@ print """
 
 <div id="Configtab" """+str(configtabs)+""" class="tabcontent" style="min-height: 250px">"""
 
-if (str(action) == "saveChase"):
+if (str(action) == "restart"):
+    print "<div><b>Gui & Bot werden neu gestartet!</b></div>"
+elif (str(action) == "saveChase"):
     print "<div><b>Schnitzeljagdt unter '"+str(html_name)+"' gespeichert!</b></div>"
 elif (str(action) == "loadChase"):
     print "<div><b>Schnitzeljagdt '"+str(html_name)+"' geladen!</b></div>"
@@ -1942,7 +1942,8 @@ function openOption(evt, cityName) {
 
 </div>"""
 
+if (str(action) == "restart"):
+    restart()
 
 
-
-print "<body>"
+print "</body>"
