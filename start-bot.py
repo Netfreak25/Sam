@@ -596,7 +596,8 @@ def location(bot, update):
                     except Exception, e:
                         print e
                     
-        except:
+        except Exception, e3:
+            print e3
             lat = user_location.latitude
             long = user_location.longitude
             location = (float(lat), float(long))
