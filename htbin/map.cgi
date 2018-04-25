@@ -723,7 +723,7 @@ function setMarkers(map) {
         center: citymap[city].center,
         radius: 100
       });
-
+    };
 };
 
 
