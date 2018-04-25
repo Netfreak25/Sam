@@ -463,7 +463,7 @@ def printMarker():
         amount = i[3]
         chance = i[4]
         radius = i[5]
-        if radius == '0':
+        if str(radius) == '0':
             radius = str(extra_distance_m)
         typename = type_dict[type]
         typename = typename.split(",")[0]
