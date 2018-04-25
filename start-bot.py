@@ -573,6 +573,8 @@ def location(bot, update):
     try:
         user_location = update.message.location
         try:
+            if str(cheat_detection) == "0":
+                raise ValueError('Cheat detection disabled!')
             verified = update.message.reply_to_message
             print verified
             if verified == None:
