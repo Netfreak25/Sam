@@ -68,6 +68,28 @@ def getconfig(a):
     else:
         return configdb[a]
 
+
+
+sam_host = str(getconfig('sam_host'))
+sam_db = str(getconfig('sam_db'))
+sam_db_user = str(getconfig('sam_db_user'))
+sam_db_pw = str(getconfig('sam_db_pw'))
+
+def addDBConfig():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """SELECT * FROM config"""
+        cursor6.execute(command6)
+        data = cursor6.fetchall()
+        db6.close()
+        for i in data:
+            configdb.update({str(i[0].encode('utf-8')): str(i[1].encode('utf-8'))})
+    except Exception, e:
+        print e
+
+addDBConfig()
+
 gmaps_key = str(getconfig('gmaps_key'))
 zoom_koordinaten = str(getconfig('zoom_koordinaten'))
 zoom_level = str(getconfig('zoom_level'))
@@ -77,10 +99,6 @@ zoom_level = str(getconfig('zoom_level'))
 trigger_distance_m = int(getconfig('trigger_distance_m'))
 extra_distance_m = int(getconfig('extra_distance_m'))
 
-sam_host = str(getconfig('sam_host'))
-sam_db = str(getconfig('sam_db'))
-sam_db_user = str(getconfig('sam_db_user'))
-sam_db_pw = str(getconfig('sam_db_pw'))
 
 print "Content-Type: text/html; charset=UTF-8"     # HTML is following
 print                               # blank line, end of headers
