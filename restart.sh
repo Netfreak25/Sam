@@ -19,6 +19,9 @@ echo
 echo -ne "[4/5] Killing old WebGui Instance"
 ps aux | grep start-gui.py | cut -b 10-14 | xargs -I {} kill -9 {} > /dev/null 2>&1
 ps aux | grep start-gui.py | cut -b 10-14 | xargs -I {} kill -9 {} > /dev/null 2>&1
+
+ps aux | grep start-gui.py | cut -b 10-14 | xargs -I {} kill -15 {} > /dev/null 2>&1
+ps aux | grep start-gui.py | cut -b 10-14 | xargs -I {} kill -15 {} > /dev/null 2>&1
 echo -ne "\\r[4/5] Killing old WebGui Instance - DONE"
 echo
 
