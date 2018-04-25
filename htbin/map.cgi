@@ -76,6 +76,8 @@ zoom_level = str(getconfig('zoom_level'))
 
 trigger_distance_m = int(getconfig('trigger_distance_m'))
 extra_distance_m = int(getconfig('extra_distance_m'))
+defaultRadius = false
+defaultItemRadius = false
 
 sam_host = str(getconfig('sam_host'))
 sam_db = str(getconfig('sam_db'))
@@ -474,8 +476,13 @@ def printWayPointMarker():
             waypoint_name = "None"
         radius = i[14]
 
+        radiusShown = ""
         if str(radius) == '0':
+            defaultRadius = true
             radius = str(trigger_distance_m)
+            radiusShown = str(trigger_distance_m) + "m (Global)"
+        else:
+            radiusShown = str(radius) + "m"
     #    print "<div>"+str()+": "+str(text)+"</div>"
         extradata = ""
         if waypoint_name != "None":
@@ -511,8 +518,14 @@ def printMarker():
         amount = i[3]
         chance = i[4]
         radius = i[5]
+        radiusShown = ""
         if str(radius) == '0':
+            defaultItemRadius = true
             radius = str(extra_distance_m)
+            radiusShown = str(extra_distance_m) + "m (Global)"
+        else:
+            radiusShown = str(radius) + "m"
+
         typename = type_dict[type]
         typename = typename.split(",")[0]
         emoji = emojidict[str(type)]
@@ -522,7 +535,7 @@ def printMarker():
 
         plusmurl = '<a href="map.cgi?action=plusItemRadius&id='+str(id)+'">+10m<a/>'
         minusmurl = '<a href="map.cgi?action=minusItemRadius&id='+str(id)+'">-10m<a/>'
-        beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>Radius: """+str(radius)+"""m<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(plusmurl)+""" """+str(minusmurl)+"""<br>"""+str(deleteurl)+"""<br>"""
+        beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>Radius: """+str(radiusShown)+"""m<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(plusmurl)+""" """+str(minusmurl)+"""<br>"""+str(deleteurl)+"""<br>"""
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", '/img/emoji/"""+str(type)+""".png', '"""+str(typename)+"""', '"""+str(radius)+"""'],\n"""
         count = count + 1
     return data[:-2]
