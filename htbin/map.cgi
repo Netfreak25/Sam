@@ -456,14 +456,16 @@ def printMarker():
         location = i[1]
         type = str(i[2])
         amount = i[3]
+        chance = i[4]
+        radius = i[5]
         typename = type_dict[type]
         typename = typename.split(",")[0]
         emoji = emojidict[str(type)]
         deleteurl = '<a href="map.cgi?action=deleteItem&id='+str(id)+'">entfernen<a/>'
         plusurl = '<a href="map.cgi?action=plusItem&id='+str(id)+'">+1<a/>'
         minusurl = '<a href="map.cgi?action=minusItem&id='+str(id)+'">-1<a/>'
-        beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(deleteurl)+"""<br>"""
-        data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", '/img/emoji/"""+str(type)+""".png', '"""+str(typename)+"""'],\n"""
+        beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(deleteurl)+"""<br>"""
+        data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", '/img/emoji/"""+str(type)+""".png', '"""+str(typename)+"""', '"""+str(radius)+"""'],\n"""
         count = count + 1
     return data[:-2]
 
@@ -709,7 +711,7 @@ function setMarkers(map) {
         fillOpacity: 0.35,
         map: map,
         center: {lat: theitem[1], lng: theitem[2]},
-        radius: 10
+        radius: theitem[6]
       });
 
           var infowindow = new google.maps.InfoWindow({});
