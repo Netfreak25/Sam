@@ -617,10 +617,10 @@ print """
 
 
 <div style='margin: 5px;'>
-<form action="map.cgi" method="post">
+<form style="margin: 0px" action="map.cgi" method="post">
 
-<input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lat" id="lat2" size="9" readonly>
-<input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="text" name="lng" id="lng2" size="9" readonly>
+<input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="hidden" name="lat" id="lat2" size="9" readonly>
+<input style="border: 1px solid #ccc; display:table-cell; vertical-align:middle;" type="hidden" name="lng" id="lng2" size="9" readonly>
 
 """
 typeDropDown()
@@ -631,10 +631,10 @@ print """
 </div>
 
     <div style='margin: 5px;'>
-    <form action="map.cgi" method="post">
+    <form style="margin: 0px" action="map.cgi" method="post">
 
-    <input style="border: 1px solid #ccc;" type="text" name="lat" id="lat" size="9" readonly>
-    <input style="border: 1px solid #ccc;" type="text" name="lng" id="lng" size="9" readonly>
+    <input style="border: 1px solid #ccc;" type="hidden" name="lat" id="lat" size="9" readonly>
+    <input style="border: 1px solid #ccc;" type="hidden" name="lng" id="lng" size="9" readonly>
 
 
     <button type="submit" name="action" value="addWaypoint">Wegpunkt hinzufügen</button>
