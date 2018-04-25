@@ -1213,7 +1213,7 @@ function toggleLoeschen() {
 for i in configdata:
     var = i[0]
     text = i[1].encode("UTF-8")
-    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left'> = </div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
+    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left; width: 10px'> = </div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
 
 
 print """
@@ -1227,15 +1227,17 @@ print """
 <input type="hidden" name="tab" value="config">
 
 <div style="float: left; width: 160px">
-        <input id="name" name="name">
+        <input id="name" name="name" value="Variable">
 
 </div>
-<div style='float: left'> = </div>
+<div style='float: left; width: 10px'> = </div>
 <div class='config-field' style='float: left'>
-        <input id="text" name="text" value="">
+        <input id="text" name="text" value="Wert">
 
 </div>
+<div style="clear: both">
 <button>hinzufügen/überschreiben</button>
+</div>
 </form>
 
 
