@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /sam/
 chmod 777 /tmp/sam-gui.log
 chmod 777 /tmp/sam.log
 chmod 777 /tmp/sam-update.log
