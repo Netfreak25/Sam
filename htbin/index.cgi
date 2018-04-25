@@ -1213,7 +1213,7 @@ function toggleLoeschen() {
 for i in configdata:
     var = i[0]
     text = i[1].encode("UTF-8")
-    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left; width: 10px'> = </div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
+    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left; width: 30px'> = </div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
 
 
 print """
@@ -1227,12 +1227,12 @@ print """
 <input type="hidden" name="tab" value="config">
 
 <div style="float: left; width: 160px">
-        <input id="name" name="name" value="Variable">
+        <input id="name" name="name" placeholder="Neu Variable">
 
 </div>
-<div style='float: left; width: 10px'> = </div>
+<div style='float: left; width: 30px'> = </div>
 <div class='config-field' style='float: left'>
-        <input id="text" name="text" value="Wert">
+        <input id="text" name="text" placeholder="Neuer Wert">
 
 </div>
 <div style="clear: both">
@@ -1862,8 +1862,8 @@ function openOption(evt, cityName) {
     document.getElementById(cityName).style.overflow = "auto";
     
     evt.currentTarget.className += " active";
-    getFieldWidthDeath();
     getFieldWidth();
+    getFieldWidthDeath();
     
 }
 </script>
