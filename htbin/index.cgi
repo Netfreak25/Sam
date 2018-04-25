@@ -1823,9 +1823,10 @@ function getFieldWidth() {
 </script>
 <script>
 getFieldWidth();
-</script>
+</script>"""
 
-
+if str(invincible) == "0":
+    print """
 <script>
 function getFieldWidthDeath() {
     var cols2 = document.getElementsByClassName('tabcontent');
@@ -1838,7 +1839,7 @@ function getFieldWidthDeath() {
       
     }
 
-    var newvalue = (parseInt(mywidth2.replace(/px/,""))-340)+"px"
+    var newvalue = (parseInt(mywidth2.replace(/px/,""))-340)+"px";
 
     var cols3 = document.getElementsByClassName('death-field');
     for(i=0; i<cols3.length; i++) {
