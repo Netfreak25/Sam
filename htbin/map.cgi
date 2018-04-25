@@ -483,7 +483,7 @@ def printMarker():
         deleteurl = '<a href="map.cgi?action=deleteItem&id='+str(id)+'">entfernen<a/>'
         plusurl = '<a href="map.cgi?action=plusItem&id='+str(id)+'">+1<a/>'
         minusurl = '<a href="map.cgi?action=minusItem&id='+str(id)+'">-1<a/>'
-        beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(deleteurl)+"""<br>"""
+        beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>Radius: """+str(radius)+"""m<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(deleteurl)+"""<br>"""
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", '/img/emoji/"""+str(type)+""".png', '"""+str(typename)+"""', '"""+str(radius)+"""'],\n"""
         count = count + 1
     return data[:-2]
