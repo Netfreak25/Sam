@@ -72,6 +72,11 @@ gmaps_key = str(getconfig('gmaps_key'))
 zoom_koordinaten = str(getconfig('zoom_koordinaten'))
 zoom_level = str(getconfig('zoom_level'))
 
+
+
+trigger_distance_m = int(getconfig('trigger_distance_m'))
+extra_distance_m = int(getconfig('extra_distance_m'))
+
 sam_host = str(getconfig('sam_host'))
 sam_db = str(getconfig('sam_db'))
 sam_db_user = str(getconfig('sam_db_user'))
@@ -458,6 +463,8 @@ def printMarker():
         amount = i[3]
         chance = i[4]
         radius = i[5]
+        if radius == '0':
+            radius = str(extra_distance_m)
         typename = type_dict[type]
         typename = typename.split(",")[0]
         emoji = emojidict[str(type)]
