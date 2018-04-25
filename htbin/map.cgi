@@ -482,7 +482,7 @@ def printWayPointMarker():
             radiusShown = str(radius) + "m"
     #    print "<div>"+str()+": "+str(text)+"</div>"
         extradata = ""
-        if waypoint_name != "None":
+        if (waypoint_name != "None") and (len(waypoint_name) >= 1):
             extradata = extradata + "<br>Name: "+str(waypoint_name)
         extradata = extradata + "<br>Ort: "+str(location)
         extradata = extradata + "<br>Radius: "+str(radius)+"m"
@@ -500,7 +500,7 @@ def printWayPointMarker():
 
         removeurl = '<a href="map.cgi?action=deleteWaypoint&id='+str(id)+'">entfernen<a/>'
         editurl = """<a href="website" onclick="openwindow(\\'waypoint.cgi?id="""+str(id)+"""\\'); return false;">editieren<a/>"""
-        beschreibung = """Wegpunkt """+str(id)+""":<br><br>"""+str(text).replace("\r\n","<br>")+"""<br>"""+str(extradata)+"""<br><br>"""+str(editurl)+"""<br>"""+str(removeurl)
+        beschreibung = """Wegpunkt """+str(id)+""":<br><br>Text: """+str(text).replace("\r\n","<br>").replace("None","Kein Text")+"""<br>"""+str(extradata)+"""<br><br>"""+str(editurl)+"""<br>"""+str(removeurl)
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", 'Wegpunkt """+str(id)+"""', '"""+str(radius)+"""'],\n"""
         count = count + 1
     return data[:-2]
@@ -531,7 +531,7 @@ def printMarker():
 
         plusmurl = '<a href="map.cgi?action=plusItemRadius&id='+str(id)+'">+10m<a/>'
         minusmurl = '<a href="map.cgi?action=minusItemRadius&id='+str(id)+'">-10m<a/>'
-        beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>Radius: """+str(radiusShown)+"""m<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(plusmurl)+""" """+str(minusmurl)+"""<br>"""+str(deleteurl)+"""<br>"""
+        beschreibung = str(typename)+"""<br>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>Radius: """+str(radiusShown)+"""<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(plusmurl)+""" """+str(minusmurl)+"""<br>"""+str(deleteurl)+"""<br>"""
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", '/img/emoji/"""+str(type)+""".png', '"""+str(typename)+"""', '"""+str(radius)+"""'],\n"""
         count = count + 1
     return data[:-2]
