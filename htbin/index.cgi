@@ -1074,6 +1074,15 @@ elif (str(action) == "resetChase"):
     print "<div><b>Alle aktuellen Wegpunkte und Gegenstände wurden gelöscht!</b></div>"
 elif (str(action) == "resetChase"):
     print "<div><b>Projekt '"+str(html_name)+"' gelöscht!</b></div>"
+elif (str(action) == "changeConfig"):
+    print "<div><b>Variable '"+str(html_name)+"' gespeichert!</b></div>"
+elif (str(action) == "deleteConfig"):
+    print "<div><b>Variable '"+str(html_name)+"' gelöscht!</b></div>"
+    print """
+<script>
+window.location.href = 'http://www.google.com' " />
+</script>
+"""
 
 
 print """<div>"""
