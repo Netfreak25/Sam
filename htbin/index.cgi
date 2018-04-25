@@ -428,9 +428,9 @@ def save_chase():
 
 
 def restart():
-    cmd = './start.sh > /tmp/test.log 2>&1 &'
+    cmd = 'whoami >> /tmp/test2.log 2>&1 &'
     os.system(cmd)
-    cmd = 'whoami >> /tmp/test.log 2>&1 &'
+    cmd = './start.sh > /tmp/test.log 2>&1 &'
     os.system(cmd)
 
 
