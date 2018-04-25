@@ -428,8 +428,11 @@ def save_chase():
 
 
 def restart():
-    cmd = './restart.sh > /tmp/sam-restart.log 2>&1 &'
-    os.system(cmd)
+    pid=os.fork()
+    if pid==0: # new process
+        cmd = 'nohup ./restart.sh > /tmp/sam-restart.log 2>&1 &'
+        os.system(cmd)
+        sys.exit()
 
 
 def save_uploaded_file():
