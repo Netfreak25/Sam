@@ -1225,25 +1225,18 @@ print """
 <input type="hidden" name="tab" value="config">
 
 <div>
-    <div style="float: left">
-        <label for="name">Variable</label>
-    </div>
-
-    <div style="width: 150px">
-    <input id="name" name="name">
-    </div>
-
+        <label for="name">Variable:</label>
+        <input id="name" name="name">
 
 </div>
 
 <div>
-    <div style="width: 150px;">
-        <label for="text">Wert</label>
-    </div>
-    <div style="loat: left">
-        <input id="text" name="text" value=""></textarea>
-    </div>
+        <label for="text">Wert:</label>
+        <input id="text" name="text" value="">
+
 </div>
+
+<div><button>Änderung speichern!</button>
 </form>
 
 
