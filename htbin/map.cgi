@@ -700,11 +700,11 @@ function setMarkers(map) {
       zIndex: theitem[3],
       contentString: contentString
     });
-    var cityCircle = new google.maps.Circle({
+    var itemCircle = new google.maps.Circle({
         strokeColor: '#0000FF',
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: '#2828FF',
+        fillColor: '#0000FF',
         fillOpacity: 0.35,
         map: map,
         center: {lat: theitem[1], lng: theitem[2]},
@@ -765,6 +765,18 @@ function setWaypointMarkers(map) {
       zIndex: theitem[3],
       contentString: contentString
     });
+
+    var waypointCircle = new google.maps.Circle({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: map,
+        center: {lat: theitem[1], lng: theitem[2]},
+        radius: 10
+      });
+
           var infowindow = new google.maps.InfoWindow({});
 
           marker.addListener('click', function() {
