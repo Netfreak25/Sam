@@ -1825,7 +1825,7 @@ function getFieldWidth() {
 getFieldWidth();
 </script>"""
 
-if str(invincible) == "1":
+if str(invincible) == "0":
     print """
 <script>
 function getFieldWidthDeath() {
