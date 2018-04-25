@@ -485,7 +485,7 @@ def printWayPointMarker():
         if (waypoint_name != "None") and (len(waypoint_name) >= 1):
             extradata = extradata + "<br>Name: "+str(waypoint_name)
         extradata = extradata + "<br>Ort: "+str(location)
-        extradata = extradata + "<br>Radius: "+str(radius)+"m"
+        extradata = extradata + "<br>Radius: "+str(radiusShown)
         extradata = extradata + "<br>Bild: "+str(bild)
         extradata = extradata + "<br>Audio: "+str(audio)
         extradata = extradata + "<br>Video: "+str(video)
