@@ -722,7 +722,7 @@ function setMarkers(map) {
         map: map,
         radius: 60350200
       });
-    };
+    }
 };
 
 
