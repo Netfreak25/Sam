@@ -367,7 +367,7 @@ def importIcons():
     // The origin for this image is (0, 0).
     origin: new google.maps.Point(0, 0),
     // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32)
+    anchor: new google.maps.Point(8, 8)
   };
   """
     return data
@@ -685,7 +685,7 @@ function setMarkers(map) {
   // <area> element 'poly' which traces out a polygon as a series of X,Y points.
   // The final coordinate closes the poly by connecting to the first coordinate.
   var shape = {
-    coords: [1, 1, 1, 20, 18, 20, 18, 1],
+    coords: [0, 0, 0, 32, 32, 32, 32, 0],
     type: 'poly'
   };
   for (var i = 0; i < samitems.length; i++) {
