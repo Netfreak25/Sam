@@ -1208,7 +1208,7 @@ function toggleLoeschen() {
 for i in configdata:
     var = i[0]
     text = i[1].encode("UTF-8")
-    print "<div id='var-parent' style='clear:both;'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div> <div class='var-field' style='float: left'>"+str(text)+"</div></div>"
+    print "<div id='var-parent' style='clear:both;'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div> <div class='config-field' style='float: left'>"+str(text)+"</div></div>"
 
 
 print """
@@ -1770,6 +1770,14 @@ function getFieldWidth() {
     var cols3 = document.getElementsByClassName('var-field');
     for(i=0; i<cols3.length; i++) {
       cols3[i].style.width =  newvalue;
+    }
+
+
+    var newvalue2 = (parseInt(mywidth2.replace(/px/,""))-500)+"px"
+
+    var cols3 = document.getElementsByClassName('config-field');
+    for(i=0; i<cols3.length; i++) {
+      cols3[i].style.width =  newvalue2;
     }
 };
 
