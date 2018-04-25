@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import BaseHTTPServer
 import CGIHTTPServer
+from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 import cgitb; cgitb.enable()  ## This line enables CGI error reporting
 
 
@@ -34,7 +35,41 @@ except:
     web_gui_ip = ""
     text_ip = "0.0.0.0"
 
-server = BaseHTTPServer.HTTPServer
+
+class RequestHandler(BaseHTTPRequestHandler):
+    
+    def do_GET(self):
+        
+        request_path = self.path
+        
+        print("\n----- Request Start ----->\n")
+        print(request_path)
+        print(self.headers)
+        print("<----- Request End -----\n")
+        
+        self.send_response(200)
+        self.send_header("Set-Cookie", "foo=bar")
+        
+    def do_POST(self):
+        
+        request_path = self.path
+        
+        print("\n----- Request Start ----->\n")
+        print(request_path)
+        
+        request_headers = self.headers
+        content_length = request_headers.getheaders('content-length')
+        length = int(content_length[0]) if content_length else 0
+        
+        print(request_headers)
+        print(self.rfile.read(length))
+        print("<----- Request End -----\n")
+        
+        self.send_response(200)
+
+
+#server = BaseHTTPServer.HTTPServer
+server = HTTPServer(('', web_gui_port), RequestHandler)
 handler = CGIHTTPServer.CGIHTTPRequestHandler
 server_address = (web_gui_ip, web_gui_port)
 handler.cgi_directories = ["/htbin"]
