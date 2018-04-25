@@ -1202,7 +1202,7 @@ function toggleLoeschen() {
 </div>
 
 </form>
-<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>"""
+<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div><div>"""
 
 
 for i in configdata:
@@ -1212,6 +1212,7 @@ for i in configdata:
 
 
 print """
+</div>
 </div>
 
 
