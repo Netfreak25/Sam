@@ -751,7 +751,7 @@ function setWaypointMarkers(map) {
   // <area> element 'poly' which traces out a polygon as a series of X,Y points.
   // The final coordinate closes the poly by connecting to the first coordinate.
   var shape = {
-    coords: [1, 1, 1, 16, 16, 16, 16, 1],
+    coords: [0, 0, 0, 32, 32, 32, 32, 0],
     type: 'poly'
   };
   for (var i = 0; i < samwaypoints.length; i++) {
