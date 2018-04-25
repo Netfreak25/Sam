@@ -720,7 +720,7 @@ function setMarkers(map) {
         fillColor: '#FF0000',
         fillOpacity: 0.35,
         map: map,
-        radius: 10000
+        radius: 60350200
       });
     };
 };
