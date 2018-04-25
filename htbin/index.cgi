@@ -822,7 +822,7 @@ def changeText():
         except:
             pass
 
-def changeText():
+def changeConfig():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
@@ -894,6 +894,8 @@ elif (str(action) == "plusItem"):
     plusOne(html_id)
 elif (str(action) == "changeText"):
     changeText()
+elif (str(action) == "changeConfig"):
+    changeConfig()
 elif (str(action) == "deleteUser"):
     deleteUser()
 elif (str(action) == "deleteTriggerClient"):
@@ -1203,6 +1205,7 @@ function toggleLoeschen() {
 
 </form>
 <div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
+<br>
 <h3 style="margin-top: 5px">Config via DB</h3>
 <div>"""
 
@@ -1217,8 +1220,8 @@ print """
 
 
 
-
-
+<br>
+Variable hinzufügen/überschreiben:
 <div>
 <form action="index.cgi" method="POST">
 <input type="hidden" name="action" value="changeConfig">
