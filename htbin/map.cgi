@@ -626,7 +626,7 @@ print """
 typeDropDown()
 AmounttypeDropDown()
 print """
-<button style="width: 150px" type="submit" name="action" value="addItem" style="display:table-cell; vertical-align:middle;">Item hinzufügen</button>
+<button style="width: 165px" type="submit" name="action" value="addItem" style="display:table-cell; vertical-align:middle;">Item hinzufügen</button>
 </form>
 </div>
 
@@ -637,7 +637,7 @@ print """
     <input style="border: 1px solid #ccc;" type="hidden" name="lng" id="lng" size="9" readonly>
 
 
-    <button style="width: 150px" type="submit" name="action" value="addWaypoint">Wegpunkt hinzufügen</button>
+    <button style="width: 165px" type="submit" name="action" value="addWaypoint">Wegpunkt hinzufügen</button>
     </form>
     </div>
 
