@@ -57,6 +57,11 @@ pagename = str(getconfig('pagename'))
 
 invincible = int(getconfig('invincible'))
 
+try:
+    advanced = int(getconfig('advanced'))
+except:
+    advanced = 0
+    
 ###### Read html input
 form = cgi.FieldStorage()
 
@@ -947,7 +952,10 @@ if str(invincible) == "0":
 print '''
 <button class="'''+str(dateien)+'''" onclick="openOption(event, 'Dateien')">Dateien</button>
 <button class="'''+str(benutzer)+'''" onclick="openOption(event, 'user')">Benutzer</button>
-<button class="'''+str(triggerclients)+'''" onclick="openOption(event, 'triggerclients')">Trigger Clients</button>
+'''
+if str(advanced) == "1":
+    print '''<button class="'''+str(triggerclients)+'''" onclick="openOption(event, 'triggerclients')">Trigger Clients</button>'''
+print '''
 <button class="'''+str(variablen)+'''" onclick="openOption(event, 'Variablen')">Variablen</button>
 <button class="'''+str(configtab)+'''" onclick="openOption(event, 'Configtab')">Optionen</button>
 '''
