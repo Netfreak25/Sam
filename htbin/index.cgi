@@ -61,7 +61,7 @@ try:
     advanced = int(getconfig('advanced'))
 except:
     advanced = 0
-    
+
 ###### Read html input
 form = cgi.FieldStorage()
 
@@ -457,8 +457,24 @@ def get_variables():
 
 sam_vars = get_variables()
 
+# load config from database
+def get_dbconfig():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """SELECT * FROM config"""
+        cursor6.execute(command6)
+        data = cursor6.fetchall()
+        db6.close()
+        return data
+    except Exception, e:
+        print e
 
-# load variables from database
+configdata = get_dbconfig()
+
+
+
+# load waypoints from database
 def get_waypoints():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
@@ -1186,7 +1202,16 @@ function toggleLoeschen() {
 </div>
 
 </form>
-<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
+<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>"""
+
+
+for i in configdata:
+    var = i[0]
+    text = i[1].encode("UTF-8")
+    print "<div id='var-parent' style='clear:both;'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div> <div class='var-field' style='float: left'>"+str(text)+"</div></div>"
+
+
+print """
 </div>
 
 
