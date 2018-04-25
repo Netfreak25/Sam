@@ -637,6 +637,8 @@ print """
     <form style="margin: 0px" action="map.cgi" method="post">
 <div style="width: 180px; float: left">
     <input style="border: 1px solid #ccc;" type="hidden" name="lat" id="lat" size="9" readonly>
+</div>
+<div style="width: 180px; float: left">
     <input style="border: 1px solid #ccc;" type="hidden" name="lng" id="lng" size="9" readonly>
 </div>
 <div>
