@@ -1301,7 +1301,7 @@ print """
     <input id="name" name="name" placeholder="Neu Variable">
 </div>
 
-<div style='float: left; width: 30px'></div>
+<div style='float: left; padding-left: 30px'></div>
 <div class='config-field' style='float: left'>
         <input id="text" name="text" placeholder="Neuer Wert">
 
