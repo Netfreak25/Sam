@@ -1282,9 +1282,9 @@ function toggleLoeschen() {
 for i in configdata:
     var = i[0]
     text = i[1].encode("UTF-8")
-    removeurl = '<div><a class="eLink" href="index.cgi?action=deleteConfig&tab=config&name='+str(var)+'">[entfernen]</a></div>'
+    removeurl = '<div><a class="eLink" href="index.cgi?action=deleteConfig&tab=config&name='+str(var)+'">[ X ]</a></div>'
     
-    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left; width: 30px'> = </div> <div class='config-field' style='float: left'>"+str(text)+"</div> "+str(removeurl)+"</div>"
+    print "<div style='clear:both; height: 20px'><div style='float: left; width: 160px'><b>"+str(var)+"</b></div><div style='float: left; width: 30px'></div> <div class='config-field' style='float: left'>"+str(text)+"</div> "+str(removeurl)+"</div>"
 
 
 print """
@@ -1297,7 +1297,7 @@ print """
 <input type="hidden" name="action" value="changeConfig">
 <input type="hidden" name="tab" value="config">
 
-<div style="float: left; width: 160px">
+<div style="float: left; width: 150px">
         <input id="name" name="name" placeholder="Neu Variable">
 
 </div>
