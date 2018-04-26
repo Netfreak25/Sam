@@ -1278,7 +1278,7 @@ function toggleLoeschen() {
 <form action="index.cgi" method="POST">
 <input type="hidden" name="action" value="restart">
 <input type="hidden" name="tab" value="config">
-<div ><button>Bot & Gui Neustarten</button>
+<div ><button>Bot & Gui Updaten und Neustarten</button>
 </div>
 
 </form>
