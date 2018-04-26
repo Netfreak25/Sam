@@ -1100,7 +1100,7 @@ function newDoc() {
     window.location.assign('/htbin/index.cgi?tab=config&action=restartDone&name="""+html_name+"""');
 }
 
-setTimeout(newDoc(), 3000);
+setTimeout(newDoc(), 10000);
 
 </script>
 """
