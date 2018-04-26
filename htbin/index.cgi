@@ -1336,26 +1336,9 @@ function toggleOptionen() {
 
 
 
-<div id='optionen' style='border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
-<h3 onclick="toggleOptionen()" style="margin-top: 5px">Andere Optionen</h3>
-<form action="index.cgi" method="POST">
-<input type="hidden" name="action" value="resetChase">
-<input type="hidden" name="tab" value="config">
-<div ><button>Projekt Zurücksetzen</button>
-</div>
+<div id='configvars' style='border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
+<h3 onclick="toggleConfigvars()" style="margin-top: 5px">config.ini overwrite</h3>
 
-</form>
-
-<form action="index.cgi" method="POST">
-<input type="hidden" name="action" value="restart">
-<input type="hidden" name="tab" value="config">
-<div ><button>Bot & Gui Neustarten</button>
-</div>
-
-</form>
-<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
-<br>
-<h3 style="margin-top: 5px">Config via DB</h3>
 <div>"""
 
 
@@ -1400,8 +1383,8 @@ print """
 
 
 <script>
-function toggleOptionen() {
-    var el = document.getElementById('optionen');
+function toggleConfigvars() {
+    var el = document.getElementById('configvars');
 
     if ( el.style.overflow == 'hidden' ) {
         el.style.overflow = 'visible' 
