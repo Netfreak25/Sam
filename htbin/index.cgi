@@ -1298,10 +1298,10 @@ print """
 <input type="hidden" name="tab" value="config">
 
 <div style="float: left; width: 150px">
-        <input id="name" name="name" placeholder="Neu Variable">
-
+    <input id="name" name="name" placeholder="Neu Variable">
 </div>
-<div style='float: left; width: 30px'> = </div>
+
+<div style='float: left; width: 30px'></div>
 <div class='config-field' style='float: left'>
         <input id="text" name="text" placeholder="Neuer Wert">
 
