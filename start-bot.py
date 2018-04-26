@@ -57,7 +57,7 @@ def importDBfromFile(filename):
         # the DROP TABLE commands
         try:
             cursor.execute(command)
-        except OperationalError, msg:
+        except Exception, msg:
             print "Command skipped: ", msg
     db.close()
 
