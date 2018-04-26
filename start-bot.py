@@ -89,7 +89,7 @@ def addDBConfig():
         print e
 
 addDBConfig()
-
+print configdb
 telegram_token = str(getconfig('telegram_token'))
 
 trigger_distance_m = int(getconfig('trigger_distance_m'))
