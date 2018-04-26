@@ -39,6 +39,28 @@ sam_db_user = str(getconfig('sam_db_user'))
 sam_db_pw = str(getconfig('sam_db_pw'))
 
 
+def importDBfromFile(filename):
+    db = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+    cursor = db.cursor()
+    # Open and read the file as a single buffer
+    fd = open(filename, 'r')
+    sqlFile = fd.read()
+    fd.close()
+
+    # all SQL commands (split on ';')
+    sqlCommands = sqlFile.split(';')
+
+    # Execute every command from the input file
+    for command in sqlCommands:
+        # This will skip and report errors
+        # For example, if the tables do not yet exist, this will skip over
+        # the DROP TABLE commands
+        try:
+            cursor.execute(command)
+        except OperationalError, msg:
+            print "Command skipped: ", msg
+    db.close()
+
 def verifyDB():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
@@ -47,9 +69,8 @@ def verifyDB():
         cursor6.execute(command6)
         data = cursor6.fetchall()
         db6.close()
-        print data
     except Exception, e:
-        print e
+        importDBfromFile("structure.sql")
 
 
 verifyDB()
