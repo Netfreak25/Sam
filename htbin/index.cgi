@@ -1084,24 +1084,11 @@ print """
 
 if (str(action) == "restart"):
     print "<div><b>Gui & Bot werden neu gestartet!</b></div>"
-    print "<div><b>Gui läd sich in 10x Sekunden neu!</b></div>"
+    print "<div><b>Gui läd sich in 5x Sekunden neu!</b></div>"
     print """
 <script>
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
+setTimeout(function(){ window.location.assign('/htbin/index.cgi?tab=config&action=restartDone&name="""+html_name+"""'); }, 5000);
 }
-
-function newDoc() {
-    window.location.assign('/htbin/index.cgi?tab=config&action=restartDone&name="""+html_name+"""');
-}
-
-setTimeout(newDoc(), 10000);
-
 </script>
 """
 elif (str(action) == "restartDone"):
