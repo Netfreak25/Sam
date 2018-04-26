@@ -1097,8 +1097,8 @@ function sleep(milliseconds) {
 }
 
 function newDoc() {
-    sleep(10000)
-    window.location.assign('/htbin/index.cgi?tab=config&action=restartDone&name="""+html_name+"""')
+    sleep(10000);
+    window.location.assign('/htbin/index.cgi?tab=config&action=restartDone&name="""+html_name+"""');
 }
 
 newDoc()
