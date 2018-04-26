@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 import BaseHTTPServer
 import CGIHTTPServer
+import SocketServer
+import sys
 import cgitb; cgitb.enable()  ## This line enables CGI error reporting
+
+
+class ThreadingCGIServer(SocketServer.ThreadingMixIn, BaseHTTPServer.HTTPServer):
+    pass
 
 
 ### Konfiguration laden / do not change
@@ -35,12 +41,18 @@ except:
 
 
 
-server = BaseHTTPServer.HTTPServer
+#server = BaseHTTPServer.HTTPServer
+
 handler = CGIHTTPServer.CGIHTTPRequestHandler
-server_address = (web_gui_ip, web_gui_port)
 handler.cgi_directories = ["/htbin"]
 
 print "The Admin Interface is running under:"
 print "http://"+text_ip+":"+str(web_gui_port)+"/"
-httpd = server(server_address, handler)
-httpd.serve_forever()
+
+server = ThreadingCGIServer((web_gui_ip, web_gui_port), handler)
+try:
+    while 1:
+        sys.stdout.flush()
+        server.handle_request()
+except KeyboardInterrupt:
+    print "Finished"
