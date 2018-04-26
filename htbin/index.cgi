@@ -1335,6 +1335,86 @@ function toggleOptionen() {
 </script>
 
 
+
+<div id='optionen' style='border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
+<h3 onclick="toggleOptionen()" style="margin-top: 5px">Andere Optionen</h3>
+<form action="index.cgi" method="POST">
+<input type="hidden" name="action" value="resetChase">
+<input type="hidden" name="tab" value="config">
+<div ><button>Projekt Zurücksetzen</button>
+</div>
+
+</form>
+
+<form action="index.cgi" method="POST">
+<input type="hidden" name="action" value="restart">
+<input type="hidden" name="tab" value="config">
+<div ><button>Bot & Gui Neustarten</button>
+</div>
+
+</form>
+<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
+<br>
+<h3 style="margin-top: 5px">Config via DB</h3>
+<div>"""
+
+
+for i in configdata:
+    var = i[0]
+    text = i[1].encode("UTF-8")
+    removeurl = '<div style="float: right"><a class="eLink" href="index.cgi?action=deleteConfig&tab=config&name='+str(var)+'">[ X ]</a></div>'
+    
+    print "<div style='clear:both; height: 20px'><div style='float: left; width: 180px'><b>"+str(var)+"</b></div><div style='float: left; width: 30px'></div> <div class='config-field' style='float: left'>"+str(text)+"</div> "+str(removeurl)+"</div>"
+
+
+print """
+
+
+
+<br>
+<div>
+<form action="index.cgi" method="POST">
+<input type="hidden" name="action" value="changeConfig">
+<input type="hidden" name="tab" value="config">
+
+<div style="float: left; width: 150px">
+    <input id="name" name="name" placeholder="Neu Variable">
+</div>
+
+<div style='float: left; padding-left: 30px'></div>
+<div class='config-field' style='float: left'>
+        <input id="text" name="text" placeholder="Neuer Wert">
+
+</div>
+<div style="clear: both; padding-top: 10px">
+<button>hinzufügen/überschreiben</button>
+</div>
+</form>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+<script>
+function toggleOptionen() {
+    var el = document.getElementById('optionen');
+
+    if ( el.style.overflow == 'hidden' ) {
+        el.style.overflow = 'visible' 
+        el.style.height = 'auto'
+    }
+    else {
+        el.style.overflow = 'hidden' 
+        el.style.height = '25px'
+    } 
+}
+</script>
+
+
 </div>
 </div>
 
