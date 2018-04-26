@@ -1087,8 +1087,9 @@ if (str(action) == "restart"):
     print "<div><b>Gui läd sich in 5x Sekunden neu!</b></div>"
     print """
 <script>
-setTimeout(function(){ window.location.assign('/htbin/index.cgi?tab=config&action=restartDone&name="""+html_name+"""'); }, 5000);
-}
+
+setTimeout(function(){ window.location.assign('/htbin/index.cgi?tab=config&action=restartDone'); }, 5000);
+
 </script>
 """
 elif (str(action) == "restartDone"):
