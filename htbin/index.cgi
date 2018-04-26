@@ -1284,7 +1284,7 @@ for i in configdata:
     text = i[1].encode("UTF-8")
     removeurl = '<div style="float: right"><a class="eLink" href="index.cgi?action=deleteConfig&tab=config&name='+str(var)+'">[ X ]</a></div>'
     
-    print "<div style='clear:both; height: 20px'><div style='float: left; width: 170px'><b>"+str(var)+"</b></div><div style='float: left; width: 30px'></div> <div class='config-field' style='float: left'>"+str(text)+"</div> "+str(removeurl)+"</div>"
+    print "<div style='clear:both; height: 20px'><div style='float: left; width: 180px'><b>"+str(var)+"</b></div><div style='float: left; width: 30px'></div> <div class='config-field' style='float: left'>"+str(text)+"</div> "+str(removeurl)+"</div>"
 
 
 print """
