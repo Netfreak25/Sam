@@ -39,6 +39,21 @@ sam_db_user = str(getconfig('sam_db_user'))
 sam_db_pw = str(getconfig('sam_db_pw'))
 
 
+def verifyDB():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """IF OBJECT_ID('config', 'U') IS NOT NULL """
+        cursor6.execute(command6)
+        data = cursor6.fetchall()
+        db6.close()
+        print data
+    except Exception, e:
+        print e
+
+
+verifyDB()
+
 def addDBConfig():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')

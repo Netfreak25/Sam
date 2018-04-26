@@ -1267,7 +1267,7 @@ function toggleLoeschen() {
 </script>
 
 <div id='optionen' style='border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
-<h3 onclick="toggleOptionen()" style="margin-top: 5px">Andere Optionen</h3>
+<h3 onclick="toggleOptionen()" style="margin-top: 5px">Aktionen</h3>
 <form action="index.cgi" method="POST">
 <input type="hidden" name="action" value="resetChase">
 <input type="hidden" name="tab" value="config">
