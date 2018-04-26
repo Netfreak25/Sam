@@ -18,11 +18,9 @@ INSERT INTO `config` (`name`, `value`) VALUES
 ('botname', 'SchnitzelBot'),
 ('cheat_detection', '0'),
 ('extra_distance_m', '20'),
-('gmaps_key', 'asdsdaasdsasdadsadas'),
 ('invincible', '1'),
 ('pagename', 'Schnitzeljagdt'),
 ('reset_minutes', '1'),
-('telegram_token', '54345346651:Asdfsfsdfsdd9mg-XXXXXXXXX'),
 ('trigger_distance_m', '30'),
 ('zoom_koordinaten', '50.110504,8.682120'),
 ('zoom_level', '16');

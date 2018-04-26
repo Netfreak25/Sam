@@ -89,7 +89,6 @@ def addDBConfig():
         print e
 
 addDBConfig()
-print configdb
 telegram_token = str(getconfig('telegram_token'))
 
 trigger_distance_m = int(getconfig('trigger_distance_m'))
@@ -98,10 +97,13 @@ extra_distance_m = int(getconfig('extra_distance_m'))
 
 cheat_detection = int(getconfig('cheat_detection'))
 
+try:
 # Load Telegram Token
-updater = Updater(token=telegram_token)
-dispatcher = updater.dispatcher
-
+    updater = Updater(token=telegram_token)
+    dispatcher = updater.dispatcher
+except:
+    print "Your Telegram token is wrong!"
+    sys.exit()
 
 
 def writefile(filename, text):
