@@ -1084,11 +1084,11 @@ print """
 
 if (str(action) == "restart"):
     print "<div><b>Gui & Bot werden neu gestartet!</b></div>"
-    print "<div><b>Gui läd sich in 5x Sekunden neu!</b></div>"
+    print "<div><b>Gui startet in kürze neu!</b></div>"
     print """
 <script>
 
-setTimeout(function(){ window.location.assign('/htbin/index.cgi?tab=config&action=restartDone'); }, 5000);
+setTimeout(function(){ window.location.assign('/htbin/index.cgi?tab=config&action=restartDone'); }, 8000);
 
 </script>
 """
