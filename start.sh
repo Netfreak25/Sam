@@ -2,8 +2,9 @@
 sleep 0.5
 cd /sam/
 if [ !  -f start-bot.py ]; then
-   echo "Working Directory is wrong! Please modify this file and correct the second line!"
-   exit 1
+    echo "Aborting!"
+    echo "Working Directory is wrong! Please modify start.sh and correct the second line!"
+    exit 1
 fi
 chmod 777 /tmp/sam-gui.log
 chmod 777 /tmp/sam.log
