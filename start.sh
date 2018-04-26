@@ -1,6 +1,10 @@
 #!/bin/bash
 sleep 0.5
 cd /sam/
+if [ !  -f start-bot.py ]; then
+   echo "Working Directory is wrong! Please modify this file and correct the second line!"
+   exit 1
+fi
 chmod 777 /tmp/sam-gui.log
 chmod 777 /tmp/sam.log
 chmod 777 /tmp/sam-update.log
