@@ -553,7 +553,7 @@ def printMarker():
 
         plusmurl = '<a href="map.cgi?action=plusItemRadius&id='+str(id)+'">[ +10m ]<a/>'
         minusmurl = '<a href="map.cgi?action=minusItemRadius&id='+str(id)+'">[ -10m ]<a/>'
-        beschreibung = str(typename)+"""<hr>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>Radius: """+str(radiusShown)+"""<br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(plusmurl)+""" """+str(minusmurl)+"""<br>"""+str(deleteurl)+"""<br>"""
+        beschreibung = str(typename)+"""<hr>Anzahl: """+str(amount)+"""<br>Chance: """+str(chance)+"""%<br>Radius: """+str(radiusShown)+"""<br><br>"""+str(plusurl)+""" """+str(minusurl)+"""<br>"""+str(plusmurl)+""" """+str(minusmurl)+"""<br><br>"""+str(deleteurl)+"""<br>"""
         data = data + """  ['"""+str(beschreibung)+"""', """+str(location)+""", """+str(count)+""", '/img/emoji/"""+str(type)+""".png', '"""+str(typename)+"""', '"""+str(radius)+"""'],\n"""
         count = count + 1
     return data[:-2]
