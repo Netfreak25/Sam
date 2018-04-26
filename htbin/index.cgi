@@ -1933,9 +1933,10 @@ function openOption(evt, cityName) {
     document.getElementById(cityName).style.overflow = "auto";
     
     evt.currentTarget.className += " active";
-    getFieldWidth();
-    getFieldWidthDeath();
-    
+    getFieldWidth();"""
+if str(invincible) == "0":
+    print "getFieldWidthDeath();"
+print """
 }
 </script>
 
