@@ -110,6 +110,7 @@ def cleanDatabase():
 
 try:
     for i in sys.argv:
+        print i
         if (str(i) == "--clean-database") or (str(sys.argv[1]) == "-cd"):
             print "Do you really want to clean the Database? (y/n)"
             verify = sys.stdin.read(1)
