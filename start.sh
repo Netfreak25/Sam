@@ -3,7 +3,7 @@ if [ "$1" != "" ]; then
 	cd $1
 fi
 
-if [ "$2" != "sudo-test" ]; then
+if [ "$2" = "sudo-test" ]; then
   exit 1
 fi
 
