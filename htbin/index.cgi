@@ -1307,34 +1307,35 @@ function toggleLoeschen() {
 <div id='optionen' style='border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
 <h3 onclick="toggleOptionen()" style="margin-top: 5px">Aktionen</h3>
 
-
+<div>
 <div style="float: left">
-<form action="index.cgi" method="POST">
-<input type="hidden" name="action" value="resetChase">
-<input type="hidden" name="tab" value="config">
+    <form action="index.cgi" method="POST">
+    <input type="hidden" name="action" value="resetChase">
+    <input type="hidden" name="tab" value="config">
 
-<div><button>Projekt Zurücksetzen</button></div>
-</form>
+    <div><button>Projekt Zurücksetzen</button></div>
+    </form>
 
-<form action="index.cgi" method="POST">
-<input type="hidden" name="action" value="restart">
-<input type="hidden" name="tab" value="config">"""
+    <form action="index.cgi" method="POST">
+    <input type="hidden" name="action" value="restart">
+    <input type="hidden" name="tab" value="config">"""
 
-restart_text = "Bot & Gui Neustarten"
-if auto_start_update:
-    restart_text = "Bot & Gui Updaten und Neustarten"
-if sudo_access:
-    print """<div ><button>"""+restart_text+"""</button></div>"""
+    restart_text = "Bot & Gui Neustarten"
+    if auto_start_update:
+        restart_text = "Bot & Gui Updaten und Neustarten"
+    if sudo_access:
+        print """<div ><button>"""+restart_text+"""</button></div>"""
 
-print """
-</form>
+    print """
+    </form>
 
-<div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
-</div>
-<div style="float: left">
-neue buttons
+    <div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
 </div>
 
+<div style="float: left">
+    neue buttons
+</div>
+</div>
 
 </div>
 </div>
@@ -1357,7 +1358,7 @@ function toggleOptionen() {
 
 
 
-<div id='configvars' style='border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
+<div id='configvars' style='clear:both; border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
 <h3 onclick="toggleConfigvars()" style="margin-top: 5px">config.ini overwrite</h3>
 
 <div>"""
