@@ -827,6 +827,27 @@ function setMarkers(map) {
         radius: parseInt(theitem[6]) / 2
       });
 
+
+
+    itemCircle.addListener(map, 'click', function(event) {
+      if (marker==null) {
+         marker = new google.maps.Marker({
+           position : event.latLng,
+           map: map
+         });          
+      } else {
+          marker.setPosition(event.latLng);
+    document.getElementById('lat').value = event.latLng.lat();
+      document.getElementById('lng').value = event.latLng.lng();
+
+      document.getElementById('lat2').value = event.latLng.lat();
+      document.getElementById('lng2').value = event.latLng.lng();
+      });  
+
+
+
+
+
           var infowindow = new google.maps.InfoWindow({});
 
           marker.addListener('click', function() {
