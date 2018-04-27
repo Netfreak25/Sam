@@ -439,8 +439,8 @@ def save_chase():
 
 def restart():
     cwd = os.getcwd()
-    cmd = '/sam/start.sh '+str(cwd)+' > /tmp/sam-restart.log 2>&1 &'
-    realcmd = "sudo nohup bash -c '"+str(cmd)+"'"
+    cmd = 'sudo /sam/start.sh '+str(cwd)+' > /tmp/sam-restart.log 2>&1 &'
+    realcmd = "nohup bash -c '"+str(cmd)+"'"
     os.system(cmd)
 
 
