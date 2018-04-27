@@ -75,12 +75,12 @@ pip install -r requirements.txt
 * You can set the following option directly within the config.ini
 * But if you set a variable in the gui it will overwrite the one read from config.ini
 ```
-
 advanced = 0
 # Shows Trigger Settings - 0,1
 
 botname = SamsqueshBot
 # Name of the Bot in Telegram
+
 cheat_detection = 0
 # Only for Android - 0,1
 
