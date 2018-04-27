@@ -770,6 +770,7 @@ function initialize() {
       document.getElementById('lng2').value = event.latLng.lng();
   });
 
+
   setMarkers(map);
   setWaypointMarkers(map);
   addYourLocationButton(map);
@@ -825,6 +826,24 @@ function setMarkers(map) {
         center: {lat: theitem[1], lng: theitem[2]},
         radius: parseInt(theitem[6]) / 2
       });
+
+
+    itemCircle.addListener(map, 'click', function(event) {
+      if (marker==null) {
+         marker = new google.maps.Marker({
+           position : event.latLng,
+           map: map
+         });          
+      } else {
+          marker.setPosition(event.latLng);
+      }      
+      document.getElementById('lat').value = event.latLng.lat();
+      document.getElementById('lng').value = event.latLng.lng();
+
+      document.getElementById('lat2').value = event.latLng.lat();
+      document.getElementById('lng2').value = event.latLng.lng();
+  });
+
 
           var infowindow = new google.maps.InfoWindow({});
 
