@@ -8,11 +8,9 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler, Filters
 import telegram, json
-import logging, MySQLdb, time, os, math
+import logging, MySQLdb, time, os, math, random, sys, emoji
 from datetime import datetime, timedelta
-import random
 from s2sphere import LatLng
-import emoji
 
 admin_chatids = [ "108319947" ]
 
