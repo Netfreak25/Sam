@@ -464,7 +464,6 @@ def enable_update():
 def disable_update():
     cwd = os.getcwd()
     cmd = 'rm '+str(cwd)+'/.autoupdate '
-    print cmd
     os.system(cmd)
 
 def save_uploaded_file():
@@ -1310,6 +1309,9 @@ function toggleLoeschen() {
 <form action="index.cgi" method="POST">
 <input type="hidden" name="action" value="resetChase">
 <input type="hidden" name="tab" value="config">
+
+<div style="float: left">
+
 <div ><button>Projekt Zurücksetzen</button>
 </div>
 
@@ -1329,7 +1331,10 @@ if sudo_access:
 print """
 </form>
 <div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
-
+</div>
+<div style="float: left">
+neue buttons
+</div>
 
 
 </div>
