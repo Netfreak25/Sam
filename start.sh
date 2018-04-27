@@ -14,7 +14,7 @@ export username=`whoami`
 chown -R nobody:$username ./*
 if [ -f .autoupdate ]; then
 	echo -ne "[0/4] Updating SAM via git pull"
-	git pull > /tmp/sam-update.log 2>&1 && echo -ne "\\r[0/4] Updating SAM via git pull - DONE" || echo -ne "\\r[0/4] Updating SAM via git pull - FAILED"
+	git pull > /tmp/sam-update.log 2>&1 && echo -ne "\\r[0/4] Updating SAM via git pull - SUCCESS" || echo -ne "\\r[0/4] Updating SAM via git pull - FAILED"
 	echo
 fi
 
