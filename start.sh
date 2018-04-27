@@ -6,7 +6,7 @@ fi
 sleep 0.5
 if [ !  -f start-bot.py ]; then
     echo "Aborting!"
-    echo "Working Directory is wrong! Please modify start.sh and correct the second line!"
+    echo "Working Directory is wrong! Please cd into the sam directory or provide the path as first input parameter!"
     exit 1
 fi
 chmod 777 /tmp/sam-gui.log
