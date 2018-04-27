@@ -4,7 +4,7 @@ if [ "$1" != "" ]; then
 fi
 
 if [ "$2" = "sudo-test" ]; then
-  exit 1
+  exit 0
 fi
 
 sleep 0.5
@@ -19,6 +19,11 @@ export PORT=`cat config.ini | grep port | cut -b 16-`
 chmod 777 /tmp/sam-gui.log
 chmod 777 /tmp/sam.log
 chmod 777 /tmp/sam-update.log
+chmod 777 /tmp/sam-bot.pid
+chmod 777 /tmp/sam-gui.pid
+
+# setup restart button for gui
+sudo -u nobody timeout --foreground 1 sudo /sam/start.sh /sam sudo-test && touch htbin/.sudo || rm htbin/.sudo
 
 export username=`whoami`
 chown -R nobody:$username ./*
