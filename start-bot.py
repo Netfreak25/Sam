@@ -488,9 +488,9 @@ def player(bot, update):
             livestatus = str(i[1])
             points = str(i[2])
             if invincible == 0:
-                text = text + "🕵️  " + username + " ("+str(livestatus)+")"
+                text = text + "🕵️  " + username + " ("+str(livestatus)+")\n"
             else:
-                text = text + "🕵️  " + username + " ("+str(points)+" Punkte)"
+                text = text + "🕵️  " + username + " ("+str(points)+" Punkte)\n"
 
         custom_keyboard = get_keyboard_type(update.message.chat_id)
         reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
