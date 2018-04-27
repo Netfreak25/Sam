@@ -23,7 +23,7 @@ chmod 777 /tmp/sam-bot.pid
 chmod 777 /tmp/sam-gui.pid
 
 # setup restart button for gui
-sudo -u nobody timeout --foreground 1 sudo /sam/start.sh /sam sudo-test && touch htbin/.sudo || rm htbin/.sudo
+bash -c "sudo -u nobody timeout --foreground 1 sudo /sam/start.sh /sam sudo-test && touch htbin/.sudo || rm htbin/.sudo" >/dev/null 2>&1
 
 export username=`whoami`
 chown -R nobody:$username ./*
