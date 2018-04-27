@@ -115,8 +115,8 @@ try:
             verify = sys.stdin.read(1)
             if str(verify).lower() == "y":
                 cleanDatabase()
-except:
-    pass
+except Exception, e:
+    print e
 
 def importDBfromFile(filename):
     db = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
