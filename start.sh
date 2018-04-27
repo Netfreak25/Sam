@@ -31,7 +31,7 @@ else
 fi
 echo
 echo -ne "[3/5] Starting Bot Instance"
-sudo -u nobody /usr/bin/python start-bot.py >> /tmp/sam.log 2>&1 & echo $! > /tmp/sam-bot.pid
+`sudo -u nobody /usr/bin/python start-bot.py >> /tmp/sam.log 2>&1 & echo $! > /tmp/sam-bot.pid`
 
 export pid=`cat /tmp/sam-bot.pid` 
 if ! kill $pid > /dev/null 2>&1; then
@@ -54,7 +54,7 @@ else
 fi
 echo
 echo -ne "[5/5] Staring WebGui Instance"
-sudo -u nobody /usr/bin/python start-gui.py >> /tmp/sam-gui.log 2>&1 & echo $! > /tmp/sam-gui.pid
+`sudo -u nobody /usr/bin/python start-gui.py >> /tmp/sam-gui.log 2>&1 & echo $! > /tmp/sam-gui.pid`
 export pid=`cat /tmp/sam-gui.pid` 
 if ! kill $pid > /dev/null 2>&1; then
     echo -ne "\\r[5/5] Staring WebGui Instance - FAILED"
