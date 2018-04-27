@@ -1,5 +1,4 @@
 #!/bin/bash
-export PORT=8000
 if [ "$1" != "" ]; then
 	cd $1
 fi
@@ -10,6 +9,10 @@ if [ !  -f start-bot.py ]; then
     echo "Working Directory is wrong! Please cd into the sam directory or provide the path as first input parameter!"
     exit 1
 fi
+
+export PORT=`cat config.ini | grep port | cut -b 16-`
+echo TEST$PORTTEST
+
 chmod 777 /tmp/sam-gui.log
 chmod 777 /tmp/sam.log
 chmod 777 /tmp/sam-update.log
