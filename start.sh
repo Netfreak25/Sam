@@ -3,9 +3,10 @@
 
 if [ "$1" = "" ]; then
 	echo "no paramater set"
+else
+	cd $1
 fi
 
-cd $1
 sleep 0.5
 if [ !  -f start-bot.py ]; then
     echo "Aborting!"
