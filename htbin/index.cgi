@@ -72,6 +72,13 @@ try:
 except:
     advanced = 0
 
+
+
+try:
+    sudo_access = os.path.isfile("htbin/.sudo")
+except:
+    sudo_access = False
+    
 ###### Read html input
 form = cgi.FieldStorage()
 
