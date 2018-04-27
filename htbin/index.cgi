@@ -1339,7 +1339,7 @@ function toggleLoeschen() {
     <input type="hidden" name="action" value="resetChase">
     <input type="hidden" name="tab" value="config">
 
-    <div><button>Projekt Zurücksetzen</button></div>
+    <div><button>Aktives Projekt Zurücksetzen</button></div>
     </form>
 
     <form action="index.cgi" method="POST">
