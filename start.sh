@@ -65,12 +65,13 @@ export count=0
 
 while [ "$check" != "" ]; do
   sleep 1
+  fuser -k -n tcp 8000 > /dev/null 2>&1
   let "count=count+1"
   export check=`netstat -tulpen | grep 8000`
   if [ "$count" -eq 10 ]; then
     break
   fi
-  fuser -k -n tcp 8000
+
 done
 
 `sudo -u nobody /usr/bin/python start-gui.py >> /tmp/sam-gui.log 2>&1 & echo $! > /tmp/sam-gui.pid`
