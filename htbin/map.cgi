@@ -803,11 +803,12 @@ function setMarkers(map) {
     coords: [0, 0, 0, 32, 32, 32, 32, 0],
     type: 'poly'
   };
-   if (marker2==null) {
+      if (marker2==null) {
          marker2 = new google.maps.Marker({
            position : event.latLng,
            map: map
-         }); 
+         });
+         };
   for (var i = 0; i < samitems.length; i++) {
     var theitem = samitems[i];
     var contentString = samitems[i][0] + '';
