@@ -1,5 +1,10 @@
 #!/bin/bash
 #cd /sam/
+
+if [ $1 -eq "" ]; then
+	echo "no paramater set"
+fi
+
 cd $1
 sleep 0.5
 if [ !  -f start-bot.py ]; then
