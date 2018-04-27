@@ -438,7 +438,8 @@ def save_chase():
 
 
 def restart():
-    cmd = 'sudo /sam/start.sh > /tmp/sam-restart.log 2>&1 &'
+    cwd = os.getcwd()
+    cmd = 'sudo /sam/start.sh '+str(cwd)+' > /tmp/sam-restart.log 2>&1 &'
     os.system(cmd)
 
 
@@ -1029,8 +1030,6 @@ print """
 if (str(action) == "changeText"):
     print "<div><b>Änderung gespeichert!</b></div>"
 
-cwd = os.getcwd()
-print cwd
 
 print """<div>"""
 for i in vars:
