@@ -1,9 +1,5 @@
 #!/bin/bash
-#cd /sam/
-
-if [ "$1" = "" ]; then
-	echo "no paramater set"
-else
+if [ "$1" != "" ]; then
 	cd $1
 fi
 

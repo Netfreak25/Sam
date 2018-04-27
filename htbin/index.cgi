@@ -1029,6 +1029,8 @@ print """
 if (str(action) == "changeText"):
     print "<div><b>Änderung gespeichert!</b></div>"
 
+cwd = os.getcwd()
+print cwd
 
 print """<div>"""
 for i in vars:
