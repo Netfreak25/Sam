@@ -57,7 +57,7 @@ else
     echo -ne "\\r[3/4] Killing old WebGui Instance - FAILED"
 fi
 echo
-echo -ne "[4/4] Staring WebGui Instance"
+echo -ne "[4/4] Starting WebGui Instance"
 
 export check=`netstat -tulpen | grep 8000`
 export count=0
@@ -66,8 +66,8 @@ while [ "$check" != "" ]; do
   sleep 1
   let "count=count+1"
   export check=`netstat -tulpen > /dev/null 2>&1 | grep 8000 && echo "true" || echo "false"`
-  if [ $count -eq 10 ]; then
-    export check=false
+  if [ "$count" -eq 10 ]; then
+    break
   fi
 done
 
