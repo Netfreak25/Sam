@@ -1,6 +1,7 @@
 #!/bin/bash
+#cd /sam/
+cd $1
 sleep 0.5
-cd /sam/
 if [ !  -f start-bot.py ]; then
     echo "Aborting!"
     echo "Working Directory is wrong! Please modify start.sh and correct the second line!"
