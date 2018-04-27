@@ -90,14 +90,31 @@ def addDBConfig():
 
 addDBConfig()
 
-gmaps_key = str(getconfig('gmaps_key'))
-zoom_koordinaten = str(getconfig('zoom_koordinaten'))
-zoom_level = str(getconfig('zoom_level'))
+try:
+    gmaps_key = str(getconfig('gmaps_key'))
+except:
+    gmaps_key = "Gmaps Api Key not set"
 
+try:
+    zoom_koordinaten = str(getconfig('zoom_koordinaten'))
+except:
+    zoom_koordinaten = "50.110504,8.682120"
 
+try:
+    zoom_level = str(getconfig('zoom_level'))
+except:
+    zoom_level = "16"
 
-trigger_distance_m = int(getconfig('trigger_distance_m'))
-extra_distance_m = int(getconfig('extra_distance_m'))
+try:
+    trigger_distance_m = int(getconfig('trigger_distance_m'))
+except:
+    trigger_distance_m = 30
+
+try:
+    extra_distance_m = int(getconfig('extra_distance_m'))
+except:
+    extra_distance_m = 20
+
 
 
 print "Content-Type: text/html; charset=UTF-8"     # HTML is following

@@ -52,10 +52,20 @@ def addDBConfig():
 
 addDBConfig()
 
-botname = str(getconfig('botname'))
-pagename = str(getconfig('pagename'))
+try:
+    botname = str(getconfig('botname'))
+except:
+    botname = "Botname not set"
 
-invincible = int(getconfig('invincible'))
+try:
+    pagename = str(getconfig('pagename'))
+except:
+    pagename = "Schnitzeljagdt"
+
+try:
+    invincible = int(getconfig('invincible'))
+except:
+    invincible = 0
 
 try:
     advanced = int(getconfig('advanced'))

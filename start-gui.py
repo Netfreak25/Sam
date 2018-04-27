@@ -55,4 +55,4 @@ try:
         sys.stdout.flush()
         server.handle_request()
 except KeyboardInterrupt:
-    print "Finished"
+    print "Gui stopped!"

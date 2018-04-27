@@ -19,8 +19,12 @@ def getconfig(a):
     else:
         return configdb[a]
 
+try:
+    reset_minutes = str(getconfig('reset_minutes'))
+except:
+    reset_minutes = "1"
 
-reset_minutes = str(getconfig('reset_minutes'))
+
 www_path = "trigger"
 
 

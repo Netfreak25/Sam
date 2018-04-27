@@ -89,11 +89,25 @@ def addDBConfig():
         print e
 
 addDBConfig()
+
 telegram_token = str(getconfig('telegram_token'))
 
-trigger_distance_m = int(getconfig('trigger_distance_m'))
-invincible = int(getconfig('invincible'))
-extra_distance_m = int(getconfig('extra_distance_m'))
+
+try:
+    trigger_distance_m = int(getconfig('trigger_distance_m'))
+except:
+    trigger_distance_m = 30
+
+try:
+    invincible = int(getconfig('invincible'))
+except:
+    invincible = 0
+
+try:
+    extra_distance_m = int(getconfig('extra_distance_m'))
+except:
+    extra_distance_m = 20
+
 try:
     cheat_detection = int(getconfig('cheat_detection'))
 except:
