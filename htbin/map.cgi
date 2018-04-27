@@ -803,6 +803,10 @@ function setMarkers(map) {
     coords: [0, 0, 0, 32, 32, 32, 32, 0],
     type: 'poly'
   };
+   var marker2 = new google.maps.Marker({
+           position : event.latLng,
+           map: map
+         });
   for (var i = 0; i < samitems.length; i++) {
     var theitem = samitems[i];
     var contentString = samitems[i][0] + '';
@@ -828,23 +832,16 @@ function setMarkers(map) {
       });
 
     itemCircle.addListener('click', function(event) {
-         marker = new google.maps.Marker({
-           position : event.latLng,
-           map: map
-         });
-          marker.setPosition(event.latLng);
+
+          marker2.setPosition(event.latLng);
+
           document.getElementById('lat').value = event.latLng.lat();
           document.getElementById('lng').value = event.latLng.lng();
 
           document.getElementById('lat2').value = event.latLng.lat();
+          document.getElementById('lng2').value = event.latLng.lng();
 
       });  
-
-
-
-
-
-
 
           var infowindow = new google.maps.InfoWindow({});
 
