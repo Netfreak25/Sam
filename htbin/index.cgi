@@ -395,6 +395,7 @@ def delete_chase():
 def reset_chase():
     removeAllWaypoints()
     removeAllItem()
+    removeAllConfig()
 
 def save_chase():
     newwtable = "save_w_"+str(html_name)
@@ -805,6 +806,21 @@ def removeEmptyItem():
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
         command6 = "DELETE FROM extra_waypoints WHERE amount = 0;"
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+
+def removeAllConfig():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = "DELETE FROM config WHERE 1;"
         cursor6.execute(command6)
         db6.commit()
         db6.close()
