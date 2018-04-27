@@ -109,15 +109,12 @@ def cleanDatabase():
 try:
     for i in sys.argv:
         if (str(i) == "--clean-database") or (str(sys.argv[1]) == "-cd"):
-            print "Do you really want to clean the Database? (y/n)"
-            verify = sys.stdin.read(1)
-            if str(verify).lower() == "y":
-                cleanDatabase()
-                print "Database has been cleanen. Please restart without -cd/--clean-database parameter"
-                sys.exit()
+            cleanDatabase()
+            print "Database has been cleanen. Please restart without -cd/--clean-database parameter"
+            sys.exit()
 except:
     pass
-    
+
 def importDBfromFile(filename):
     db = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
     cursor = db.cursor()
