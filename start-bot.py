@@ -94,8 +94,10 @@ telegram_token = str(getconfig('telegram_token'))
 trigger_distance_m = int(getconfig('trigger_distance_m'))
 invincible = int(getconfig('invincible'))
 extra_distance_m = int(getconfig('extra_distance_m'))
-
-cheat_detection = int(getconfig('cheat_detection'))
+try:
+    cheat_detection = int(getconfig('cheat_detection'))
+except:
+    cheat_detection = 0
 
 try:
 # Load Telegram Token
