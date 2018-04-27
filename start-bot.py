@@ -39,6 +39,53 @@ sam_db_user = str(getconfig('sam_db_user'))
 sam_db_pw = str(getconfig('sam_db_pw'))
 
 
+def cleanDatabase():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = "DELETE FROM config WHERE 1;"
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = "DELETE FROM waypoints WHERE 1;"
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = "DELETE FROM extra_waypoints WHERE 1;"
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+
+try:
+    if (str(sys.argv[1]) == "--clean-database") or (str(sys.argv[1]) == "-cd"):
+        cleanDatabase()
+except:
+    pass
+
 def importDBfromFile(filename):
     db = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
     cursor = db.cursor()
