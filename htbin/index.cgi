@@ -300,6 +300,7 @@ def load_chase():
 
     newwtable = "save_w_"+str(html_name)
     newitable = "save_e_"+str(html_name)
+    newctable = "save_c_"+str(html_name)
 
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
@@ -315,7 +316,6 @@ def load_chase():
         except:
             pass
 
-
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
@@ -330,9 +330,24 @@ def load_chase():
         except:
             pass
 
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = 'INSERT config SELECT * FROM '+str(newctable)+';'
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+
 def delete_chase():
     newwtable = "save_w_"+str(html_name)
     newitable = "save_e_"+str(html_name)
+    newctable = "save_c_"+str(html_name)
 
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
@@ -363,6 +378,20 @@ def delete_chase():
         except:
             pass
 
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = 'DROP TABLE '+str(newctable)+';'
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+
 def reset_chase():
     removeAllWaypoints()
     removeAllItem()
@@ -370,6 +399,8 @@ def reset_chase():
 def save_chase():
     newwtable = "save_w_"+str(html_name)
     newitable = "save_e_"+str(html_name)
+    newctable = "save_c_"+str(html_name)
+
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
@@ -439,6 +470,45 @@ def save_chase():
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
         command6 = 'INSERT '+str(newitable)+' SELECT * FROM extra_waypoints;'
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = 'CREATE TABLE '+str(newctable)+' LIKE config;'
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        try:
+            db7 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+            cursor7 = db7.cursor()
+            command7 = 'TRUNCATE TABLE '+str(newctable)+';'
+            cursor7.execute(command7)
+            db7.commit()
+            db7.close()
+        except Exception, e2:
+            try:
+                db7.close()
+            except:
+                pass
+        try:
+            db6.close()
+        except:
+            pass
+
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = 'INSERT '+str(newctable)+' SELECT * FROM config;'
         cursor6.execute(command6)
         db6.commit()
         db6.close()
