@@ -837,7 +837,7 @@ function setMarkers(map) {
       } else {
           marker.setPosition(event.latLng);
       }  
-            }      
+            });      
       document.getElementById('lat').value = event.latLng.lat();
       document.getElementById('lng').value = event.latLng.lng();
 
