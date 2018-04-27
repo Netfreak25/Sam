@@ -112,8 +112,8 @@ try:
             cleanDatabase()
             print "Database has been cleanen. Please restart without -cd/--clean-database parameter"
             sys.exit()
-except:
-    pass
+except Exception, e:
+    print e
 
 def importDBfromFile(filename):
     db = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
