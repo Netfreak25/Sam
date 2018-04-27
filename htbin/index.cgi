@@ -79,6 +79,12 @@ try:
 except:
     sudo_access = False
 
+
+try:
+    auto_start_update = os.path.isfile(".autoupdate")
+except:
+    auto_start_update = False
+
 ###### Read html input
 form = cgi.FieldStorage()
 
@@ -446,11 +452,19 @@ def save_chase():
 
 def restart():
     cwd = os.getcwd()
-    cmd = 'sudo /sam/start.sh '+str(cwd)+' > /tmp/sam-restart.log 2>&1 &'
+    cmd = 'sudo '+cwd+'/start.sh '+str(cwd)+' > /tmp/sam-restart.log 2>&1 &'
     realcmd = "nohup bash -c '"+str(cmd)+"'"
     os.system(cmd)
 
+def enable_update():
+    cwd = os.getcwd()
+    cmd = 'touch '+str(cwd)+'/.autoupdate '
+    os.system(cmd)
 
+def disable_update():
+    cwd = os.getcwd()
+    cmd = 'rm '+str(cwd)+'/.autoupdate '
+    os.system(cmd)
 
 def save_uploaded_file():
     form_field = "datei"
@@ -964,6 +978,11 @@ elif (str(action) == "deleteChase"):
     delete_chase()
 elif (str(action) == "resetChase"):
     reset_chase()
+elif (str(action) == "enable_update"):
+    enable_update()
+elif (str(action) == "disable_update"):
+    disable_update()
+
 
 
 
@@ -1298,8 +1317,12 @@ function toggleLoeschen() {
 <form action="index.cgi" method="POST">
 <input type="hidden" name="action" value="restart">
 <input type="hidden" name="tab" value="config">"""
+
+restart_text = "Bot & Gui Neustarten"
+if auto_start_update:
+    restart_text = "Bot & Gui Updaten und Neustarten"
 if sudo_access:
-    print """<div ><button>Bot & Gui Updaten und Neustarten</button>
+    print """<div ><button>"""+restart_text+"""</button>
 </div>"""
 
 print """
