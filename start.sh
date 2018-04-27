@@ -65,7 +65,7 @@ export count=0
 while [ "$check" != "" ]; do
   sleep 1
   let "count=count+1"
-  export check=`netstat -tulpen > /dev/null 2>&1 | grep 8000 && echo "true" || echo "false"`
+  export check=`netstat -tulpen | grep 8000`
   if [ "$count" -eq 10 ]; then
     break
   fi
