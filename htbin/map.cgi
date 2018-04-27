@@ -755,13 +755,13 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   google.maps.event.addListener(map, 'click', function(event) {
-      if (marker==null) {
-         marker = new google.maps.Marker({
+      if (marker2==null) {
+         marker2 = new google.maps.Marker({
            position : event.latLng,
            map: map
          });          
       } else {
-          marker.setPosition(event.latLng);
+          marker2.setPosition(event.latLng);
       }      
       document.getElementById('lat').value = event.latLng.lat();
       document.getElementById('lng').value = event.latLng.lng();
