@@ -464,6 +464,7 @@ def enable_update():
 def disable_update():
     cwd = os.getcwd()
     cmd = 'rm '+str(cwd)+'/.autoupdate '
+    print cmd
     os.system(cmd)
 
 def save_uploaded_file():
