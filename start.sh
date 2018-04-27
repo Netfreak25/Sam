@@ -3,6 +3,10 @@ if [ "$1" != "" ]; then
 	cd $1
 fi
 
+if [ "$2" != "sudo-test" ]; then
+  exit 1
+fi
+
 sleep 0.5
 if [ !  -f start-bot.py ]; then
     echo "Aborting!"
