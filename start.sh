@@ -1,5 +1,5 @@
 #!/bin/bash
-whoami
+export PORT=8000
 if [ "$1" != "" ]; then
 	cd $1
 fi
@@ -60,14 +60,14 @@ fi
 echo
 echo -ne "[4/4] Starting WebGui Instance"
 
-export check=`netstat -tulpen | grep 8000`
+export check=`netstat -tulpen | grep $PORT`
 export count=0
 
 while [ "$check" != "" ]; do
   sleep 1
-  fuser -k -n tcp 8000 > /dev/null 2>&1
+  fuser -k -n tcp $PORT > /dev/null 2>&1
   let "count=count+1"
-  export check=`netstat -tulpen | grep 8000`
+  export check=`netstat -tulpen | grep $PORT`
   if [ "$count" -eq 10 ]; then
     break
   fi
