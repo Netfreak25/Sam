@@ -1153,6 +1153,32 @@ function newDoc() {
 newDoc()
 </script>
 """
+elif (str(action) == "enable_updateDone"):
+    print "<div><b>Update beim starten wurde aktiviert!</b></div>"
+elif (str(action) == "enable_update"):
+    print "<div><b>Update beim starten wurde aktiviert!</b></div>"
+    print """
+<script>
+function newDoc() {
+    window.location.assign('/htbin/index.cgi?tab=config&action=enable_updateDone')
+}
+
+newDoc()
+</script>
+"""
+elif (str(action) == "disable_updateDone"):
+    print "<div><b>Update beim starten wurde deaktiviert!</b></div>"
+elif (str(action) == "disable_update"):
+    print "<div><b>Update beim starten wurde deaktiviert!</b></div>"
+    print """
+<script>
+function newDoc() {
+    window.location.assign('/htbin/index.cgi?tab=config&action=disable_updateDone')
+}
+
+newDoc()
+</script>
+"""
 elif (str(action) == "deleteConfigDone"):
     print "<div><b>Variable '"+str(html_name)+"' wurde gelöscht!</b></div>"
 elif (str(action) == "deleteConfig"):
