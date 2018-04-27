@@ -565,7 +565,7 @@ def deleteReason():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
-        command6 = """DELETE FROM `samsquetch`.`deathreason` WHERE `deathreason`.`id` = """+str(html_id)+""";"""
+        command6 = """DELETE FROM `deathreason` WHERE `deathreason`.`id` = """+str(html_id)+""";"""
         cursor6.execute(command6)
         db6.commit()
         db6.close()
@@ -779,7 +779,7 @@ def changeDistance(itemid):
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
-        command6 = """UPDATE `samsquetch`.`extra_waypoints` SET `item_distance_m` = '"""+str(html_value)+"""' WHERE id = '"""+str(itemid)+"""' """
+        command6 = """UPDATE `extra_waypoints` SET `item_distance_m` = '"""+str(html_value)+"""' WHERE id = '"""+str(itemid)+"""' """
         cursor6.execute(command6)
 
         db6.commit()
@@ -868,7 +868,7 @@ def deleteConfig():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
-        command6 = """DELETE FROM `samsquetch`.`config` WHERE `config`.`name` = '"""+str(html_name)+"""' """
+        command6 = """DELETE FROM `config` WHERE `config`.`name` = '"""+str(html_name)+"""' """
         cursor6.execute(command6)
         db6.commit()
         db6.close()
@@ -883,7 +883,7 @@ def deleteUser():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
-        command6 = """DELETE FROM `samsquetch`.`user` WHERE `user`.`chatid` = """+str(html_id)+""";"""
+        command6 = """DELETE FROM `user` WHERE `user`.`chatid` = """+str(html_id)+""";"""
         cursor6.execute(command6)
         db6.commit()
         db6.close()
@@ -899,7 +899,7 @@ def deleteTriggerClient():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
-        command6 = """DELETE FROM `samsquetch`.`trigger_clients` WHERE `trigger_clients`.`name` = '"""+str(html_id)+"""';"""
+        command6 = """DELETE FROM `trigger_clients` WHERE `trigger_clients`.`name` = '"""+str(html_id)+"""';"""
         cursor6.execute(command6)
         db6.commit()
         db6.close()
