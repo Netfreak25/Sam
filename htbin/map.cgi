@@ -827,9 +827,7 @@ function setMarkers(map) {
         radius: parseInt(theitem[6]) / 2
       });
 
-
-
-    itemCircle.addListener(map, 'click', function(event) {
+    itemCircle.addListener('click', function(event) {
       if (marker==null) {
          marker = new google.maps.Marker({
            position : event.latLng,
@@ -837,13 +835,15 @@ function setMarkers(map) {
          });          
       } else {
           marker.setPosition(event.latLng);
-    document.getElementById('lat').value = event.latLng.lat();
-      document.getElementById('lng').value = event.latLng.lng();
+          document.getElementById('lat').value = event.latLng.lat();
+          document.getElementById('lng').value = event.latLng.lng();
 
-      document.getElementById('lat2').value = event.latLng.lat();
-      document.getElementById('lng2').value = event.latLng.lng();
-      }  
+          document.getElementById('lat2').value = event.latLng.lat();
+          document.getElementById('lng2').value = event.latLng.lng();
+            }  
       });  
+
+
 
 
 
@@ -856,6 +856,7 @@ function setMarkers(map) {
           infowindow.open(map, this);
           map.setCenter(this.getPosition());
      });
+
   }
 
 
