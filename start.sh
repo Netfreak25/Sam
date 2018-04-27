@@ -58,6 +58,19 @@ else
 fi
 echo
 echo -ne "[4/4] Staring WebGui Instance"
+
+export check=`netstat -tulpen | grep 8000 && echo "true" || echo "false"`
+export count=0
+
+while $check; do
+  sleep 1
+  let "count=count+1"
+  export check=`netstat -tulpen | grep 8000 && echo "true" || echo "false"`
+  if [ $count -eq 10 ]; then
+    export check=false
+  fi
+done
+
 `sudo -u nobody /usr/bin/python start-gui.py >> /tmp/sam-gui.log 2>&1 & echo $! > /tmp/sam-gui.pid`
 
 export pid=`sleep 2 && cat /tmp/sam-gui.pid`
