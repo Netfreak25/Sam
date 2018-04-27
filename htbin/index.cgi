@@ -1320,13 +1320,13 @@ function toggleLoeschen() {
     <input type="hidden" name="action" value="restart">
     <input type="hidden" name="tab" value="config">"""
 
-    restart_text = "Bot & Gui Neustarten"
-    if auto_start_update:
-        restart_text = "Bot & Gui Updaten und Neustarten"
-    if sudo_access:
-        print """<div ><button>"""+restart_text+"""</button></div>"""
+restart_text = "Bot & Gui Neustarten"
+if auto_start_update:
+    restart_text = "Bot & Gui Updaten und Neustarten"
+if sudo_access:
+    print """<div ><button>"""+restart_text+"""</button></div>"""
 
-    print """
+print """
     </form>
 
     <div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
