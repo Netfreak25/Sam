@@ -80,9 +80,41 @@ def cleanDatabase():
         except:
             pass
 
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = "DELETE FROM user WHERE 1;"
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = "DELETE FROM trigger_clients WHERE 1;"
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e:
+        print e
+        try:
+            db6.close()
+        except:
+            pass
+
 try:
-    if (str(sys.argv[1]) == "--clean-database") or (str(sys.argv[1]) == "-cd"):
-        cleanDatabase()
+    for i in sys.argv:
+        if (str(i) == "--clean-database") or (str(sys.argv[1]) == "-cd"):
+            print "Do you really want to clean the Database? (y/n)"
+            verify = sys.stdin.read(1)
+            if str(verify).lower() == "y":
+                cleanDatabase()
 except:
     pass
 
