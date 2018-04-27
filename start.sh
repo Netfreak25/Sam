@@ -1,7 +1,7 @@
 #!/bin/bash
 #cd /sam/
 
-if [ $1 -eq "" ]; then
+if [ "$1" = "" ]; then
 	echo "no paramater set"
 fi
 
