@@ -842,6 +842,7 @@ function setMarkers(map) {
 
       document.getElementById('lat2').value = event.latLng.lat();
       document.getElementById('lng2').value = event.latLng.lng();
+      }  
       });  
 
 
