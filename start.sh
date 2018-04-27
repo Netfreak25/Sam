@@ -69,6 +69,8 @@ while [ "$check" != "" ]; do
   if [ "$count" -eq 10 ]; then
     break
   fi
+  netstat -tulpen | grep 8000
+  ps aux | grep py
 done
 
 `sudo -u nobody /usr/bin/python start-gui.py >> /tmp/sam-gui.log 2>&1 & echo $! > /tmp/sam-gui.pid`
