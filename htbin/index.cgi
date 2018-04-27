@@ -1307,7 +1307,7 @@ function toggleLoeschen() {
 <div id='optionen' style='border: 1px solid rgb(204, 204, 204); padding: 5px; margin:5px; height: 25px; overflow: hidden; '>
 <h3 onclick="toggleOptionen()" style="margin-top: 5px">Aktionen</h3>
 
-<div>
+<div style="height: 100px">
 <div style="float: left">
     <form action="index.cgi" method="POST">
     <input type="hidden" name="action" value="resetChase">
@@ -1333,7 +1333,21 @@ print """
 </div>
 
 <div style="float: left">
-    neue buttons
+    <form action="index.cgi" method="POST">
+    <input type="hidden" name="action" value="enable_update">
+    <input type="hidden" name="tab" value="config">
+
+    <div><button>Update beim Start aktivieren</button></div>
+    </form>
+
+    <form action="index.cgi" method="POST">
+    <input type="hidden" name="action" value="disable_update">
+    <input type="hidden" name="tab" value="config">
+
+    <div><button>Update beim Start deaktivieren</button></div>
+    </form>
+
+
 </div>
 </div>
 
