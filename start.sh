@@ -11,7 +11,6 @@ if [ !  -f start-bot.py ]; then
 fi
 
 export PORT=`cat config.ini | grep port | cut -b 16-`
-echo TEST$PORTTEST
 
 chmod 777 /tmp/sam-gui.log
 chmod 777 /tmp/sam.log
