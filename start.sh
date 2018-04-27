@@ -23,7 +23,7 @@ ps aux | grep start-bot.py | cut -b 10-14 | xargs -I {} kill -9 {} > /dev/null 2
 ps aux | grep start-bot.py | cut -b 10-14 | xargs -I {} kill -9 {} > /dev/null 2>&1
 ps aux | grep start-bot.py | cut -b 10-14 | xargs -I {} kill -9 {} > /dev/null 2>&1
 
-export pid=`cat /tmp/sam-bot.pid` 
+export pid=`cat /tmp/sam-bot.pid`
 if ! kill -0 $pid > /dev/null 2>&1; then
     echo -ne "\\r[2/5] Killing old Bot Instance - SUCCESS"
 else
@@ -33,7 +33,7 @@ echo
 echo -ne "[3/5] Starting Bot Instance"
 `sudo -u nobody /usr/bin/python start-bot.py >> /tmp/sam.log 2>&1 & echo $! > /tmp/sam-bot.pid`
 
-export pid=`cat /tmp/sam-bot.pid` 
+export pid=`sleep 1 && cat /tmp/sam-bot.pid`
 if ! kill -0 $pid > /dev/null 2>&1; then
     echo -ne "\\r[3/5] Starting Bot Instance - FAILED"
 else
@@ -46,7 +46,7 @@ ps aux | grep start-gui.py | cut -b 10-14 | xargs -I {} kill -9 {} > /dev/null 2
 ps aux | grep start-gui.py | cut -b 10-14 | xargs -I {} kill -9 {} > /dev/null 2>&1
 ps aux | grep start-gui.py | cut -b 10-14 | xargs -I {} kill -9 {} > /dev/null 2>&1
 
-export pid=`cat /tmp/sam-gui.pid` 
+export pid=`cat /tmp/sam-gui.pid`
 if ! kill -0 $pid > /dev/null 2>&1; then
     echo -ne "\\r[4/5] Killing old WebGui Instance - SUCCESS"
 else
@@ -55,7 +55,8 @@ fi
 echo
 echo -ne "[5/5] Staring WebGui Instance"
 `sudo -u nobody /usr/bin/python start-gui.py >> /tmp/sam-gui.log 2>&1 & echo $! > /tmp/sam-gui.pid`
-export pid=`cat /tmp/sam-gui.pid` 
+
+export pid=`sleep 1 && cat /tmp/sam-gui.pid`
 if ! kill -0 $pid > /dev/null 2>&1; then
     echo -ne "\\r[5/5] Staring WebGui Instance - FAILED"
 else
