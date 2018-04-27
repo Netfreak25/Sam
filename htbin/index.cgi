@@ -78,7 +78,7 @@ try:
     sudo_access = os.path.isfile("htbin/.sudo")
 except:
     sudo_access = False
-    
+
 ###### Read html input
 form = cgi.FieldStorage()
 
@@ -1297,10 +1297,12 @@ function toggleLoeschen() {
 
 <form action="index.cgi" method="POST">
 <input type="hidden" name="action" value="restart">
-<input type="hidden" name="tab" value="config">
-<div ><button>Bot & Gui Updaten und Neustarten</button>
-</div>
+<input type="hidden" name="tab" value="config">"""
+if sudo_access:
+    print """<div ><button>Bot & Gui Updaten und Neustarten</button>
+</div>"""
 
+print """
 </form>
 <div style="font-size: 14px; color: red">ACHTUNG! Ungespeicherte Daten gehen unwiederruflich verloren!</div>
 
