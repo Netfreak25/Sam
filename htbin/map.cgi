@@ -111,9 +111,9 @@ except:
     waypoint_radius_m = 30
 
 try:
-    extra_distance_m = int(getconfig('extra_distance_m'))
+    item_radius_m = int(getconfig('item_radius_m'))
 except:
-    extra_distance_m = 20
+    item_radius_m = 20
 
 
 
@@ -556,8 +556,8 @@ def printMarker():
         radius = i[5]
         radiusShown = ""
         if str(radius) == '0':
-            radius = str(extra_distance_m)
-            radiusShown = str(extra_distance_m) + "m (Global)"
+            radius = str(item_radius_m)
+            radiusShown = str(item_radius_m) + "m (Global)"
         else:
             radiusShown = str(radius) + "m"
 

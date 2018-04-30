@@ -180,9 +180,9 @@ except:
     invincible = 0
 
 try:
-    extra_distance_m = int(getconfig('extra_distance_m'))
+    item_radius_m = int(getconfig('item_radius_m'))
 except:
-    extra_distance_m = 20
+    item_radius_m = 20
 
 try:
     cheat_detection = int(getconfig('cheat_detection'))
@@ -621,7 +621,7 @@ def check_extras(bot, update, location):
             if custom_trigger_distance_m != 0:
                 the_trigger_distance = custom_trigger_distance_m
             else:
-                the_trigger_distance = extra_distance_m
+                the_trigger_distance = item_radius_m
 
 
 
