@@ -2071,7 +2071,7 @@ for i in user:
     if chatid in admin_chatids:
         adminicon = "🍕"
 
-    print "<div> <div style='width: 20px; float: left'>"+str(adminicon)+"<div> <div><b>"+username+" "+str(makeadminurl)+"</b> "+userinventory+" "+urllocation+"  "+deleteurl+" </div></div>"
+    print "<div> <div style='width: 20px; float: left'>"+str(adminicon)+"</div> <div><b>"+username+" "+str(makeadminurl)+"</b> "+userinventory+" "+urllocation+"  "+deleteurl+" </div></div>"
 
 print """
 </div>
