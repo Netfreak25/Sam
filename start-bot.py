@@ -542,11 +542,11 @@ def echo(bot, update):
         elif text == "MedKit":
             useMedkit(bot, update, update.message.chat_id)
         elif text.lower().strip() == "reset":
-            bot.send_message(chat_id=update.message.chat_id, text="bla")
+            bot.send_message(chat_id=update.message.chat_id, text="Todesgründe freigegeben!")
             resetreasons()
         elif text[0:6].lower() == "revive":
             if str(the_chat_id) in admin_chatids:
-                to_revive = text[0:6].strip()
+                to_revive = text[7:].strip()
                 text = sam_vars["revive_text"]
 
                 the_ids = GetChatIDs(to_revive)
