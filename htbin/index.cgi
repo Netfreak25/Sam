@@ -1011,7 +1011,7 @@ def get_admins():
         cursor6.execute(command6)
         data = cursor6.fetchall()
         db6.close()
-        return data[0]
+        return data[0][0]
     except:
         pass
 
