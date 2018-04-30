@@ -1,6 +1,9 @@
 #!/bin/bash
 if [ "$1" != "" ]; then
-	cd $1
+        export mydir=$1
+        cd $mydir
+else
+        export mydir="./"
 fi
 
 if [ "$2" = "sudo-test" ]; then
@@ -23,10 +26,11 @@ chmod 777 /tmp/sam-bot.pid
 chmod 777 /tmp/sam-gui.pid
 
 # setup restart button for gui
-sudo -u nobody timeout --foreground 1 sudo --non-interactive /sam/start.sh /sam sudo-test >/dev/null 2>&1 && touch htbin/.sudo >/dev/null 2>&1 || rm htbin/.sudo >/dev/null 2>&1
+sudo -u nobody timeout --foreground 1 sudo --non-interactive ./start.sh $mydir sudo-test >/dev/null 2>&1 && touch htbin/.sudo >/dev/null 2>&1 || rm htbin/.sudo >/dev/null 2>&1
 
 export username=`whoami`
 chown -R nobody:$username ./*
+chown -R nobody:$username .
 if [ -f .autoupdate ]; then
 	echo -ne "[0/4] Updating SAM via git pull"
 	git pull > /tmp/sam-update.log 2>&1 && echo -ne "\\r[0/4] Updating SAM via git pull - SUCCESS" || echo -ne "\\r[0/4] Updating SAM via git pull - FAILED"
