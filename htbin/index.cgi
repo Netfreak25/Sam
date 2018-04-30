@@ -1003,6 +1003,50 @@ def deleteUser():
             pass
 
 
+def get_admins():
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """SELECT value FROM config WHERE name = 'admin_ids'"""
+        cursor6.execute(command6)
+        data = cursor6.fetchall()
+        db6.close()
+        return data[0]
+    except Exception, e:
+        print e
+
+
+
+def makeAdmin():
+    the_admins = get_admins()
+    the_admins = admins + "," + str(html_id)
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """INSERT INTO config (name, value) VALUES ('admin_chatids', '"""+str(html_id)+"""')"""   
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e2:
+        try:
+            db6.close()
+        except:
+            pass
+        try:
+            db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+            cursor6 = db6.cursor()
+            command6 = """UPDATE config SET value = '"""+str(the_admins).replace("'","\\'")+"""' WHERE name = 'admin_chatids' """
+            cursor6.execute(command6)
+            db6.commit()
+            db6.close()
+        except Exception, e2:
+            print e2
+            try:
+                db6.close()
+            except:
+                pass
+
+
 def deleteTriggerClient():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
@@ -1050,6 +1094,8 @@ elif (str(action) == "deleteConfig"):
     deleteConfig()
 elif (str(action) == "deleteUser"):
     deleteUser()
+elif (str(action) == "makeAdmin"):
+    makeAdmin()
 elif (str(action) == "deleteTriggerClient"):
     deleteTriggerClient()
 elif (str(action) == "chanceItem"):
@@ -2005,8 +2051,9 @@ for i in user:
     userinventory = userinventory + "]"
     urllocation = "<a target='_new' href='https://www.google.com/maps/search/?api=1&query="+mylocation+"'>[Karte]</a>"
     deleteurl = '<a class="eLink" href="index.cgi?action=deleteUser&tab=benutzer&id='+str(chatid)+'">[entfernen]</a>'
+    makeadminurl = '<a href="index.cgi?action=makeAdmin&tab=benutzer&id='+str(chatid)+'">'+str(chatid)+</a>'
 
-    print "<div><b>"+username+" "+str(chatid)+"</b> "+userinventory+" "+urllocation+"  "+deleteurl+" </div>"
+    print "<div><b>"+username+" "+str(makeadminurl)+"</b> "+userinventory+" "+urllocation+"  "+deleteurl+" </div>"
 
 print """
 </div>
