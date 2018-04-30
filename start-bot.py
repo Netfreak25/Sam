@@ -563,8 +563,7 @@ def echo(bot, update):
                 cmd = "./modules/activateTrigger.py trigger3 >/dev/null 2>&1 &"
                 os.system(cmd)
         elif text.lower().strip() == "reset":
-            text = sam_vars["reset_text"]
-            bot.send_message(chat_id=update.message.chat_id, text=text)
+            bot.send_message(chat_id=update.message.chat_id, text="bla")
             resetreasons()
         elif text[0:6].lower() == "revive":
             if str(the_chat_id) in admin_chatids:
