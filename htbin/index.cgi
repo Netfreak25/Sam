@@ -1023,13 +1023,13 @@ def makeAdmin():
         the_admins.replace("Null","")
         the_admins.replace("None","")
         the_admins.replace("None,","")
-        if len(the_admins) == 1:
-            the_admins = ""
     except:
         the_admins = ""
 
     if str(html_id) not in the_admins:
         the_admins = the_admins + "," + str(html_id)
+        if the_admins[0] == ",":
+            the_admins = the_admins[1:]
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
