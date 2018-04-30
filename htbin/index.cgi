@@ -1023,6 +1023,8 @@ def makeAdmin():
         the_admins.replace("Null","")
         the_admins.replace("None","")
         the_admins.replace("None,","")
+        if len(the_admins) == 1:
+            the_admins = ""
     except:
         the_admins = ""
 
