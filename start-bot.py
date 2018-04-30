@@ -541,6 +541,9 @@ def echo(bot, update):
             player(bot, update)
         elif text == "MedKit":
             useMedkit(bot, update, update.message.chat_id)
+        elif text.lower().strip() == "reset":
+            bot.send_message(chat_id=update.message.chat_id, text="bla")
+            resetreasons()
         elif text == "restart":
             if str(the_chat_id) in admin_chatids:
                 text = "Restarting SAM..."
@@ -562,9 +565,7 @@ def echo(bot, update):
             elif text.lower().strip() == "trigger3":
                 cmd = "./modules/activateTrigger.py trigger3 >/dev/null 2>&1 &"
                 os.system(cmd)
-        elif text.lower().strip() == "reset":
-            bot.send_message(chat_id=update.message.chat_id, text="bla")
-            resetreasons()
+
         elif text[0:6].lower() == "revive":
             if str(the_chat_id) in admin_chatids:
                 to_revive = text[0:6].strip()
