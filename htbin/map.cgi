@@ -106,9 +106,9 @@ except:
     zoom_level = "16"
 
 try:
-    trigger_distance_m = int(getconfig('trigger_distance_m'))
+    waypoint_radius_m = int(getconfig('waypoint_radius_m'))
 except:
-    trigger_distance_m = 30
+    waypoint_radius_m = 30
 
 try:
     extra_distance_m = int(getconfig('extra_distance_m'))
@@ -514,8 +514,8 @@ def printWayPointMarker():
 
         radiusShown = ""
         if str(radius) == '0':
-            radius = str(trigger_distance_m)
-            radiusShown = str(trigger_distance_m) + "m (Global)"
+            radius = str(waypoint_radius_m)
+            radiusShown = str(waypoint_radius_m) + "m (Global)"
         else:
             radiusShown = str(radius) + "m"
     #    print "<div>"+str()+": "+str(text)+"</div>"

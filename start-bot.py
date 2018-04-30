@@ -170,9 +170,9 @@ telegram_token = str(getconfig('telegram_token'))
 
 
 try:
-    trigger_distance_m = int(getconfig('trigger_distance_m'))
+    waypoint_radius_m = int(getconfig('waypoint_radius_m'))
 except:
-    trigger_distance_m = 30
+    waypoint_radius_m = 30
 
 try:
     invincible = int(getconfig('invincible'))
@@ -787,7 +787,7 @@ def location(bot, update):
                 if custom_trigger_distance_m != 0:
                     the_trigger_distance = custom_trigger_distance_m
                 else:
-                    the_trigger_distance = trigger_distance_m
+                    the_trigger_distance = waypoint_radius_m
 
                 if text is not None:
                     text = i[2].encode('utf-8', 'ignore')
