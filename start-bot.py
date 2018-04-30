@@ -566,7 +566,7 @@ def echo(bot, update):
             resetreasons()
             text = sam_vars["reset_text"]
             bot.send_message(chat_id=update.message.chat_id, text=text)
-        elif text.lower()[0:6] == "revive":
+        elif text[0:6].lower()[ == "revive":
             if str(the_chat_id) in admin_chatids:
                 to_revive = text[0:6].strip()
                 text = sam_vars["revive_text"]
