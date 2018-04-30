@@ -544,6 +544,18 @@ def echo(bot, update):
         elif text.lower().strip() == "reset":
             bot.send_message(chat_id=update.message.chat_id, text="bla")
             resetreasons()
+        elif text[0:6].lower() == "revive":
+            if str(the_chat_id) in admin_chatids:
+                to_revive = text[0:6].strip()
+                text = sam_vars["revive_text"]
+
+                the_ids = GetChatIDs(to_revive)
+
+                for the_id in the_ids:
+                    custom_keyboard = get_keyboard_type(the_id)
+                    reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
+                    bot.send_message(chat_id=the_id, text=text, reply_markup=reply_markup)
+                reviveU(str(to_revive))
         elif text == "restart":
             if str(the_chat_id) in admin_chatids:
                 text = "Restarting SAM..."
@@ -565,19 +577,6 @@ def echo(bot, update):
             elif text.lower().strip() == "trigger3":
                 cmd = "./modules/activateTrigger.py trigger3 >/dev/null 2>&1 &"
                 os.system(cmd)
-
-        elif text[0:6].lower() == "revive":
-            if str(the_chat_id) in admin_chatids:
-                to_revive = text[0:6].strip()
-                text = sam_vars["revive_text"]
-
-                the_ids = GetChatIDs(to_revive)
-
-                for the_id in the_ids:
-                    custom_keyboard = get_keyboard_type(the_id)
-                    reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
-                    bot.send_message(chat_id=the_id, text=text, reply_markup=reply_markup)
-                reviveU(str(to_revive))
         else:
             bot.send_message(chat_id=update.message.chat_id, text=sam_vars["unknown_text"])
     except Exception, e:
