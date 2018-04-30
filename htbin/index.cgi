@@ -1018,7 +1018,12 @@ def get_admins():
 
 
 def makeAdmin():
-    the_admins = get_admins()
+    try:
+        the_admins = str(get_admins())
+        the_admins.replace("Null","")
+    except:
+        the_admins = ""
+
     the_admins = the_admins + "," + str(html_id)
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
