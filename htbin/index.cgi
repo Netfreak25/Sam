@@ -2062,8 +2062,11 @@ for i in user:
     urllocation = "<a target='_new' href='https://www.google.com/maps/search/?api=1&query="+mylocation+"'>[Karte]</a>"
     deleteurl = '<a class="eLink" href="index.cgi?action=deleteUser&tab=benutzer&id='+str(chatid)+'">[entfernen]</a>'
     makeadminurl = '<a href="index.cgi?action=makeAdmin&tab=benutzer&id='+str(chatid)+'">'+str(chatid)+'</a>'
+    adminicon = ""
+    if chatid in admin_chatids:
+        adminicon = "🍕"
 
-    print "<div><b>"+username+" "+str(makeadminurl)+"</b> "+userinventory+" "+urllocation+"  "+deleteurl+" </div>"
+    print "<div style='width: 20px'>"+str(adminicon)+"<div><div><b>"+username+" "+str(makeadminurl)+"</b> "+userinventory+" "+urllocation+"  "+deleteurl+" </div>"
 
 print """
 </div>
