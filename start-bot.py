@@ -12,7 +12,7 @@ import logging, MySQLdb, time, os, math, random, sys, emoji
 from datetime import datetime, timedelta
 from s2sphere import LatLng
 
-admin_chatids = [ "108319947" ]
+
 
 ### Konfiguration laden / do not change
 configfile = "./config.ini"
@@ -188,6 +188,16 @@ try:
     cheat_detection = int(getconfig('cheat_detection'))
 except:
     cheat_detection = 0
+
+
+try:
+    temp_admin_chatids = str(getconfig('admin_chatids'))
+    admin_chatids = []
+    for i in temp_admin_chatids.split("'")
+        admin_chatids.append(str(i))
+except:
+    admin_chatids = [ ]
+
 
 try:
 # Load Telegram Token
