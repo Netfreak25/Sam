@@ -2051,7 +2051,7 @@ for i in user:
     userinventory = userinventory + "]"
     urllocation = "<a target='_new' href='https://www.google.com/maps/search/?api=1&query="+mylocation+"'>[Karte]</a>"
     deleteurl = '<a class="eLink" href="index.cgi?action=deleteUser&tab=benutzer&id='+str(chatid)+'">[entfernen]</a>'
-    makeadminurl = '<a href="index.cgi?action=makeAdmin&tab=benutzer&id='+str(chatid)+'">'+str(chatid)+</a>'
+    makeadminurl = '<a href="index.cgi?action=makeAdmin&tab=benutzer&id='+str(chatid)+'">'+str(chatid)+'</a>'
 
     print "<div><b>"+username+" "+str(makeadminurl)+"</b> "+userinventory+" "+urllocation+"  "+deleteurl+" </div>"
 
