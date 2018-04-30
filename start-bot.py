@@ -193,7 +193,7 @@ except:
 try:
     temp_admin_chatids = str(getconfig('admin_chatids'))
     admin_chatids = []
-    for i in temp_admin_chatids.split("'")
+    for i in temp_admin_chatids.split("'"):
         admin_chatids.append(str(i))
 except:
     admin_chatids = [ ]
