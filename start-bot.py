@@ -189,12 +189,17 @@ try:
 except:
     cheat_detection = 0
 
+try:
+    broadcast_death = int(getconfig('broadcast_death'))
+except:
+    broadcast_death = 1
+
 
 try:
     temp_admin_chatids = str(getconfig('admin_chatids'))
     admin_chatids = []
     for i in temp_admin_chatids.split("'"):
-        admin_chatids.append(str(i))
+        admin_chatids.append(str(i).strip())
 except:
     admin_chatids = [ ]
 
@@ -542,7 +547,8 @@ def echo(bot, update):
             cmd = "./start.sh >> /tmp/alog.log 2>&1 &"
             os.system(cmd)
         elif text.lower()[0:4] == "send":
-            SendBroadcast(bot, update)
+            if str(the_chat_id) in admin_chatids:
+                SendBroadcast(bot, update)
         elif str(the_chat_id) in admin_chatids:
             if text.lower().strip() == "trigger1":
                 cmd = "./modules/activateTrigger.py trigger1 >/dev/null 2>&1 &"
@@ -1525,28 +1531,30 @@ def SendBroadcast(bot, update, broadcast_text = ""):
     else:
         broadcast_text = "<b>" + broadcast_text + "</b>"
     data = ""
-    try:
-        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
-        cursor6 = db6.cursor()
-        command6 = "SELECT chatid FROM `user`"
-        cursor6.execute(command6)
-        data = cursor6.fetchall()
-        db6.close()
-    except Exception, e:
-        try:
-            db6.close()
-        except:
-            pass
-        print e
 
-    for i in data:
+    if broadcast_death == 1:
         try:
-#            custom_keyboard = get_keyboard_type(i[0])
-#            reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
-#            bot.send_message(chat_id=i[0], text=broadcast_text, reply_markup=reply_markup, parse_mode="HTML")
-            bot.send_message(chat_id=i[0], text=broadcast_text, parse_mode="HTML")
+            db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+            cursor6 = db6.cursor()
+            command6 = "SELECT chatid FROM `user`"
+            cursor6.execute(command6)
+            data = cursor6.fetchall()
+            db6.close()
         except Exception, e:
+            try:
+                db6.close()
+            except:
+                pass
             print e
+
+        for i in data:
+            try:
+    #            custom_keyboard = get_keyboard_type(i[0])
+    #            reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
+    #            bot.send_message(chat_id=i[0], text=broadcast_text, reply_markup=reply_markup, parse_mode="HTML")
+                bot.send_message(chat_id=i[0], text=broadcast_text, parse_mode="HTML")
+            except Exception, e:
+                print e
 
 def set_name(chatid, name):
     try:

@@ -78,6 +78,9 @@ pip install -r requirements.txt
 advanced = 0
 # Shows Trigger Settings - 0,1
 
+admin_chatids = 1231241412, 1234325345,564576564, 345454353
+# List of chatids which should be admin, seperated by comma
+
 botname = SamsqueshBot
 # Name of the Bot in Telegram
 
@@ -98,6 +101,9 @@ pagename = Schnitzeljagdt
 
 reset_minutes = 1
 # Time until the Trigger can be retriggered - 1+
+
+broadcast_death = 1
+# Define if a message gets send to all players upon death of a player
 
 telegram_token = 78954796:AGHJSGAJHSGGJHGJIOPHJ-787987sad
 # Your Telegram Bot Token
