@@ -2006,7 +2006,7 @@ for i in user:
     urllocation = "<a target='_new' href='https://www.google.com/maps/search/?api=1&query="+mylocation+"'>[Karte]</a>"
     deleteurl = '<a class="eLink" href="index.cgi?action=deleteUser&tab=benutzer&id='+str(chatid)+'">[entfernen]</a>'
 
-    print "<div><b>"+username+"</b> "+userinventory+" "+urllocation+"  "+deleteurl+" </div>"
+    print "<div><b>"+username+"</b> ["+str(chatid)+"] "+userinventory+" "+urllocation+"  "+deleteurl+" </div>"
 
 print """
 </div>
