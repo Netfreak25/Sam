@@ -72,18 +72,24 @@ try:
 except:
     advanced = 0
 
-
-
 try:
     sudo_access = os.path.isfile("htbin/.sudo")
 except:
     sudo_access = False
 
-
 try:
     auto_start_update = os.path.isfile(".autoupdate")
 except:
     auto_start_update = False
+
+
+try:
+    temp_admin_chatids = str(getconfig('admin_chatids'))
+    admin_chatids = []
+    for i in temp_admin_chatids.split(","):
+        admin_chatids.append(str(i).strip())
+except:
+    admin_chatids = [ 
 
 ###### Read html input
 form = cgi.FieldStorage()
