@@ -1007,13 +1007,13 @@ def get_admins():
     try:
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
-        command6 = """SELECT value FROM config WHERE name = 'admin_ids'"""
+        command6 = """SELECT value FROM config WHERE name = 'admin_chatids'"""
         cursor6.execute(command6)
         data = cursor6.fetchall()
         db6.close()
         return data[0]
-    except Exception, e:
-        print e
+    except:
+        pass
 
 
 
