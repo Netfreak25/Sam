@@ -542,10 +542,13 @@ def echo(bot, update):
         elif text == "MedKit":
             useMedkit(bot, update, update.message.chat_id)
         elif text == "restart":
-            text = "Restarting SAM..."
-            bot.send_message(chat_id=update.message.chat_id, text=text)
-            cmd = "./start.sh >> /tmp/alog.log 2>&1 &"
-            os.system(cmd)
+            if str(the_chat_id) in admin_chatids:
+                text = "Restarting SAM..."
+                bot.send_message(chat_id=update.message.chat_id, text=text)
+                cwd = os.getcwd()
+                cmd = 'sudo '+cwd+'/start.sh '+str(cwd)+' > /tmp/sam-restart.log 2>&1 &'
+                realcmd = "nohup bash -c '"+str(cmd)+"'"
+                os.system(cmd)
         elif text.lower()[0:4] == "send":
             if str(the_chat_id) in admin_chatids:
                 SendBroadcast(bot, update)
@@ -563,12 +566,18 @@ def echo(bot, update):
             resetreasons()
             text = sam_vars["reset_text"]
             bot.send_message(chat_id=update.message.chat_id, text=text)
-        elif text.lower().strip() == "revive":
-            text = sam_vars["revive_text"]
-            custom_keyboard = get_keyboard_type(update.message.chat_id)
-            reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
-            bot.send_message(chat_id=update.message.chat_id, text=text, reply_markup=reply_markup)
-            revive(update.message.chat_id)
+        elif text.lower()[0:6] == "revive":
+            if str(the_chat_id) in admin_chatids:
+                to_revive = text[0:6].strip()
+                text = sam_vars["revive_text"]
+
+                the_ids = GetChatIDs(to_revive)
+
+                for the_id in the_ids:
+                    custom_keyboard = get_keyboard_type(the_id)
+                    reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard, resize_keyboard=True)
+                    bot.send_message(chat_id=the_id, text=text, reply_markup=reply_markup)
+                reviveU(str(to_revive))
         else:
             bot.send_message(chat_id=update.message.chat_id, text=sam_vars["unknown_text"])
     except Exception, e:
@@ -998,6 +1007,24 @@ def GetUsername(chatid):
             pass
 
 
+def GetChatIDs(playername):
+    try:
+        command = """SELECT chatid FROM user WHERE name = '"""+str(playername)+"""'"""
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor = db6.cursor()
+        cursor.execute(command)
+        data = cursor.fetchall()
+        db6.close()
+        return data[0]
+    except Exception, e:
+        return []
+        try:
+            db6.close()
+        except:
+            pass
+
+
+
 def button_all(bot, update):
     query = update.callback_query
 
@@ -1218,6 +1245,21 @@ def revive(chatid):
         db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
         cursor6 = db6.cursor()
         command6 = """UPDATE user SET livestatus = 0 WHERE chatid = '"""+str(chatid)+"""' """
+        cursor6.execute(command6)
+        db6.commit()
+        db6.close()
+    except Exception, e2:
+        print e2
+        try:
+            db6.close()
+        except:
+            pass
+
+def reviveU(playername):
+    try:
+        db6 = MySQLdb.connect(sam_host,sam_db_user,sam_db_pw,sam_db, charset='utf8')
+        cursor6 = db6.cursor()
+        command6 = """UPDATE user SET livestatus = 0 WHERE name = '"""+str(playername)+"""' """
         cursor6.execute(command6)
         db6.commit()
         db6.close()

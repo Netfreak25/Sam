@@ -87,7 +87,7 @@ botname = SamsqueshBot
 cheat_detection = 0
 # Only for Android - 0,1
 
-extra_distance_m = 20
+item_radius_m = 20
 # Default Item Radius (m) - 10,20,30,40,50...
 
 gmaps_key = AIzaSyB6zX4HGU0VAVulNasdadssadasdasdasda
@@ -103,12 +103,12 @@ reset_minutes = 1
 # Time until the Trigger can be retriggered - 1+
 
 broadcast_death = 1
-# Define if a message gets send to all players upon death of a player
+# Define if a message gets send to all players upon death of a player - 0,1
 
 telegram_token = 78954796:AGHJSGAJHSGGJHGJIOPHJ-787987sad
 # Your Telegram Bot Token
 
-trigger_distance_m = 30
+waypoint_radius_m = 30
 # Default Waypoint Radius (m) - 10,20,30,40,50...
 
 zoom_koordinaten = 50.099570,8.675232
@@ -137,6 +137,22 @@ python start-gui.py
 
 ## Quick and dirty usage (background bot and gui):
 ./start.sh
+
+## Undocumented bot Commands
+```
+send *Your Text"
+# Broadcasts the text recieved by an admin to all players
+
+restart
+# Restarts Sam and Sam Gui
+
+reset
+# Resets the death reasons (if all are used they reset themself)
+
+revive *Playername*
+# Revives the Player and sends him a notifiction
+```
+
 
 ## F.A.Q.
 * If your output of start.sh looks like this, make sure you have setup a correct Telegram Bot Token
