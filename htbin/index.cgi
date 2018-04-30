@@ -82,14 +82,13 @@ try:
 except:
     auto_start_update = False
 
-
 try:
     temp_admin_chatids = str(getconfig('admin_chatids'))
     admin_chatids = []
     for i in temp_admin_chatids.split(","):
         admin_chatids.append(str(i).strip())
 except:
-    admin_chatids = [ 
+    admin_chatids = [ ]
 
 ###### Read html input
 form = cgi.FieldStorage()
