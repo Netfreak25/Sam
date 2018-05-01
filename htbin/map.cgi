@@ -930,7 +930,7 @@ function setWaypointMarkers(map) {
 
           marker.addListener('click', function() {
           infowindow.setContent(this.contentString);
-          infowindow.setOptions({maxWidth:310});
+          infowindow.setOptions({maxWidth:280});
           infowindow.open(map, this);
           map.setCenter(this.getPosition());
      });
