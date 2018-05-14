@@ -821,7 +821,10 @@ def location(bot, update):
                     is_wrong = emoji.emojize(is_wrong, use_aliases=True)
                     is_right = emoji.emojize(is_right, use_aliases=True)
                 if is_wrong2 is not None:
-                    is_wrong2 = i[12].encode('utf-8', 'ignore')
+                    try:
+                        is_wrong2 = i[12].encode('utf-8', 'ignore')
+                    except:
+                        is_wrong2 = i[12]
                     is_wrong2 = emoji.emojize(is_wrong2, use_aliases=True)
 
                 chatid = update.message.chat_id
