@@ -827,6 +827,13 @@ def location(bot, update):
                         is_wrong2 = i[12]
                     is_wrong2 = emoji.emojize(is_wrong2, use_aliases=True)
 
+
+
+                print question
+                print is_right
+                print is_wrong
+                print is_wrong2
+
                 chatid = update.message.chat_id
                 la = waypoint_location.split(", ")[0]
                 lo = waypoint_location.split(", ")[1]
