@@ -11,7 +11,7 @@ import telegram, json
 import logging, MySQLdb, time, os, math, random, sys, emoji
 from datetime import datetime, timedelta
 from s2sphere import LatLng
-
+from emoji import emojize
 
 
 ### Konfiguration laden / do not change
@@ -819,7 +819,6 @@ def location(bot, update):
 
                     question = emoji.emojize(question, use_aliases=True)
                     is_wrong = emoji.emojize(is_wrong, use_aliases=True)
-                    is_right = emoji.emojize(is_right, use_aliases=True)
                 if is_wrong2 is not None:
                     try:
                         is_wrong2 = i[12].encode('utf-8', 'ignore')
@@ -834,6 +833,8 @@ def location(bot, update):
                 print is_wrong
                 print is_wrong2
 
+                is_right = i[11].encode('utf-8', 'ignore')
+                is_right = emoji.emojize(is_right, use_aliases=True)
 
                 chatid = update.message.chat_id
                 la = waypoint_location.split(", ")[0]
@@ -870,7 +871,7 @@ def location(bot, update):
                             myint = random.randint(0,2)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(u'is_right',  callback_data="question|"+u'is_right'+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question|"+str(is_right)+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question|"+str(is_wrong2)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
                             elif myint == 1:
@@ -887,12 +888,12 @@ def location(bot, update):
                             myint = random.randint(0,1)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(u'is_right', callback_data="question|"+u'is_right'+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data="question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat))])
                             else:
                                 mydata = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data=mydata)])
-                                keyboard.append([InlineKeyboardButton(u'is_right', callback_data="question|"+u'is_right'+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data="question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
 
 
                             reply_markup = InlineKeyboardMarkup(keyboard)
