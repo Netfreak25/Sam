@@ -892,7 +892,7 @@ def location(bot, update):
                                 icon3 = emojize(is_wrong2, use_aliases=True)
                                 mydata3 = "question|"+str(is_wrong2)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
                                 keyboard.append([InlineKeyboardButton(icon3, callback_data=mydata3)])
-                                
+
                                 icon1 = emojize(is_right, use_aliases=True)
                                 mydata1 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
                                 keyboard.append([InlineKeyboardButton(icon1, callback_data=mydata1)])
@@ -919,8 +919,6 @@ def location(bot, update):
                                 icon2 = emojize(is_right, use_aliases=True)
                                 mydata2 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
                                 keyboard.append([InlineKeyboardButton(icon2, callback_data=mydata2)])
-                                #keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data=)])
-
 
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(emojize(question, use_aliases=True), reply_markup=reply_markup)
