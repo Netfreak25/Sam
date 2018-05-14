@@ -802,9 +802,21 @@ def location(bot, update):
                     text = emoji.emojize(text, use_aliases=True)
 
                 if question is not None:
-                    question = i[9].encode('utf-8', 'ignore')
-                    is_wrong = i[10].encode('utf-8', 'ignore')
-                    is_right = i[11].encode('utf-8', 'ignore')
+                    try:
+                        question = i[9].encode('utf-8', 'ignore')
+                    except:
+                        question = i[9]
+                        pass
+                    try:
+                        is_wrong = i[10].encode('utf-8', 'ignore')
+                    except:
+                        is_wrong = i[10]
+
+                    try:
+                        is_right = i[11].encode('utf-8', 'ignore')
+                    except:
+                        is_right = i[11]
+
                     question = emoji.emojize(question, use_aliases=True)
                     is_wrong = emoji.emojize(is_wrong, use_aliases=True)
                     is_right = emoji.emojize(is_right, use_aliases=True)
