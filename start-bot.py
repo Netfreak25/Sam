@@ -872,7 +872,7 @@ def location(bot, update):
                             myint = random.randint(0,2)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question|"+str(is_right)+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(u'is_right',  callback_data="question|"+u'is_right'+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question|"+str(is_wrong2)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
                             elif myint == 1:
@@ -889,12 +889,12 @@ def location(bot, update):
                             myint = random.randint(0,1)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(u'is_right', callback_data="question|"+u'is_right'+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat))])
                             else:
                                 mydata = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data=mydata)])
-                                keyboard.append([InlineKeyboardButton(str(is_right), callback_data="question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
+                                keyboard.append([InlineKeyboardButton(u'is_right', callback_data="question|"+u'is_right'+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
 
 
                             reply_markup = InlineKeyboardMarkup(keyboard)
