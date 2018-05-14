@@ -859,17 +859,44 @@ def location(bot, update):
                             myint = random.randint(0,2)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question|"+str(is_right)+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question|"+str(is_wrong2)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
+                                icon1 = emojize(is_right, use_aliases=True)
+                                mydata1 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon1, callback_data=mydata1)])
+
+                                icon2 = emojize(is_wrong, use_aliases=True)
+                                mydata2 = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon2, callback_data=mydata2)])
+
+                                icon3 = emojize(is_wrong2, use_aliases=True)
+                                mydata3 = "question|"+str(is_wrong2)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon3, callback_data=mydata3)])
                             elif myint == 1:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question|"+str(is_right)+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question|"+str(is_wrong2)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
+                                icon2 = emojize(is_wrong, use_aliases=True)
+                                mydata2 = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon2, callback_data=mydata2)])
+
+                                icon1 = emojize(is_right, use_aliases=True)
+                                mydata1 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon1, callback_data=mydata1)])
+
+                                icon3 = emojize(is_wrong2, use_aliases=True)
+                                mydata3 = "question|"+str(is_wrong2)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon3, callback_data=mydata3)])
+
                             elif myint == 2:
-                                keyboard.append([InlineKeyboardButton(str(is_wrong),  callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question|"+str(is_wrong2)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question|"+str(is_right)+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
+
+                                icon2 = emojize(is_wrong, use_aliases=True)
+                                mydata2 = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon2, callback_data=mydata2)])
+
+                                icon3 = emojize(is_wrong2, use_aliases=True)
+                                mydata3 = "question|"+str(is_wrong2)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon3, callback_data=mydata3)])
+                                
+                                icon1 = emojize(is_right, use_aliases=True)
+                                mydata1 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon1, callback_data=mydata1)])
+
                             reply_markup = InlineKeyboardMarkup(keyboard)
                             update.message.reply_text(emojize(question, use_aliases=True), reply_markup=reply_markup)
                         else:
