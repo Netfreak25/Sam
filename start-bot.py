@@ -882,14 +882,14 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data="question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat))])
                             else:
-                                icon = emojize(is_wrong, use_aliases=True)
+                                icon1 = emojize(is_wrong, use_aliases=True)
                                 mydata = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data=mydata)])
+                                keyboard.append([InlineKeyboardButton(icon1, callback_data=mydata)])
 
 
-                                icon = emojize(is_right, use_aliases=True)
+                                icon2 = emojize(is_right, use_aliases=True)
                                 mydata2 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
-                                keyboard.append([InlineKeyboardButton(icon, callback_data=mydata2)])
+                                keyboard.append([InlineKeyboardButton(icon2, callback_data=mydata2)])
                                 #keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data=)])
 
 
