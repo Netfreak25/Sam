@@ -877,7 +877,7 @@ def location(bot, update):
                             keyboard = []
                             if myint == 0:
                                 icon1 = emojize(is_right, use_aliases=True)
-                                mydata = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
+                                mydata1 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
                                 keyboard.append([InlineKeyboardButton(icon1, callback_data=mydata1)])
 
                                 icon2 = emojize(is_wrong, use_aliases=True)
