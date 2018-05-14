@@ -834,7 +834,7 @@ def location(bot, update):
                 print is_wrong
                 print is_wrong2
 
-                is_right = i[11].decode('utf-8', 'ignore')
+                is_right = i[11].encode('utf-8', 'ignore')
 
                 chatid = update.message.chat_id
                 la = waypoint_location.split(", ")[0]
