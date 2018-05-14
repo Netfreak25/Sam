@@ -817,14 +817,11 @@ def location(bot, update):
                     except:
                         is_right = i[11]
 
-                    question = emoji.emojize(question, use_aliases=True)
-                    is_wrong = emoji.emojize(is_wrong, use_aliases=True)
                 if is_wrong2 is not None:
                     try:
                         is_wrong2 = i[12].encode('utf-8', 'ignore')
                     except:
                         is_wrong2 = i[12]
-                    is_wrong2 = emoji.emojize(is_wrong2, use_aliases=True)
 
 
                 chatid = update.message.chat_id
@@ -879,8 +876,13 @@ def location(bot, update):
                             myint = random.randint(0,1)
                             keyboard = []
                             if myint == 0:
-                                keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data="question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
-                                keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat))])
+                                icon1 = emojize(is_right, use_aliases=True)
+                                mydata = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon1, callback_data=mydata1)])
+
+                                icon2 = emojize(is_wrong, use_aliases=True)
+                                mydata2 = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
+                                keyboard.append([InlineKeyboardButton(icon2, callback_data=mydata2)])
                             else:
                                 icon1 = emojize(is_wrong, use_aliases=True)
                                 mydata = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
