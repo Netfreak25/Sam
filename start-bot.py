@@ -871,7 +871,7 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(str(is_wrong2), callback_data="question|"+str(is_wrong2)+"|"+str(chatid)+"|false|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_right),  callback_data="question|"+str(is_right)+"|"+str(chatid)+"|true|"+str(long)+"|"+str(lat))])
                             reply_markup = InlineKeyboardMarkup(keyboard)
-                            update.message.reply_text(question, reply_markup=reply_markup)
+                            update.message.reply_text(emojize(question, use_aliases=True), reply_markup=reply_markup)
                         else:
                             myint = random.randint(0,1)
                             keyboard = []
@@ -896,7 +896,7 @@ def location(bot, update):
 
 
                             reply_markup = InlineKeyboardMarkup(keyboard)
-                            update.message.reply_text(question, reply_markup=reply_markup)
+                            update.message.reply_text(emojize(question, use_aliases=True), reply_markup=reply_markup)
 
 
                 elif int(float(distance)*1000) <= 4999:
