@@ -817,15 +817,15 @@ def location(bot, update):
                     except:
                         is_right = i[11]
 
-                    question = emoji.emojize(question, use_aliases=True)
-                    is_wrong = emoji.emojize(is_wrong, use_aliases=True)
-                    is_right = emoji.emojize(is_right, use_aliases=True)
+                    #question = emoji.emojize(question, use_aliases=True)
+                    #is_wrong = emoji.emojize(is_wrong, use_aliases=True)
+                    #is_right = emoji.emojize(is_right, use_aliases=True)
                 if is_wrong2 is not None:
                     try:
                         is_wrong2 = i[12].encode('utf-8', 'ignore')
                     except:
                         is_wrong2 = i[12]
-                    is_wrong2 = emoji.emojize(is_wrong2, use_aliases=True)
+                    #is_wrong2 = emoji.emojize(is_wrong2, use_aliases=True)
 
 
 
@@ -833,7 +833,6 @@ def location(bot, update):
                 print is_right
                 print is_wrong
                 print is_wrong2
-                
 
                 chatid = update.message.chat_id
                 la = waypoint_location.split(", ")[0]
