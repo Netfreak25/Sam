@@ -882,12 +882,13 @@ def location(bot, update):
                                 keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data="question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat))])
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data="question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat))])
                             else:
+                                icon = emojize(is_wrong, use_aliases=True)
                                 mydata = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data=mydata)])
-                                print mydata
-                                icon = emojize(":bell:", use_aliases=True)
+
+
+                                icon = emojize(is_right, use_aliases=True)
                                 mydata2 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
-                                print mydata2
                                 keyboard.append([InlineKeyboardButton(icon, callback_data=mydata2)])
                                 #keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data=)])
 
