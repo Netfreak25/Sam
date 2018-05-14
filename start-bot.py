@@ -894,7 +894,8 @@ def location(bot, update):
                                 mydata = "question|"+str(is_wrong)+"|"+str(chatid)+"|"+"false|"+str(long)+"|"+str(lat)
                                 keyboard.append([InlineKeyboardButton(str(is_wrong), callback_data=mydata)])
                                 icon = emojize(":bell:", use_aliases=True)
-                                mydata = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
+                                mydata2 = "question|"+str(is_right)+"|"+str(chatid)+"|"+"true|"+str(long)+"|"+str(lat)
+                                print mydata
                                 keyboard.append([InlineKeyboardButton(icon, callback_data=mydata)])
                                 #keyboard.append([InlineKeyboardButton(emojize(is_right,use_aliases=True), callback_data=)])
 
