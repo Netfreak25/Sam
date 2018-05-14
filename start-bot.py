@@ -813,7 +813,7 @@ def location(bot, update):
                         is_wrong = i[10]
 
                     try:
-                        is_right = i[11].encode('utf-8', 'ignore')
+                        is_right = i[11]
                     except:
                         is_right = i[11]
 
