@@ -493,6 +493,8 @@ def printWayPointMarker():
             question = i[9].encode("UTF-8")
         except:
             question = "None"
+
+        question = question.replace("\n", "\\n")
         try:
             is_wrong = i[10].encode("UTF-8")
         except:
