@@ -483,7 +483,8 @@ def printWayPointMarker():
             text = i[2].encode("utf-8")
         except:
             text = "None"
-            
+        text = text.replace("\n", "<br>")
+
         bild = i[3]
         audio = i[4]
         video = i[5]
@@ -494,19 +495,24 @@ def printWayPointMarker():
         except:
             question = "None"
 
-        question = question.replace("\n", "\\n")
+        question = question.replace("\n", "<br>")
         try:
             is_wrong = i[10].encode("UTF-8")
         except:
             is_wrong = "None"
+        is_wrong = is_wrong.replace("\n", "<br>")
+
         try:
             is_right = i[11].encode("UTF-8")
         except:
             is_right = "None"
+        is_right = is_right.replace("\n", "<br>")
+
         try:
             is_wrong2 = i[12].encode("UTF-8")
         except:
             is_wrong2 = "None"
+        is_wrong2 = is_wrong2.replace("\n", "<br>")
 
         try:
             waypoint_name = i[13].encode("UTF-8")
